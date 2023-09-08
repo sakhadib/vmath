@@ -19,12 +19,13 @@ public class Main {
         System.out.println();
 
         System.out.println();
-//        System.out.println("Strassen Algo:");
-//        vmath.multiplyMatrix(matrix1, matrix2).printMatrix();
+        System.out.println("Strassen Algo:");
+        vmath.multiplyMatrix(matrix1, matrix2).printMatrix();
         System.out.println();
-//        System.out.println("General multiplication:");
-//        matrix1.multiplyGeneral(matrix2).printMatrix();
+        System.out.println("General multiplication:");
+        matrix1.multiplyGeneral(matrix2).printMatrix();
 
         System.out.println(vmath.detMatrix(matrix1));
+        System.out.println();
     }
 }
