@@ -277,6 +277,46 @@ public class Matrix {
         return result;
     }
 
+    /**
+     * Determinant of a matrix
+     * @return determinant of matrix
+     */
+    public int determinant() {
+        if (rows != cols) {
+            throw new IllegalArgumentException("Matrix is not square.");
+        }
+        return calculateDeterminant(data);
+    }
+
+    private int calculateDeterminant(int[][] matrix) {
+        int n = matrix.length;
+
+        if (n == 1) {
+            return matrix[0][0];
+        }
+
+        int det = 0;
+
+        for (int i = 0; i < n; i++) {
+            int[][] subMatrix = new int[n - 1][n - 1];
+
+            for (int j = 1; j < n; j++) {
+                for (int k = 0, l = 0; k < n; k++) {
+                    if (k != i) {
+                        subMatrix[j - 1][l] = matrix[j][k];
+                        l++;
+                    }
+                }
+            }
+
+            int sign = (i % 2 == 0) ? 1 : -1;
+            det += sign * matrix[0][i] * calculateDeterminant(subMatrix);
+        }
+
+        return det;
+    }
+
+
 
 
 

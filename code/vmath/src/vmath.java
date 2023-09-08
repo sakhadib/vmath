@@ -128,4 +128,15 @@ public class vmath {
         }
     }
 
+    /**
+     * Calculate the determinant of a matrix
+     * @param matrix matrix to calculate determinant of
+     * @return determinant of matrix
+     */
+    public static int detMatrix(Matrix matrix) {
+        if (matrix.NumberOfRows() != matrix.NumberOfCols()) {
+            throw new IllegalArgumentException("Matrix must be square to calculate determinant.");
+        }
+        return matrix.determinant();
+    }
 }
