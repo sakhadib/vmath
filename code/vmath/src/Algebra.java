@@ -157,4 +157,52 @@ public class Algebra {
 
         return maxIndex;
     }
+
+    /**
+     * Calculates the power of a number.
+     * @param base The base
+     * @param exponent The exponent
+     * @return The result
+     */
+    public <T extends Number>double pow(T base, int exponent) {
+        double result = 1;
+        if(exponent == 0) {
+            return 1;
+        }
+        else if(exponent > 0) {
+            for(int i = 0; i < exponent; i++) {
+                result *= base.doubleValue();
+            }
+            return result;
+        }
+        else {
+            for(int i = 0; i > exponent; i--) {
+                result /= base.doubleValue();
+            }
+            return result;
+        }
+    }
+
+    /**
+     * Calculates the square root of a number.
+     * @param number The number
+     * @return The result
+     */
+    public <T extends Number> double sqrt(T number) {
+        double x0 = number.doubleValue(); // Initial guess
+        double epsilon = 1e-6; // A small value to determine the desired precision
+
+
+        while (true) {
+            double x1 = 0.5 * (x0 + number.doubleValue() / x0); // Calculate the next approximation
+
+            // Check for convergence (desired precision)
+            if (Math.abs(x1 - x0) < epsilon) {
+                return x1; // Return the approximate square root
+            }
+
+            x0 = x1; // Update the approximation for the next iteration
+        }
+    }
+
 }
