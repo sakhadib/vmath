@@ -1,5 +1,7 @@
+package mathvoyage;
+
 /**
- * Algebra.java
+ * voyager.Algebra.java
  */
 
 public class Algebra {
@@ -18,6 +20,33 @@ public class Algebra {
             instance = new Algebra();
         }
         return instance;
+    }
+
+
+    /**
+     * returns the absolute value of a number.
+     * @param number The number
+     * @return The absolute value
+     */
+    public double abs(double number) {
+        if (number < 0) {
+            return -number;
+        } else {
+            return number;
+        }
+    }
+
+    /**
+     * returns the absolute value of a number.
+     * @param number The number
+     * @return The absolute value
+     */
+    public int abs(int number) {
+        if (number < 0) {
+            return -number;
+        } else {
+            return number;
+        }
     }
 
     /**
@@ -197,12 +226,56 @@ public class Algebra {
             double x1 = 0.5 * (x0 + number.doubleValue() / x0); // Calculate the next approximation
 
             // Check for convergence (desired precision)
-            if (Math.abs(x1 - x0) < epsilon) {
+            if (abs(x1 - x0) < epsilon) {
                 return x1; // Return the approximate square root
             }
 
             x0 = x1; // Update the approximation for the next iteration
         }
     }
+
+    /**
+     * Calculates the cube root of a number.
+     * @param number The number
+     * @return The result
+     */
+    public <T extends Number> double cubeRoot(T number) {
+        double x0 = number.doubleValue(); // Initial guess
+        double epsilon = 1e-6; // A small value to determine the desired precision
+
+        // Use the Newton-Raphson method to approximate the cube root
+        while (true) {
+            double x1 = (2.0 * x0 + number.doubleValue() / (x0 * x0)) / 3.0; // Calculate the next approximation
+
+            // Check for convergence (desired precision)
+            if (abs(x1 - x0) < epsilon) {
+                return x1; // Return the approximate cube root
+            }
+
+            x0 = x1; // Update the approximation for the next iteration
+        }
+    }
+
+    public <T extends Number> double nthRoot(T x, int n) {
+        if (n == 0) {
+            throw new IllegalArgumentException("Cannot calculate 0th root.");
+        }
+
+        double epsilon = 1e-6; // A small value to determine the desired precision
+        double guess = x.doubleValue() / n;  // Initial guess
+
+        while (true) {
+            double nextGuess = ((n - 1) * guess + x.doubleValue() / Math.pow(guess, n - 1)) / n;
+
+            // Check for convergence (desired precision)
+            if (abs(nextGuess - guess) < epsilon) {
+                return nextGuess; // Return the approximate nth root
+            }
+
+            guess = nextGuess; // Update the guess for the next iteration
+        }
+    }
+
+
 
 }

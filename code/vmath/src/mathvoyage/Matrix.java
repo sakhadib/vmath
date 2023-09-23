@@ -1,5 +1,7 @@
+package mathvoyage;
+
 /**
- * Matrix class
+ * voyager.Matrix class
  *
  */
 public class Matrix{

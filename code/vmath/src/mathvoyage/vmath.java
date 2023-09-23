@@ -1,9 +1,11 @@
+package mathvoyage;
+
 public class vmath {
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
      * @author Adib Sakhawat
      */
-    public class algebra{
+    public static class algebra{
         /**
          * Returns the minimum of two comparable objects.
          * @param a The first object
@@ -75,6 +77,46 @@ public class vmath {
         public static <T extends Number> double pow(T base, int exponent) {
             Algebra alg = Algebra.getInstance();
             return alg.pow(base, exponent);
+        }
+
+        /**
+         * Calculates the square root of a number.
+         * @param number The number
+         * @return The result
+         */
+        public static <T extends Number> double sqrt(T number) {
+            Algebra alg = Algebra.getInstance();
+            return alg.sqrt(number);
+        }
+
+        /**
+         * Calculates the cube root of a number.
+         * @param number The number
+         * @return The result
+         */
+        public static <T extends Number> double cubeRoot(T number) {
+            Algebra alg = Algebra.getInstance();
+            return alg.cubeRoot(number);
+        }
+
+        /**
+         * Returns the Absolute value of a number.
+         * @param number The number
+         * @return The result
+         */
+        public static int abs(int number) {
+            Algebra alg = Algebra.getInstance();
+            return alg.abs(number);
+        }
+
+        /**
+         * Returns the Absolute value of a number.
+         * @param number The number
+         * @return The result
+         */
+        public static double abs(double number) {
+            Algebra alg = Algebra.getInstance();
+            return alg.abs(number);
         }
 
     }
