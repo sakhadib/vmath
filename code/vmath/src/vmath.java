@@ -51,7 +51,7 @@ public class vmath {
          * @param array The array of objects
          * @return The index of the maximum of the array
          */
-        public <T extends Comparable<T>> int maxIndex(T[] array) {
+        public static <T extends Comparable<T>> int maxIndex(T[] array) {
             Algebra alg = Algebra.getInstance();
             return alg.maxIndex(array);
         }
@@ -61,9 +61,21 @@ public class vmath {
          * @param array The array of objects
          * @return The index of the minimum of the array
          */
-        public <T extends Comparable<T>> int minIndex(T[] array) {
+        public static <T extends Comparable<T>> int minIndex(T[] array) {
             Algebra alg = Algebra.getInstance();
             return alg.minIndex(array);
         }
+
+        /**
+         * Calculates the power of a number.
+         * @param base The base
+         * @param exponent The exponent
+         * @return The result
+         */
+        public static <T extends Number> double pow(T base, int exponent) {
+            Algebra alg = Algebra.getInstance();
+            return alg.pow(base, exponent);
+        }
+
     }
 }
