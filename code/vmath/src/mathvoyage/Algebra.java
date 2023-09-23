@@ -2,6 +2,7 @@ package mathvoyage;
 
 /**
  * voyager.Algebra.java
+ * @author Adib Sakhawat
  */
 
 public class Algebra {
