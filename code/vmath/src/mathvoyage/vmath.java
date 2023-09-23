@@ -100,6 +100,17 @@ public class vmath {
         }
 
         /**
+         * Finds the nth root of a number.
+         * @param number the number which I have to find nth root
+         * @param n the root
+         * @return result
+         */
+        public static <T extends Number> double nthroot(T number, int n){
+            Algebra alg = Algebra.getInstance();
+            return alg.nthRoot(number,n);
+        }
+
+        /**
          * Returns the Absolute value of a number.
          * @param number The number
          * @return The result

@@ -256,6 +256,12 @@ public class Algebra {
         }
     }
 
+    /**
+     * Finds the nth root of a number.
+     * @param x the number which I have to find nth root
+     * @param n the root
+     * @return result
+     */
     public <T extends Number> double nthRoot(T x, int n) {
         if (n == 0) {
             throw new IllegalArgumentException("Cannot calculate 0th root.");
@@ -274,6 +280,23 @@ public class Algebra {
 
             guess = nextGuess; // Update the guess for the next iteration
         }
+    }
+
+
+    /**
+     * Return the factorial of Given Number
+     * @param number The number
+     * @return the result
+     */
+    public double factorial(int number){
+        double result = 1;
+        if(number !=0 && number != 1){
+            for(int i=1; i<=number; i++){
+                result *= i;
+            }
+        }
+
+        return result;
     }
 
 

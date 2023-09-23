@@ -15,6 +15,8 @@ public class Main {
 //        System.out.println(alg.sqrt(21));
 //        System.out.println(alg.cubeRoot(21));
 
-        System.out.println(alg.nthRoot(256,4));
+          //System.out.println(alg.nthRoot(256,4));
+
+        System.out.println(alg.factorial(120));
     }
 }
