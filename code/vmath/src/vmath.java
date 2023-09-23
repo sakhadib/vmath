@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 public class vmath {
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
@@ -67,3 +68,5 @@ public class vmath {
         }
     }
 }
+=======
+>>>>>>> ac2312be254d5a8b7b3c9a509e210e0870f82a8c
