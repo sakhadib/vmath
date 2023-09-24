@@ -134,6 +134,11 @@ public class vmath {
 
 
     public static class baseConverter{
+        public static double binaryToDecimal(String binaryString) {
+            BaseConverter bc = BaseConverter.getInstance();
+            return bc.binaryToDecimal(binaryString);
+        }
+
 
 
     }
