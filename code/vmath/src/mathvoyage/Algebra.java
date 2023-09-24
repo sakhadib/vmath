@@ -14,7 +14,7 @@ public class Algebra {
 
     /**
      * Returns the singleton instance of this class.
-     * @return
+     * @return The singleton instance
      */
     public static Algebra getInstance() {
         if (instance == null) {

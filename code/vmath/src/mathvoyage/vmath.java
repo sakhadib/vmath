@@ -131,4 +131,9 @@ public class vmath {
         }
 
     }
+
+
+    public static class bitwise{
+
+    }
 }
