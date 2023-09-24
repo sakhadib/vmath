@@ -133,7 +133,10 @@ public class vmath {
     }
 
 
-    public static class bitwise{
+    public static class baseConverter{
+
 
     }
+
+
 }
