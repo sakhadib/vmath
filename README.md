@@ -10,10 +10,10 @@ mathVoyage is a Java toolkit offering versatile math functions. In this library,
  3. Takia Farhin
 
 ## Supervised by
-**Syed Rifat Raiyan** 
-Lecturer 
-Department of Computer Science and Engineering 
-Islamic University of Technology
+**Syed Rifat Raiyan** <br>
+Lecturer <br>
+Department of Computer Science and Engineering <br>
+Islamic University of Technology <br>
 
 ## Key Features
 
