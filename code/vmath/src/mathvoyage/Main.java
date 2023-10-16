@@ -18,8 +18,8 @@ public class Main {
 
         double x = vmath.algebra.factorial(5);
         System.out.println(x);
-        double y = vmath.algebra.factorial(18);
-        System.out.println(y);
+//        double y = vmath.algebra.factorial(18);
+//        System.out.println(y);
 
     }
 }
