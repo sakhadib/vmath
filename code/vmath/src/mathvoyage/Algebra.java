@@ -284,21 +284,7 @@ public class Algebra {
     }
 
 
-    /**
-     * Return the factorial of Given Number
-     * @param number The number
-     * @return the result
-     */
-    public double factorial(int number){
-        double result = 1;
-        if(number !=0 && number != 1){
-            for(int i=1; i<=number; i++){
-                result *= i;
-            }
-        }
 
-        return result;
-    }
 
 
 

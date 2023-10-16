@@ -130,6 +130,21 @@ public class vmath {
             return alg.abs(number);
         }
 
+        /**
+         * Returns the factorial of a number.
+         * @param number The number
+         * @return The factorial
+         */
+        /**
+         * Return the factorial of Given Number
+         * @param number The number
+         * @return the result
+         */
+        public static double factorial(int number){
+            Factorial_UTIL fact = Factorial_UTIL.getInstance();
+            return fact.factorial(number);
+        }
+
     }
 
 
