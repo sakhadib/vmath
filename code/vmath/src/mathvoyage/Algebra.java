@@ -221,12 +221,8 @@ public class Algebra {
     public <T extends Number> double sqrt(T number) {
         double x0 = number.doubleValue();
         double epsilon = 1e-6;
-
-
         while (true) {
             double x1 = (x0 + number.doubleValue() / x0) / 2.0; // Calculate the next approximation
-
-
             if (abs(x1 - x0) < epsilon) {
                 return x1;
             }
@@ -282,6 +278,15 @@ public class Algebra {
             guess = nextGuess;
         }
     }
+
+
+    /**
+     * Calculates the logarithm of a number.
+     * @param base The base
+     * @param number The number
+     * @return The result
+     */
+
 
 
 
