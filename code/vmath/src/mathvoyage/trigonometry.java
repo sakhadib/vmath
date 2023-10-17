@@ -27,10 +27,32 @@ public class trigonometry {
         double scale = Math.pow(10, places);
         return Math.round(value * scale) / scale;
     }
-    public double degreeToRadian(double angledegree){
-        double radian = angledegree * PI / 180;
+
+    /**
+     * Returns the conversion of degree to radian.
+     * @param angleDegree The angle in degree
+     * @return The angle in radian
+     */
+    public double degreeToRadian(double angleDegree){
+        double radian = angleDegree * PI / 180;
         return radian;
     }
+
+    /**
+     * Returns the conversion of radian to degree.
+     * @param angleRadian The angle in radian
+     * @return
+     */
+    public static double radianToDegree(double angleRadian){
+        double degree = angleRadian * 180 / PI;
+        return degree;
+    }
+
+    /**
+     * Returns the sine of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return The sine of the angle
+     */
     public double sinRad(double angleRadian){
         angleRadian = angleRadian % (2 * PI); // normalize the angle
         double term = 1.0; // ith term
@@ -44,12 +66,22 @@ public class trigonometry {
 
         return sum;
     }
+    /**
+     * Returns the sine of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return The sine of the angle
+     */
     public double sin(double angleDegree) {
         double radian = degreeToRadian(angleDegree);
         double result = sinRad(radian);
         return result;
     }
 
+    /**
+     * Returns the cosine of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return The cosine of the angle
+     */
     public double cosRad(double angleRadian) {
         angleRadian = angleRadian % (2 * PI);
         double term = 1.0;
@@ -64,9 +96,37 @@ public class trigonometry {
         return sum;
     }
 
+    /**
+     * Returns the cosine of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return The cosine of the angle
+     */
     public double cos(double angleDegree) {
         double radian = degreeToRadian(angleDegree);
         double result = cosRad(radian);
         return result; // Round to one decimal place
+    }
+
+    /**
+     * Returns the tangent of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return The tangent of the angle
+     */
+    public double tanRad(double angleRadian){
+        double sin = sinRad(angleRadian);
+        double cos = cosRad(angleRadian);
+        double tan = sin / cos;
+        return tan;
+    }
+
+    /**
+     * Returns the tangent of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return The tangent of the angle
+     */
+    public double tan(double angleDegree){
+        double radian = degreeToRadian(angleDegree);
+        double result = tanRad(radian);
+        return result;
     }
 }
