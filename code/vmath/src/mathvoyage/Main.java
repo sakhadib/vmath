@@ -20,8 +20,7 @@ public class Main {
         System.out.println(x);
 //        double y = vmath.algebra.factorial(18);
 //        System.out.println(y);
-
-
+        
 
 
 

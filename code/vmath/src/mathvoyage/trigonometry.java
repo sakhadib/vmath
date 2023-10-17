@@ -181,4 +181,56 @@ public class trigonometry {
         return cosec;
     }
 
+    /**
+     * Returns the arcsine of a number.
+     * @param x The number
+     * @return The arcsine of the number in radian
+     */
+    public double arcsinRad(double x) {
+        if(x > 1 || x < -1)
+            return Double.NaN;
+        if(x == 1)
+            return PI/2;
+        if(x == -1)
+            return -PI/2;
+        double arcsin = 0;
+        for (int i = 0; i < 50; i++) {
+            double term = vmath.algebra.factorial(2 * i) * vmath.algebra.pow(x, 2 * i + 1) / (vmath.algebra.pow(4, i) * vmath.algebra.pow(vmath.algebra.factorial(i), 2) * (2 * i + 1));
+            arcsin += term;
+        }
+        return arcsin;
+    }
+
+    /**
+     * Returns the arcsine of a number.
+     * @param x The number
+     * @return The arcsine of the number in degree
+     */
+    public double arcsin(double x){
+        double radian = arcsinRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
+    /**
+     * Returns the arccosine of a number.
+     * @param x The number
+     * @return The arccosine of the number in radian
+     */
+    public double arccosRad(double x) {
+        double arccos = PI / 2 - arcsinRad(x);
+        return arccos;
+    }
+
+    /**
+     * Returns the arccosine of a number.
+     * @param x The number
+     * @return The arccosine of the number in degree
+     */
+    public double arccos(double x){
+        double radian = arccosRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
 }
