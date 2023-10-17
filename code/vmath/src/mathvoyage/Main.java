@@ -20,7 +20,9 @@ public class Main {
         System.out.println(x);
 //        double y = vmath.algebra.factorial(18);
 //        System.out.println(y);
-        
+
+        trigonometry trig = trigonometry.getInstance();
+        System.out.println(trig.arctan(1));
 
 
 

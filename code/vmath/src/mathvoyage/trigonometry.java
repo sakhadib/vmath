@@ -79,7 +79,7 @@ public class trigonometry {
             return 0;
 
         double cosine = 1;
-        for(int i=1; i<20; i++){
+        for(int i=1; i<50; i++){
             double term = vmath.algebra.pow(-1,i) * vmath.algebra.pow(angleRadian,2*i) / vmath.algebra.factorial(2*i);
             cosine += term;
         }
@@ -229,6 +229,33 @@ public class trigonometry {
      */
     public double arccos(double x){
         double radian = arccosRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
+    /**
+     * Returns the arctangent of a number.
+     * @param x The number
+     * @return The arctangent of the number in radian
+     */
+    public double arctanRad(double x) {
+        if (x == 1)
+            return PI / 4;
+        double arctan = 0;
+        for (int i = 0; i < 80; i++) {
+            double term = vmath.algebra.pow(-1, i) * vmath.algebra.pow(x, 2 * i + 1) / (2 * i + 1);
+            arctan += term;
+        }
+        return arctan;
+    }
+
+    /**
+     * Returns the arctangent of a number.
+     * @param x The number
+     * @return The arctangent of the number in degree
+     */
+    public double arctan(double x){
+        double radian = arctanRad(x);
         double degree = radianToDegree(radian);
         return degree;
     }
