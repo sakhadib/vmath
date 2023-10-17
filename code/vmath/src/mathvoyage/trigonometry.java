@@ -133,7 +133,7 @@ public class trigonometry {
     /**
      * Returns the cotangent of an angle given in radian.
      * @param angleRadian The angle in radian
-     * @return
+     * @return The cotangent of the angle
      */
     public double cotRad(double angleRadian){
         double cotangent = 1 / tanRad(angleRadian);
@@ -143,11 +143,30 @@ public class trigonometry {
     /**
      * Returns the cotangent of an angle given in degree.
      * @param angleDegree The angle in degree
-     * @return
+     * @return The cotangent of the angle
      */
     public double cot(double angleDegree){
         double radian = degreeToRadian(angleDegree);
         double result = cotRad(radian);
+        return result;
+    }
+    /**
+     * Returns the secant of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return The secant of the angle
+     */
+    public double secRad(double angleRadian){
+        double sec = 1 / cosRad(angleRadian);
+        return sec;
+    }
+    /**
+     * Returns the secant of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return The secant of the angle
+     */
+    public double sec(double angleDegree){
+        double radian = degreeToRadian(angleDegree);
+        double result = secRad(radian);
         return result;
     }
 }
