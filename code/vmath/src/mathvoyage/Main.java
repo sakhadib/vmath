@@ -21,5 +21,9 @@ public class Main {
 //        double y = vmath.algebra.factorial(18);
 //        System.out.println(y);
 
+        trigonometry trig = trigonometry.getInstance();
+//        System.out.println(trig.sinRad(2*Math.PI));
+//        System.out.println(t);
+
     }
 }

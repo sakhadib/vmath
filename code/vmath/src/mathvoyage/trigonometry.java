@@ -23,11 +23,6 @@ public class trigonometry {
 
     private static final double PI = 3.141592653589793;
 
-    public double customRound(double value, int places) {
-        double scale = Math.pow(10, places);
-        return Math.round(value * scale) / scale;
-    }
-
     /**
      * Returns the conversion of degree to radian.
      * @param angleDegree The angle in degree
@@ -55,16 +50,12 @@ public class trigonometry {
      */
     public double sinRad(double angleRadian){
         angleRadian = angleRadian % (2 * PI); // normalize the angle
-        double term = 1.0; // ith term
-        double sum  = 0.0; // sum of terms
-
-        for (int i = 1; term != 0.0; i++) {
-            term *= (angleRadian / i);
-            if (i % 4 == 1) sum += term;
-            if (i % 4 == 3) sum -= term;
+        double sine = 0;
+        for(int i=0; i < 50; i++)
+        {
+            sine = sine + vmath.algebra.pow(-1,i) * vmath.algebra.pow(angleRadian,2*i+1) / vmath.algebra.factorial(2*i+1);
         }
-
-        return sum;
+        return sine;
     }
     /**
      * Returns the sine of an angle given in degree.
@@ -179,7 +170,7 @@ public class trigonometry {
         double cosec = 1 / sinRad(angleRadian);
         return cosec;
     }
-    
+
     /**
      * Returns the cosecant of an angle given in degree.
      * @param angleDegree The angle in degree
