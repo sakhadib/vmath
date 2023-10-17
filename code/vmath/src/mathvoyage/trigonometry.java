@@ -126,7 +126,28 @@ public class trigonometry {
      */
     public double tan(double angleDegree){
         double radian = degreeToRadian(angleDegree);
-        double result = tanRad(radian);
+        double tan = tanRad(radian);
+        return tan;
+    }
+
+    /**
+     * Returns the cotangent of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return
+     */
+    public double cotRad(double angleRadian){
+        double cotangent = 1 / tanRad(angleRadian);
+        return cotangent;
+    }
+
+    /**
+     * Returns the cotangent of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return
+     */
+    public double cot(double angleDegree){
+        double radian = degreeToRadian(angleDegree);
+        double result = cotRad(radian);
         return result;
     }
 }
