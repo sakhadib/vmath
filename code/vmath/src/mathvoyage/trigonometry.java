@@ -64,8 +64,8 @@ public class trigonometry {
      */
     public double sin(double angleDegree) {
         double radian = degreeToRadian(angleDegree);
-        double result = sinRad(radian);
-        return result;
+        double sine = sinRad(radian);
+        return sine;
     }
 
     /**
@@ -75,16 +75,15 @@ public class trigonometry {
      */
     public double cosRad(double angleRadian) {
         angleRadian = angleRadian % (2 * PI);
-        double term = 1.0;
-        double sum = 1.0;
+        if(angleRadian == PI/2 || angleRadian == 3*PI/2)
+            return 0;
 
-        for (int i = 2; term != 0.0; i += 2) {
-            term *= (angleRadian * angleRadian) / ((i - 1) * i);
-            if (i % 4 == 2) sum -= term;
-            if (i % 4 == 0) sum += term;
+        double cosine = 1;
+        for(int i=1; i<20; i++){
+            double term = vmath.algebra.pow(-1,i) * vmath.algebra.pow(angleRadian,2*i) / vmath.algebra.factorial(2*i);
+            cosine += term;
         }
-
-        return sum;
+        return cosine;
     }
 
     /**
@@ -94,8 +93,8 @@ public class trigonometry {
      */
     public double cos(double angleDegree) {
         double radian = degreeToRadian(angleDegree);
-        double result = cosRad(radian);
-        return result; // Round to one decimal place
+        double cosine = cosRad(radian);
+        return cosine; // Round to one decimal place
     }
 
     /**
