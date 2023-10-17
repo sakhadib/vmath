@@ -46,10 +46,20 @@ public class Combinetorics {
      * @param r is the number of items to be arranged.
      * @return the permutation value.
      */
-//    public double permutation (int n, int r){
-//
-//    }
-//
+    public double permutation (int n, int r){
+            if ( n>r & n>0 & r>0 ){
+                /**calculate n!**/
+                double nFctorial = vmath.algebra.factorial(n);
+
+                /**calculate (n-r)!**/
+                double nMinusrFctorial = vmath.algebra.factorial(n-r);
+
+                /**calculate n!/(n-r)!**/
+                return nFctorial/nMinusrFctorial;
+            }
+            return 0;
+    }
+
 //    /**
 //     * Returns number of sets.
 //     * @param setSize number of elements
