@@ -1,13 +1,13 @@
 package mathvoyage;
 
 public class Factorial_UTIL {
-    private double[] fact = new double[1001];
+    private double[] fact = new double[171];
     private static Factorial_UTIL instance;
 
     // private constructor to prevent external instantiation
     private Factorial_UTIL() {
         fact[0] = 1;
-        for (int i = 1; i < 1001; i++) {
+        for (int i = 1; i < 171; i++) {
             fact[i] = fact[i - 1] * i;
         }
     }
@@ -32,14 +32,14 @@ public class Factorial_UTIL {
         if (number < 0) {
             throw new IllegalArgumentException("Factorial of negative number is undefined");
         }
-        if (number > 1000) {
-            throw new IllegalArgumentException("Factorial of number greater than 1000 is undefined");
+        if (number > 170) {
+            throw new IllegalArgumentException("Factorial of number greater than 170 is undefined");
         }
         try{
             return fact[(int) number];
         }
         catch(Exception e){
-            throw new IllegalArgumentException("Factorial of number greater than 1000 is undefined");
+            throw new IllegalArgumentException("Factorial of number greater than 170 is undefined");
         }
 
     }
