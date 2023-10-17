@@ -147,8 +147,8 @@ public class trigonometry {
      */
     public double cot(double angleDegree){
         double radian = degreeToRadian(angleDegree);
-        double result = cotRad(radian);
-        return result;
+        double cot = cotRad(radian);
+        return cot;
     }
     /**
      * Returns the secant of an angle given in radian.
@@ -166,7 +166,29 @@ public class trigonometry {
      */
     public double sec(double angleDegree){
         double radian = degreeToRadian(angleDegree);
-        double result = secRad(radian);
-        return result;
+        double sec = secRad(radian);
+        return sec;
     }
+
+    /**
+     * Returns the cosecant of an angle given in radian.
+     * @param angleRadian The angle in radian
+     * @return The cosecant of the angle
+     */
+    public double cosecRad(double angleRadian){
+        double cosec = 1 / sinRad(angleRadian);
+        return cosec;
+    }
+    
+    /**
+     * Returns the cosecant of an angle given in degree.
+     * @param angleDegree The angle in degree
+     * @return The cosecant of the angle
+     */
+    public double cosec(double angleDegree){
+        double radian = degreeToRadian(angleDegree);
+        double cosec = cosecRad(radian);
+        return cosec;
+    }
+
 }
