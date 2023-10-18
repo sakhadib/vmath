@@ -21,8 +21,6 @@ public class Main {
 //        double y = vmath.algebra.factorial(18);
 //        System.out.println(y);
 
-        trigonometry trig = trigonometry.getInstance();
-        System.out.println(trig.arctan(1));
 
 
 
