@@ -2,10 +2,10 @@ package mathvoyage;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Combinetorics {
-    private static Combinetorics instance;
+public class Combinatorics {
+    private static Combinatorics instance;
 
-    private Combinetorics() {
+    private Combinatorics() {
         // Private constructor to prevent external instantiation
     }
 
@@ -13,9 +13,9 @@ public class Combinetorics {
      * Returns the singleton instance of this class.
      * @return The singleton instance
      */
-    public static Combinetorics getInstance() {
+    public static Combinatorics getInstance() {
         if (instance == null) {
-            instance = new Combinetorics();
+            instance = new Combinatorics();
         }
         return instance;
     }

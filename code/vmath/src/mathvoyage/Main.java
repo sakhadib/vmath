@@ -21,7 +21,10 @@ public class Main {
 //        double y = vmath.algebra.factorial(18);
 //        System.out.println(y);
 
-
+        trigonometry trig = trigonometry.getInstance();
+//        System.out.println(trig.arcsin(0.7071067812));
+//        System.out.println(trig.arccos(0.7071067812));
+        System.out.println(trig.tan(90));
 
 
 
