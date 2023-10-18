@@ -63,26 +63,33 @@ public class Combinatorics {
     }
 
     /**
-    * Returns number of sets.
-    * @param setSize number of elements
-    * @return number of sets.
+    * Returns subsets of set.
+    * @param set is the set we want to show subsets
+    * @return the subsets of a sets.
     */
-//   public double numberOfSubset(int setSize){
-//         static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
-//             int n = set.length;
-//             ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
-//             for (int i=0;i<(1<<n);i++){
-//                ArrayList<Integer> subset = new ArrayList<>();
-//                for (int j=0; j<n; j++){
-//                    if ((i&(1<<j))>0){
-//                        subset.add(set[j]);
-//                    }
-//                }
-//                subsets.add(subset);
-//             }
-//             return numberOfSubset();
-//       }
-//       return 0;
-//
-//  }
+
+         static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
+             int n = set.length;
+             ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
+             for (int i=0;i<(1<<n);i++){
+                ArrayList<Integer> subset = new ArrayList<>();
+                for (int j=0; j<n; j++){
+                    if ((i&(1<<j))>0){
+                        subset.add(set[j]);
+                    }
+                }
+                subsets.add(subset);
+             }
+             return subsets;
+       }
+
+    /**
+     * Return number of subsets of a set.
+     * @param setSize is the number of elements of a set.
+     * @return number of subsets of a set.
+     */
+       public double numberOfSubsets(int setSize){
+             return  vmath.algebra.pow(2,setSize);
+       }
+
 }
