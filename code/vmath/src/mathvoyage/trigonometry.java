@@ -192,11 +192,16 @@ public class trigonometry {
         if(x == 1)
             return PI/2;
         if(x == -1)
-            return -PI/2;
+            return 3*PI/2;
+
         double arcsin = 0;
-        for (int i = 0; i < 50; i++) {
+
+        for (int i = 0; i < 80; i++) {
             double term = vmath.algebra.factorial(2 * i) * vmath.algebra.pow(x, 2 * i + 1) / (vmath.algebra.pow(4, i) * vmath.algebra.pow(vmath.algebra.factorial(i), 2) * (2 * i + 1));
             arcsin += term;
+        }
+        if(arcsin < 0){
+            arcsin = PI - arcsin;
         }
         return arcsin;
     }
@@ -218,7 +223,11 @@ public class trigonometry {
      * @return The arccosine of the number in radian
      */
     public double arccosRad(double x) {
+        if(x > 1 || x < -1)
+            return Double.NaN;
         double arccos = PI / 2 - arcsinRad(x);
+        if(arccos < 0)
+            arccos = -arccos;
         return arccos;
     }
 
@@ -246,6 +255,8 @@ public class trigonometry {
             double term = vmath.algebra.pow(-1, i) * vmath.algebra.pow(x, 2 * i + 1) / (2 * i + 1);
             arctan += term;
         }
+        if(arctan < 0)
+            arctan = PI + arctan;
         return arctan;
     }
 
@@ -259,5 +270,66 @@ public class trigonometry {
         double degree = radianToDegree(radian);
         return degree;
     }
+    /**
+     * Returns the arccotangent of a number.
+     * @param x The number
+     * @return The arccotangent of the number in radian
+     */
+    public double arccotRad(double x){
+        double arccot = arctanRad(1/x);
+        return arccot;
+    }
+    /**
+     * Returns the arccotangent of a number.
+     * @param x The number
+     * @return The arccotangent of the number in degree
+     */
+    public double arccot(double x){
+        double radian = arccotRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
+    /**
+     * Returns the arcosec of a number.
+     * @param x The number
+     * @return The arccosec of the number in radian
+     */
+    public double arccosecRad(double x){
+        double arccosec = arcsinRad(1/x);
+        return arccosec;
+    }
+    /**
+     * Returns the arcosec of a number.
+     * @param x The number
+     * @return The arcosec of the number in degree
+     */
+    public double arccosec(double x){
+        double radian = arccosecRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
+    /**
+     * Returns the arcsec of a number.
+     * @param x The number
+     * @return The arcsec of the number in radian
+     */
+    public double arcsecRad(double x){
+        double arcsec = arccosRad(1/x);
+        return arcsec;
+    }
+
+    /**
+     * Returns the arcsec of a number.
+     * @param x The number
+     * @return The arcsec of the number in degree
+     */
+    public double arcsec(double x){
+        double radian = arcsecRad(x);
+        double degree = radianToDegree(radian);
+        return degree;
+    }
+
 
 }
