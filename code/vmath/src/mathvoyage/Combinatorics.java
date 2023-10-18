@@ -1,4 +1,6 @@
 package mathvoyage;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Combinetorics {
     private static Combinetorics instance;
@@ -60,12 +62,27 @@ public class Combinetorics {
             return 0;
     }
 
-//    /**
-//     * Returns number of sets.
-//     * @param setSize number of elements
-//     * @return number of sets.
-//     */
-//    public double numberOfSubset(int setSize){
-//    }
-
+    /**
+    * Returns number of sets.
+    * @param setSize number of elements
+    * @return number of sets.
+    */
+//   public double numberOfSubset(int setSize){
+//         static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
+//             int n = set.length;
+//             ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
+//             for (int i=0;i<(1<<n);i++){
+//                ArrayList<Integer> subset = new ArrayList<>();
+//                for (int j=0; j<n; j++){
+//                    if ((i&(1<<j))>0){
+//                        subset.add(set[j]);
+//                    }
+//                }
+//                subsets.add(subset);
+//             }
+//             return numberOfSubset();
+//       }
+//       return 0;
+//
+//  }
 }
