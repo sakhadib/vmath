@@ -330,6 +330,6 @@ public class trigonometry {
         double degree = radianToDegree(radian);
         return degree;
     }
-
+    // 
 
 }
