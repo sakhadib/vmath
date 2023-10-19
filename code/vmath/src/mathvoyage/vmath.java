@@ -1,6 +1,8 @@
 package mathvoyage;
 
 public class vmath {
+    public static mathvoyage.Combinatorics Combinatorics;
+
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
      * @author Adib Sakhawat
