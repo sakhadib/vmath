@@ -285,6 +285,66 @@ public class vmath {
                 return trig.arccosRad(number);
             }
         }
+
+        /**
+         * Returns the arc tangent of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc tangent of the number
+         */
+        public static double arctan(double number, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arctan(number);
+            } else {
+                return trig.arctanRad(number);
+            }
+        }
+
+        /**
+         * Returns the arc cotangent of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc cotangent of the number
+         */
+        public static double arccot(double number, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arccot(number);
+            } else {
+                return trig.arccotRad(number);
+            }
+        }
+
+        /**
+         * Returns the arc secant of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc secant of the number
+         */
+        public static double arcsec(double number, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arcsec(number);
+            } else {
+                return trig.arcsecRad(number);
+            }
+        }
+
+        /**
+         * Returns the arc cosecant of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc cosecant of the number
+         */
+        public static double arccosec(double number, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arccosec(number);
+            } else {
+                return trig.arccosecRad(number);
+            }
+        }
     }
 
 
