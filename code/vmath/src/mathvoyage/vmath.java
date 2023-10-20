@@ -145,6 +145,149 @@ public class vmath {
     }
 
 
+    public static class Trigonometry{
+        /**
+         * Returns the conversion of degree to radian.
+         * @param angleDegree The angle in degree
+         * @return The angle in radian
+         */
+        public static double degreeToRadians(double angleDegree){
+           trigonometry trig = trigonometry.getInstance();
+           return trig.degreeToRadian(angleDegree);
+       }
+
+        /**
+         * Returns the conversion of radian to degree.
+         * @param angleRadian The angle in radian
+         * @return The angle in degree
+         */
+        public static double radianToDegree(double angleRadian) {
+            trigonometry trig = trigonometry.getInstance();
+            return trig.radianToDegree(angleRadian);
+        }
+
+        /**
+         * Returns the sine of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The sine of the angle
+         */
+        public static double sin(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if(unit == Angle.DEGREE) {
+                return trig.sin(angle);
+            } else {
+                return trig.sinRad(angle);
+            }
+        }
+
+        /**
+         * Returns the cosine of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The cosine of the angle
+         */
+        public static double cos(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if(unit == Angle.DEGREE) {
+                return trig.cos(angle);
+            } else {
+                return trig.cosRad(angle);
+            }
+        }
+
+        /**
+         * Returns the tangent of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The tangent of the angle
+         */
+        public static double tan(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.tan(angle);
+            } else {
+                return trig.tanRad(angle);
+            }
+        }
+
+        /**
+         * Returns the cotangent of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The cotangent of the angle
+         */
+        public static double cot(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.cot(angle);
+            } else {
+                return trig.cotRad(angle);
+            }
+        }
+
+        /**
+         * Returns the secant of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The secant of the angle
+         */
+        public static double sec(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.sec(angle);
+            } else {
+                return trig.secRad(angle);
+            }
+        }
+
+        /**
+         * Returns the cosecant of an angle given in radian.
+         * @param angle The angle
+         * @param unit The unit of the angle
+         * @return The cosecant of the angle
+         */
+        public static double cosec(double angle, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.cosec(angle);
+            } else {
+                return trig.cosecRad(angle);
+            }
+        }
+
+        /**
+         * Returns the arc sine of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc sine of the number
+         */
+        public static double arcsin(double number, Angle unit){
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arcsin(number);
+            } else {
+                return trig.arcsinRad(number);
+            }
+        }
+
+        /**
+         * Returns the arc cosine of a number.
+         * @param number The number
+         * @param unit The unit of the angle to return
+         * @return The arc cosine of the number
+         */
+        public static double arccos(double number, Angle unit) {
+            trigonometry trig = trigonometry.getInstance();
+            if (unit == Angle.DEGREE) {
+                return trig.arccos(number);
+            } else {
+                return trig.arccosRad(number);
+            }
+        }
+    }
+
+
     public static class baseConverter{
         public static double binaryToDecimal(String binaryString) {
             BaseConverter bc = BaseConverter.getInstance();
