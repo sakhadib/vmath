@@ -1,7 +1,8 @@
 package mathvoyage;
 
+import java.util.ArrayList;
+
 public class vmath {
-    public static mathvoyage.Combinatorics Combinatorics;
 
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
@@ -144,7 +145,205 @@ public class vmath {
 
     }
 
+    /**
+     * Contains functions to convert numbers from one base to another.
+     * @author Adib Sakhawat
+     */
+    public static class baseConverter{
+        /**
+         * Converts a binery number (string) to decimal number (double).
+         * @param bineryNumber The binery number in string format
+         * @return The decimal number
+         */
+        public static double bineryToDecimal(String bineryNumber) {
+            BaseConverter base = BaseConverter.getInstance();
+            return base.binaryToDecimal(bineryNumber);
+        }
 
+        /**
+         * Converts a decimal number (double) to binery number (string).
+         * @param decimalNumber The decimal number
+         * @return The binery number in string format
+         */
+        public static String decimalToBinary(double decimalNumber){
+            BaseConverter base = BaseConverter.getInstance();
+            return base.decimalToBinary(decimalNumber);
+        }
+
+        /**
+         * Converts a decimal number (double) to Hexadecimal number (string).
+         * @param decimalNumber The decimal number
+         * @return The Hexadecimal number in string format
+         */
+        public static String decimalToHexadecimal(double decimalNumber){
+            BaseConverter base = BaseConverter.getInstance();
+            return base.decimalToHexadecimal(decimalNumber);
+        }
+
+        /**
+         * Converts a Hexadecimal number (string) to decimal number (double).
+         * @param hexadecimalString The Hexadecimal number in string format
+         * @return The decimal number
+         */
+        public static double hexadecimalToDecimal(String hexadecimalString){
+            BaseConverter base = BaseConverter.getInstance();
+            return base.hexadecimalToDecimal(hexadecimalString);
+        }
+
+        /**
+         * Converts an Octal number (String) to a Decimal number (double).
+         * @param octalString The decimal number
+         * @return The Octal number in string format
+         */
+        public static double octalToDecimal(String octalString){
+            BaseConverter base = BaseConverter.getInstance();
+            return base.octalToDecimal(octalString);
+        }
+
+        /**
+         * Converts a decimal number (double) to Octal number (string).
+         * @param decimalNumber The decimal number
+         * @return The Octal number in string format
+         */
+        public static String decimalToOctal(double decimalNumber){
+            BaseConverter base = BaseConverter.getInstance();
+            return base.decimalToOctal(decimalNumber);
+        }
+
+        /**
+         * Converts a decimal number (double) to a number of any base (string).
+         * @param decimalNumber
+         * @param base
+         * @return The number in string format
+         */
+        public static String decimalToBaseN(double decimalNumber, int base){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.decimalToBaseN(decimalNumber, base);
+        }
+
+        /**
+         * Converts a number of any base (string) to a decimal number (double).
+         * @param number
+         * @param base
+         * @return The decimal number
+         */
+        public static double baseNToDecimal(String number, int base) {
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.baseNToDecimal(number, base);
+        }
+
+        /**
+         * Converts a binary number (string) to an octal number (string).
+         * @param binaryString
+         * @return
+         */
+        public static String binaryToOctal(String binaryString){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.binaryToOctal(binaryString);
+        }
+
+        /**
+         * Converts an octal number (string) to a binary number (string).
+         * @param octalString
+         * @return The binary number in string format
+         */
+        public static String octalToBinary(String octalString){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.octalToBinary(octalString);
+        }
+
+        /**
+         * Converts a binary number (string) to a hexadecimal number (string).
+         * @param binaryString
+         * @return The hexadecimal number in string format
+         */
+        public static String binaryToHexadecimal(String binaryString) {
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.binaryToHexadecimal(binaryString);
+        }
+
+        /**
+         * Converts a hexadecimal number (string) to a binary number (string).
+         * @param hexadecimalString
+         * @return The binary number in string format
+         */
+        public static String hexadecimalToBinary(String hexadecimalString) {
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.hexadecimalToBinary(hexadecimalString);
+        }
+
+        /**
+         * Converts a binary number (string) to a number of any base (string).
+         * @param binaryString
+         * @param base
+         * @return The number in string format
+         */
+        public static String binaryToBaseN(String binaryString, int base){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.binaryToBaseN(binaryString, base);
+        }
+
+        /**
+         * Converts a number from octal to hexadecimal
+         * @param octalString
+         * @return The hexadecimal number in string format
+         */
+        public static String octalToHexadecimal(String octalString){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.octalToHexadecimal(octalString);
+        }
+
+        /**
+         * Converts a number from hexadecimal to octal
+         * @param hexadecimalString
+         * @return The octal number in string format
+         */
+        public static String hexadecimalToOctal(String hexadecimalString){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.hexadecimalToOctal(hexadecimalString);
+        }
+
+        /**
+         * Converts a number from octal to any base
+         * @param octalString
+         * @param base
+         * @return The number in string format
+         */
+        public static String octalToBaseN(String octalString, int base){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.octalToBaseN(octalString, base);
+        }
+
+        /**
+         * Converts a number from hexadecimal to any base
+         * @param hexadecimalString
+         * @param base
+         * @return The number in string format
+         */
+        public static String hexadecimalToBaseN(String hexadecimalString, int base){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.hexadecimalToBaseN(hexadecimalString, base);
+        }
+
+        /**
+         * Converts a number from any base to any base
+         * @param baseNString
+         * @param baseN
+         * @param baseK
+         * @return The binary number in string format
+         */
+        public String baseNToBaseK(String baseNString, int baseN, int baseK){
+            BaseConverter baseConverter = BaseConverter.getInstance();
+            return baseConverter.baseNToBaseK(baseNString, baseN, baseK);
+        }
+
+
+    }
+
+    /**
+     * Contains functions to calculate trigonometric relations and values for numbers in radian and degree.
+     * @author Tahsin Islam
+     */
     public static class Trigonometry{
         /**
          * Returns the conversion of degree to radian.
@@ -347,15 +546,52 @@ public class vmath {
         }
     }
 
-
-    public static class baseConverter{
-        public static double binaryToDecimal(String binaryString) {
-            BaseConverter bc = BaseConverter.getInstance();
-            return bc.binaryToDecimal(binaryString);
+    /**
+     * Contains functions to calculate combination, permutations and vice versa of numbers and sets of numbers.
+     * Also contains functions to generate subsets of a set of numbers.
+     * @Author Takia Farhin
+     */
+    public static class combinatorics{
+        /**
+         * Calculates the combination value.
+         * @param n
+         * @param r
+         * @return the combination value.
+         */
+        public static double combination(int n, int r){
+            Combinatorics comb = Combinatorics.getInstance();
+            return comb.combination(n,r);
+        }
+        /**
+         * Calculates the permutation value.
+         * @param n
+         * @param r
+         * @return the permutation value.
+         */
+        public static double permutation(int n, int r){
+            Combinatorics comb = Combinatorics.getInstance();
+            return comb.permutation(n,r);
         }
 
+        /**
+         * Returns the number of subsets of a set.
+         * @param n The number of elements in the set
+         * @return The number of subsets
+         */
+        public static double numberOfSubsets(int n){
+            Combinatorics comb = Combinatorics.getInstance();
+            return comb.numberOfSubsets(n);
+        }
 
-
+        /**
+         * Returns the number of subsets of a set. The set have to be an array of integers.
+         * @param set The set
+         * @return All the subsets possible
+         */
+        static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
+            Combinatorics comb = Combinatorics.getInstance();
+            return comb.generateSubsets(set);
+        }
     }
 
 
