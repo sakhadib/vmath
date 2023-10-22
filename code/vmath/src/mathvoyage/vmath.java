@@ -4,6 +4,27 @@ import java.util.ArrayList;
 
 public class vmath {
 
+    public static class constant{
+        public static final double PI = 3.14159265358979323846;
+        public static final double E = 2.71828182845904523536;
+        public static final double GOLDEN_RATIO = 1.61803398874989484820;
+        public static final double EULER_MASCHERONI_CONSTANT = 0.57721566490153286060;
+        public static final double ARCHIMEDES_CONSTANT = 3.14159265358979323846;
+        public static final double CATALAN_CONSTANT = 0.91596559417721901505;
+        public static final double FEIGENBAUM_ALPHA = 2.50290787509589282228;
+        public static final double FEIGENBAUM_DELTA = 4.66920160910299067185;
+
+        // Physical Constants
+        public static final double SPEED_OF_LIGHT = 299792458; // meters per second
+        public static final double PLANCK_CONSTANT = 6.62607015e-34; // Joule seconds
+        public static final double GRAVITATIONAL_CONSTANT = 6.67430e-11; // m^3/kg/s^2
+        public static final double BOLTZMANN_CONSTANT = 1.380649e-23; // J/K
+        public static final double AVOGADRO_NUMBER = 6.02214076e23; // mol⁻¹
+        public static final double UNIVERSAL_GRAVITATIONAL_CONSTANT = 6.67430e-11; // N m²/kg²
+        public static final double PLANCK_LENGTH = 1.616255e-35; // meters
+        public static final double PLANCK_TIME = 5.39116e-44; // seconds
+    }
+
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
      * @author Adib Sakhawat
@@ -56,7 +77,7 @@ public class vmath {
          * @param array The array of objects
          * @return The index of the maximum of the array
          */
-        public static <T extends Comparable<T>> int maxIndex(T[] array) {
+        public static <T extends Comparable<T>> int argMax(T[] array) {
             Algebra alg = Algebra.getInstance();
             return alg.maxIndex(array);
         }
@@ -66,7 +87,7 @@ public class vmath {
          * @param array The array of objects
          * @return The index of the minimum of the array
          */
-        public static <T extends Comparable<T>> int minIndex(T[] array) {
+        public static <T extends Comparable<T>> int argMin(T[] array) {
             Algebra alg = Algebra.getInstance();
             return alg.minIndex(array);
         }
@@ -108,7 +129,7 @@ public class vmath {
          * @param n the root
          * @return result
          */
-        public static <T extends Number> double nthroot(T number, int n){
+        public static <T extends Number> double nthRoot(T number, int n){
             Algebra alg = Algebra.getInstance();
             return alg.nthRoot(number,n);
         }
@@ -143,6 +164,28 @@ public class vmath {
             return fact.factorial(number);
         }
 
+        /**
+         * Returns the greatest common divisor of two numbers.
+         * @param a
+         * @param b
+         * @return The greatest common divisor
+         */
+        public static int gcd(int a, int b){
+            Algebra alg = Algebra.getInstance();
+            return alg.gcd(a, b);
+        }
+
+        /**
+         * Returns the least common multiple of two numbers.
+         * @param a
+         * @param b
+         * @return The least common multiple
+         */
+        public static int lcm(int a, int b){
+            Algebra alg = Algebra.getInstance();
+            return alg.lcm(a, b);
+        }
+
     }
 
     /**
@@ -155,7 +198,7 @@ public class vmath {
          * @param bineryNumber The binery number in string format
          * @return The decimal number
          */
-        public static double bineryToDecimal(String bineryNumber) {
+        public static double binToDec(String bineryNumber) {
             BaseConverter base = BaseConverter.getInstance();
             return base.binaryToDecimal(bineryNumber);
         }
@@ -165,7 +208,7 @@ public class vmath {
          * @param decimalNumber The decimal number
          * @return The binery number in string format
          */
-        public static String decimalToBinary(double decimalNumber){
+        public static String decToBin(double decimalNumber){
             BaseConverter base = BaseConverter.getInstance();
             return base.decimalToBinary(decimalNumber);
         }
@@ -175,7 +218,7 @@ public class vmath {
          * @param decimalNumber The decimal number
          * @return The Hexadecimal number in string format
          */
-        public static String decimalToHexadecimal(double decimalNumber){
+        public static String decToHex(double decimalNumber){
             BaseConverter base = BaseConverter.getInstance();
             return base.decimalToHexadecimal(decimalNumber);
         }
@@ -185,7 +228,7 @@ public class vmath {
          * @param hexadecimalString The Hexadecimal number in string format
          * @return The decimal number
          */
-        public static double hexadecimalToDecimal(String hexadecimalString){
+        public static double hexToDec(String hexadecimalString){
             BaseConverter base = BaseConverter.getInstance();
             return base.hexadecimalToDecimal(hexadecimalString);
         }
@@ -195,7 +238,7 @@ public class vmath {
          * @param octalString The decimal number
          * @return The Octal number in string format
          */
-        public static double octalToDecimal(String octalString){
+        public static double octToDec(String octalString){
             BaseConverter base = BaseConverter.getInstance();
             return base.octalToDecimal(octalString);
         }
@@ -205,7 +248,7 @@ public class vmath {
          * @param decimalNumber The decimal number
          * @return The Octal number in string format
          */
-        public static String decimalToOctal(double decimalNumber){
+        public static String decToOct(double decimalNumber){
             BaseConverter base = BaseConverter.getInstance();
             return base.decimalToOctal(decimalNumber);
         }
@@ -216,7 +259,7 @@ public class vmath {
          * @param base
          * @return The number in string format
          */
-        public static String decimalToBaseN(double decimalNumber, int base){
+        public static String decToN(double decimalNumber, int base){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.decimalToBaseN(decimalNumber, base);
         }
@@ -227,7 +270,7 @@ public class vmath {
          * @param base
          * @return The decimal number
          */
-        public static double baseNToDecimal(String number, int base) {
+        public static double nToDec(String number, int base) {
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.baseNToDecimal(number, base);
         }
@@ -237,7 +280,7 @@ public class vmath {
          * @param binaryString
          * @return
          */
-        public static String binaryToOctal(String binaryString){
+        public static String binToOct(String binaryString){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.binaryToOctal(binaryString);
         }
@@ -247,7 +290,7 @@ public class vmath {
          * @param octalString
          * @return The binary number in string format
          */
-        public static String octalToBinary(String octalString){
+        public static String octToBin(String octalString){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.octalToBinary(octalString);
         }
@@ -257,7 +300,7 @@ public class vmath {
          * @param binaryString
          * @return The hexadecimal number in string format
          */
-        public static String binaryToHexadecimal(String binaryString) {
+        public static String binToHex(String binaryString) {
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.binaryToHexadecimal(binaryString);
         }
@@ -267,7 +310,7 @@ public class vmath {
          * @param hexadecimalString
          * @return The binary number in string format
          */
-        public static String hexadecimalToBinary(String hexadecimalString) {
+        public static String hexToBin(String hexadecimalString) {
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.hexadecimalToBinary(hexadecimalString);
         }
@@ -278,7 +321,7 @@ public class vmath {
          * @param base
          * @return The number in string format
          */
-        public static String binaryToBaseN(String binaryString, int base){
+        public static String binToN(String binaryString, int base){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.binaryToBaseN(binaryString, base);
         }
@@ -288,7 +331,7 @@ public class vmath {
          * @param octalString
          * @return The hexadecimal number in string format
          */
-        public static String octalToHexadecimal(String octalString){
+        public static String octToHex(String octalString){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.octalToHexadecimal(octalString);
         }
@@ -298,7 +341,7 @@ public class vmath {
          * @param hexadecimalString
          * @return The octal number in string format
          */
-        public static String hexadecimalToOctal(String hexadecimalString){
+        public static String hexToOct(String hexadecimalString){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.hexadecimalToOctal(hexadecimalString);
         }
@@ -309,7 +352,7 @@ public class vmath {
          * @param base
          * @return The number in string format
          */
-        public static String octalToBaseN(String octalString, int base){
+        public static String octToN(String octalString, int base){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.octalToBaseN(octalString, base);
         }
@@ -320,7 +363,7 @@ public class vmath {
          * @param base
          * @return The number in string format
          */
-        public static String hexadecimalToBaseN(String hexadecimalString, int base){
+        public static String hexToN(String hexadecimalString, int base){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.hexadecimalToBaseN(hexadecimalString, base);
         }
@@ -332,7 +375,7 @@ public class vmath {
          * @param baseK
          * @return The binary number in string format
          */
-        public String baseNToBaseK(String baseNString, int baseN, int baseK){
+        public static String nToK(String baseNString, int baseN, int baseK){
             BaseConverter baseConverter = BaseConverter.getInstance();
             return baseConverter.baseNToBaseK(baseNString, baseN, baseK);
         }
@@ -350,7 +393,7 @@ public class vmath {
          * @param angleDegree The angle in degree
          * @return The angle in radian
          */
-        public static double degreeToRadians(double angleDegree){
+        public static double degreeToRadian(double angleDegree){
            trigonometry trig = trigonometry.getInstance();
            return trig.degreeToRadian(angleDegree);
        }
@@ -588,7 +631,7 @@ public class vmath {
          * @param set The set
          * @return All the subsets possible
          */
-        static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
+        public static ArrayList<ArrayList<Integer>> generateSubsets(Integer[] set){
             Combinatorics comb = Combinatorics.getInstance();
             return comb.generateSubsets(set);
         }

@@ -281,12 +281,27 @@ public class Algebra {
 
 
     /**
-     * Calculates the logarithm of a number.
-     * @param base The base
-     * @param number The number
+     * Calculates the GCD of a number.
+     * @param a The first number
+     * @param b The second number
      * @return The result
      */
+    public int gcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return gcd(b, a%b);
+    }
 
+    /**
+     * Calculates LCM of a number.
+     * @param a
+     * @param b
+     * @return The result
+     */
+    public int lcm(int a, int b) {
+        return a * (b / gcd(a, b));
+    }
 
 
 

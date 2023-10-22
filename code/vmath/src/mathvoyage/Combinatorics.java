@@ -62,7 +62,7 @@ public class Combinatorics {
     * @return the subsets of a sets.
     */
 
-         static ArrayList<ArrayList<Integer>> generateSubsets(int[] set){
+         static ArrayList<ArrayList<Integer>> generateSubsets(Integer[] set){
              int n = set.length;
              ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
              for (int i=0;i<(1<<n);i++){
