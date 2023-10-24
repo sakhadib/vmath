@@ -7,7 +7,7 @@ mathVoyage is a Java toolkit offering versatile math functions. In this library,
 
  1. Adib Sakhawat
  2. Tahsin Islam
- 3. Takia Farhin the big boss 
+ 3. Takia Farhin 
 
 ## Supervised by
 **Syed Rifat Raiyan** <br>
