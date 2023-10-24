@@ -17,12 +17,12 @@ Islamic University of Technology <br>
 
 ## Key Features
 
- 1. Coordinate Geometry Module
+ 1. Algebraic Module
  2. Trigonometry Module
  3. Matrix Module
  4. Vector Module
  5. Number System Module
- 6. Basic Numerical Module
+ 6. Coordinate Geometry Module
  7. Combinatorics
  8. Bit-wise Operation
 
