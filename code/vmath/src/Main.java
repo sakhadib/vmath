@@ -68,13 +68,15 @@ public class Main {
         System.out.println("____________________________________________");
         System.out.println("Permutation of 5 and 3: " + vmath.combinatorics.permutation(5, 3));
         System.out.println("Combination of 5 and 3: " + vmath.combinatorics.combination(5, 3));
-        System.out.println("Number of subesets for a set size of 6 is " + vmath.combinatorics.numberOfSubsets(6));
+        System.out.println("Number of subesets for a set size of 3 is " + vmath.combinatorics.numberOfSubsets(3));
         Integer[] set = {1, 2, 3};
         ArrayList<ArrayList<Integer>> subsets = vmath.combinatorics.generateSubsets(set);
         System.out.println("Subsets of {1, 2, 3} are: ");
         // Print the subsets
+        int count = 1;
         for (ArrayList<Integer> subset : subsets) {
-            System.out.println(subset);
+            System.out.println(count + " : " + subset);
+            count++;
         }
         System.out.println("____________________________________________\n\n\n\n");
 
@@ -93,7 +95,7 @@ public class Main {
         System.out.println("Binary of A(Hex) : " + vmath.baseConverter.hexToBin("A"));
         System.out.println("Octal of A(Hex) : " + vmath.baseConverter.hexToOct("A"));
         System.out.println("Decimal of A(Hex) : " + vmath.baseConverter.hexToDec("A"));
-        System.out.println("12 of base 3 to base 7" + vmath.baseConverter.nToK("12", 3, 7));
+        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
         System.out.println("____________________________________________\n\n\n\n");
     }
 }
