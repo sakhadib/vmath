@@ -34,8 +34,9 @@ public class BaseConverter {
         int integerPart = 0;
         double fractionalPart = 0.0;
 
+        int partlength = parts[0].length();
         // Convert the integer part
-        for (int i = 0; i < parts[0].length(); i++) {
+        for (int i = 0; i < partlength; i++) {
             char digit = parts[0].charAt(i);
             if (digit == '1') {
                 integerPart = integerPart * 2 + 1;
@@ -358,5 +359,28 @@ public class BaseConverter {
         return decimalToBinary(hexadecimalToDecimal(hexadecimalString));
     }
 
+    public String binaryToBaseN(String binaryString, int base) {
+        return decimalToBaseN(binaryToDecimal(binaryString), base);
+    }
 
+    public String octalToHexadecimal(String octalString) {
+        return decimalToHexadecimal(octalToDecimal(octalString));
+    }
+
+    public String hexadecimalToOctal(String hexadecimalString) {
+        return decimalToOctal(hexadecimalToDecimal(hexadecimalString));
+    }
+
+    public String octalToBaseN(String octalString, int base) {
+        return decimalToBaseN(octalToDecimal(octalString), base);
+    }
+
+
+    public String hexadecimalToBaseN(String hexadecimalString, int base) {
+        return decimalToBaseN(hexadecimalToDecimal(hexadecimalString), base);
+    }
+
+    public String baseNToBaseK(String baseNString, int baseN, int baseK) {
+        return decimalToBaseN(baseNToDecimal(baseNString, baseN), baseK);
+    }
 }

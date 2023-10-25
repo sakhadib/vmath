@@ -51,7 +51,7 @@ public class trigonometry {
     public double sinRad(double angleRadian){
         angleRadian = angleRadian % (2 * PI); // normalize the angle
         double sine = 0;
-        for(int i=0; i < 50; i++)
+        for(int i=0; i < 80; i++)
         {
             sine = sine + vmath.algebra.pow(-1,i) * vmath.algebra.pow(angleRadian,2*i+1) / vmath.algebra.factorial(2*i+1);
         }
@@ -79,7 +79,7 @@ public class trigonometry {
             return 0;
 
         double cosine = 1;
-        for(int i=1; i<50; i++){
+        for(int i=1; i<80; i++){
             double term = vmath.algebra.pow(-1,i) * vmath.algebra.pow(angleRadian,2*i) / vmath.algebra.factorial(2*i);
             cosine += term;
         }
