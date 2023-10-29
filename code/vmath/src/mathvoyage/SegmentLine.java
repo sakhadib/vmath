@@ -26,10 +26,10 @@ public class SegmentLine implements Line{
         return yIntercept;
     }
     public double getSlope() {
-        return -xIntercept/yIntercept;
+        return -yIntercept/xIntercept;
     }
     public double getShift() {
-        return yIntercept/xIntercept;
+        return yIntercept;
     }
     public double getCoefficientOfX() {
         return yIntercept;

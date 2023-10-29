@@ -25,15 +25,15 @@ public class SlopeLine implements Line{
     public double getShift() {
         return shift;
     }
-    public double getXIntercept(){
-        if(shift == 0){
-            return -slope;
+    public double getXIntercept() {
+        if (shift == 0) {
+            return 0;
         }
-        return -slope*shift;
+        return -shift * slope;
     }
     public double getYIntercept(){
         if(shift == 0){
-            return 1;
+            return 0;
         }
         return shift;
     }
