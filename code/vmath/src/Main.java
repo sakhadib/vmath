@@ -53,10 +53,10 @@ public class Main {
 //        //For Inverse Trigonometric Functions
 //        System.out.println("Inverse Trigonometric Functions");
 //        System.out.println("____________________________________________");
-//        System.out.println("Arcsine of 0.5: " + vmath.Trigonometry.arcsin(0.5, Angle.DEGREE));
-//        System.out.println("Arccosine of 0.5: " + vmath.Trigonometry.arccos(0.5, Angle.DEGREE));
-//        System.out.println("Arctangent of 0.5: " + vmath.Trigonometry.arctan(0.5, Angle.DEGREE));
-//        System.out.println("Arccotangent of 2: " + vmath.Trigonometry.arccot(2, Angle.DEGREE));
+//        System.out.println("Arc sine of 0.5: " + vmath.Trigonometry.arcsin(0.5, Angle.DEGREE));
+//        System.out.println("Arc cosine of 0.5: " + vmath.Trigonometry.arccos(0.5, Angle.DEGREE));
+//        System.out.println("Arc-tangent of 0.5: " + vmath.Trigonometry.arctan(0.5, Angle.DEGREE));
+//        System.out.println("Arc cotangent of 2: " + vmath.Trigonometry.arccot(2, Angle.DEGREE));
 //        System.out.println("Arccosecant of 2: " + vmath.Trigonometry.arccosec(2, Angle.DEGREE));
 //        System.out.println("Arcsecant of 2: " + vmath.Trigonometry.arcsec(2, Angle.DEGREE));
 //        System.out.println("Arcsine of 0.5: " + vmath.Trigonometry.arcsin(0.5, Angle.RADIAN));
@@ -106,7 +106,7 @@ public class Main {
 
         //After Progress Presentation
 
-        double[][] data1 = {{1, 2, 17}, {3, 4, 5}, {5, 6, 7}};
+        double[][] data1 = {{2, 1, 1}, {1, 3, 2}, {1, 2, 4}};
         double[][] data2 = {{9, 8, 7}, {7, 6, 5}, {5, 4, 3}};
         double[][] data3 = {{2, 7}, {3, 9}, {4, 8}, {5, 6}};
         double[][] data4 = {{1, 2, 3}, {4, 5, 6}};
@@ -118,7 +118,14 @@ public class Main {
 //        Matrix a = new Matrix(3, 3);
 //        Matrix b = new Matrix(3, 3);
 
-        c.multiply(d).printMatrix();
+        //c.multiply(d).printMatrix();
+        try {
+            c.inverse().printMatrix();
+        }
+        catch (Exception e) {
+            System.out.println(e);
+        }
+
 
 
 

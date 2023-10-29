@@ -197,6 +197,52 @@ public class Matrix{
     }
 
 
+    public Matrix multiply(double b){
+        double[][] data = new double[this.rows][this.cols];
+        for(int i = 0; i < this.rows; i++){
+            for(int j = 0; j < this.cols; j++){
+                data[i][j] = this.data[i][j] * b;
+            }
+        }
+        return new Matrix(data);
+    }
+
+    public Matrix transpose(){
+        double[][] data = new double[this.cols][this.rows];
+        for(int i = 0; i < this.cols; i++){
+            for(int j = 0; j < this.rows; j++){
+                data[i][j] = this.data[j][i];
+            }
+        }
+        return new Matrix(data);
+    }
+
+    public Matrix inverse() {
+        if (this.rows != this.cols) {
+            throw new IllegalArgumentException("Matrix must be square");
+        } else {
+            int n = this.rows;
+            double determinant = this.getDeterminant();
+            if (determinant == 0) {
+                throw new IllegalArgumentException("Matrix is not invertible");
+            } else {
+                double[][] data = new double[n][n];
+
+                for (int i = 0; i < n; i++) {
+                    for (int j = 0; j < n; j++) {
+                        // Calculate the cofactor of element (i, j)
+                        double cofactor = Math.pow(-1, i + j) * this.subMatrix(i, j).getDeterminant();
+
+                        // Calculate the element of the inverse matrix
+                        data[i][j] = cofactor / determinant;
+                    }
+                }
+
+                // Create a new Matrix with the inverse data and return it
+                return new Matrix(data).transpose();
+            }
+        }
+    }
 
 
     public void printMatrix() {
