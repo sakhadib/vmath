@@ -19,4 +19,33 @@ public class SlopeLine implements Line{
         this.coefficientOfY = getCoefficientOfY();
         this.constant = getConstant();
     }
+    public double getSlope() {
+        return slope;
+    }
+    public double getShift() {
+        return shift;
+    }
+    public double getXIntercept(){
+        if(shift == 0){
+            return -slope;
+        }
+        return -slope*shift;
+    }
+    public double getYIntercept(){
+        if(shift == 0){
+            return 1;
+        }
+        return shift;
+    }
+    public double getCoefficientOfX(){
+        return slope;
+    }
+    public double getCoefficientOfY(){
+        return -1;
+    }
+    public double getConstant(){
+        return shift;
+    }
+
+
 }
