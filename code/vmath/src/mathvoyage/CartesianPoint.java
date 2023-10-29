@@ -19,7 +19,7 @@ public class CartesianPoint implements Point{
     public double getX(){
         return x;
     }
-    
+
     /**
      * Returns the y-coordinate of the point.
      * @return The y-coordinate of the point
@@ -42,5 +42,10 @@ public class CartesianPoint implements Point{
      */
     public double getTheta(){
         return vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
+    }
+
+    public double distance(Point p, Point q){
+        double distance = vmath.algebra.sqrt(vmath.algebra.pow((p.getX() - q.getX()), 2) + vmath.algebra.pow((p.getY() - q.getY()), 2));
+        return distance;
     }
 }

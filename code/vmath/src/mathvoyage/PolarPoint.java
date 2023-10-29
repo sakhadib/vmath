@@ -44,4 +44,9 @@ public class PolarPoint implements Point{
     public double getY(){
         return r * vmath.Trigonometry.sin(theta, Angle.DEGREE);
     }
+
+    public double distance(Point p, Point q){
+        double distance = vmath.algebra.sqrt(vmath.algebra.pow((p.getR()), 2) + vmath.algebra.pow((q.getR()), 2) - 2 * p.getR() * q.getR() * vmath.Trigonometry.cos(p.getTheta() - q.getTheta(), Angle.DEGREE));
+        return distance;
+    }
 }
