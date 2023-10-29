@@ -31,6 +31,15 @@ public class vmath {
      */
     public static class algebra{
         /**
+         * Returns the floor of a number.
+         * @param number The number
+         * @return The floor
+         */
+        public static double floor(double number){
+            Algebra alg = Algebra.getInstance();
+            return alg.floor(number);
+        }
+        /**
          * Returns the minimum of two comparable objects.
          * @param a The first object
          * @param b The second object
