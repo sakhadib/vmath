@@ -101,7 +101,5 @@ public class Main {
 
         System.out.println("Geometry Functions");
         Geometry geometry = Geometry.getInstance();
-        System.out.println("Distance between (0,0) and (3,4) is " + geometry.distanceBetweenPoints(new Point(0,0), new Point(3,4)));
-
     }
 }
