@@ -303,6 +303,18 @@ public class Algebra {
         return a * (b / gcd(a, b));
     }
 
+    /**
+     * Calculates the floor value of a number.
+     * @param value
+     * @return
+     */
+    public double floor(double value) {
+        if (value >= 0) {
+            return (double)((int)value);
+        } else {
+            return (double)((int)value - 1);
+        }
+    }
 
 
 
