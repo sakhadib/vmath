@@ -5,12 +5,12 @@ import java.util.Random;
  * voyager.Matrix class
  *
  */
-public class Matrix{
+  public class Matrix{
     private double[][] data;
     private int rows;
     private int cols;
 
-    public Matrix(double[][] data){
+      public Matrix(double[][] data){
         this.data = data;
         this.rows = data.length;
         this.cols = data[0].length;
@@ -18,7 +18,7 @@ public class Matrix{
 
     }
 
-    public Matrix(int[][] data){
+      public Matrix(int[][] data){
         this.data = new double[data.length][data[0].length];
         this.rows = data.length;
         this.cols = data[0].length;
@@ -30,7 +30,7 @@ public class Matrix{
 
     }
 
-    public Matrix(int rows, int cols) {
+      public Matrix(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.data = new double[rows][cols];
@@ -45,7 +45,7 @@ public class Matrix{
 
     }
 
-    public Matrix(double[] data, int rows, int cols){
+      public Matrix(double[] data, int rows, int cols){
         if(data.length != rows*cols) {
             throw new IllegalArgumentException("data length must be equal to rows*cols"
                     + "\nrows: " + rows + "\ncols: " + cols + "\ndata length: " + data.length);
@@ -64,7 +64,7 @@ public class Matrix{
         }
     }
 
-    public Matrix(int[] data, int rows, int cols){
+      public Matrix(int[] data, int rows, int cols){
         if(data.length != rows*cols) {
             throw new IllegalArgumentException("data length must be equal to rows*cols"
                     + "\nrows: " + rows + "\ncols: " + cols + "\ndata length: " + data.length);
@@ -83,7 +83,7 @@ public class Matrix{
         }
     }
 
-    public Matrix(int rows, int cols, double value){
+      public Matrix(int rows, int cols, double value){
         this.rows = rows;
         this.cols = cols;
         this.data = new double[rows][cols];
@@ -123,7 +123,7 @@ public class Matrix{
         return new Matrix(newData);
     }
 
-    public double getDeterminant(){
+      double getDeterminant(){
         if(this.rows != this.cols){
             throw new IllegalArgumentException("Matrix must be square");
         }else{
@@ -150,7 +150,7 @@ public class Matrix{
         return data[row][col];
     }
 
-    public Matrix add(Matrix b){
+    Matrix add(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         }
@@ -165,7 +165,7 @@ public class Matrix{
         }
     }
 
-    public Matrix subtract(Matrix b){
+    Matrix subtract(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         }
@@ -180,7 +180,7 @@ public class Matrix{
         }
     }
 
-    public Matrix multiply(Matrix b) {
+    Matrix multiply(Matrix b) {
         if (this.getCols() != b.getRows()) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         } else {
@@ -197,7 +197,7 @@ public class Matrix{
     }
 
 
-    public Matrix multiply(double b){
+      Matrix multiply(double b){
         double[][] data = new double[this.rows][this.cols];
         for(int i = 0; i < this.rows; i++){
             for(int j = 0; j < this.cols; j++){
@@ -207,7 +207,7 @@ public class Matrix{
         return new Matrix(data);
     }
 
-    public Matrix transpose(){
+      Matrix transpose(){
         double[][] data = new double[this.cols][this.rows];
         for(int i = 0; i < this.cols; i++){
             for(int j = 0; j < this.rows; j++){
@@ -217,7 +217,7 @@ public class Matrix{
         return new Matrix(data);
     }
 
-    public Matrix inverse() {
+      Matrix inverse() {
         if (this.rows != this.cols) {
             throw new IllegalArgumentException("Matrix must be square");
         } else {
@@ -245,7 +245,7 @@ public class Matrix{
     }
 
 
-    public void printMatrix() {
+      void printMatrix() {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.cols; j++) {
                 double value = this.data[i][j];
@@ -259,7 +259,7 @@ public class Matrix{
         }
     }
 
-    public Matrix pow(int exponant){
+      Matrix pow(int exponant){
         Matrix result = this;
         if(exponant == 0){
             return vmath.matrix.eye(this.getRows());
@@ -273,7 +273,7 @@ public class Matrix{
         }
     }
 
-    public boolean isEqual(Matrix a){
+      boolean isEqual(Matrix a){
         if(this.getRows() != a.getRows() || this.getCols() != a.getCols()){
             return false;
         }

@@ -694,6 +694,14 @@ public class vmath {
             return new Matrix(data);
         }
 
+        public static boolean compare(Matrix a, Matrix b){
+            return a.isEqual(b);
+        }
+
+        public static Matrix pow(Matrix a, int power){
+            return a.pow(power);
+        }
+
     }
 
 
