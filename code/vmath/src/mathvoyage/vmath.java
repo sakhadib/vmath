@@ -4,7 +4,8 @@ import java.util.ArrayList;
 
 public class vmath {
 
-    public static class constant{
+    public static class constant {
+        // Mathematical Constants
         public static final double PI = 3.14159265358979323846;
         public static final double E = 2.71828182845904523536;
         public static final double GOLDEN_RATIO = 1.61803398874989484820;
@@ -23,7 +24,34 @@ public class vmath {
         public static final double UNIVERSAL_GRAVITATIONAL_CONSTANT = 6.67430e-11; // N m²/kg²
         public static final double PLANCK_LENGTH = 1.616255e-35; // meters
         public static final double PLANCK_TIME = 5.39116e-44; // seconds
+
+        // Additional Mathematical Constants
+        public static final double SQUARE_ROOT_2 = 1.41421356237309504880;
+        public static final double SQUARE_ROOT_3 = 1.73205080756887729352;
+        public static final double SQUARE_ROOT_5 = 2.23606797749978969640;
+        public static final double SQUARE_ROOT_7 = 2.64575131106459059050;
+        public static final double PHI = (1 + SQUARE_ROOT_5) / 2; // The golden ratio
+
+        // Constants related to Planck Units
+        public static final double PLANCK_MASS = 2.17647e-8; // kg
+        public static final double PLANCK_CHARGE = 1.87555e-18; // C
+        public static final double PLANCK_TEMPERATURE = 1.416808e32; // K
+
+        // Atomic Constants
+        public static final double ELECTRON_MASS = 9.10938356e-31; // kg
+        public static final double PROTON_MASS = 1.6726219e-27; // kg
+        public static final double NEUTRON_MASS = 1.674927471e-27; // kg
+        public static final double ELECTRON_CHARGE = 1.60217662e-19; // C
+
+        // Astronomical Constants
+        public static final double LIGHT_YEAR = 9.461e15; // meters
+        public static final double PARSEC = 3.086e16; // meters
+        public static final double SOLAR_MASS = 1.989e30; // kg
+        public static final double EARTH_RADIUS = 6371000; // meters
+        public static final double MOON_RADIUS = 1737100; // meters
+        public static final double ASTRONOMICAL_UNIT = 1.496e11; // meters
     }
+
 
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
@@ -706,6 +734,44 @@ public class vmath {
             return a.pow(power);
         }
 
+    }
+
+    /**
+     * Contains functions to calculate vector operations
+     * @Author Adib Sakhawat
+     */
+    public static class Vector{
+        public static vector add(vector a, vector b){
+            return a.add(b);
+        }
+
+        public static vector subtract(vector a, vector b){
+            return a.subtract(b);
+        }
+
+        public static double scalerProduct(vector a, vector b){
+            return a.scalerProduct(b);
+        }
+
+        public static vector vectorProduct(vector a, vector b){
+            return a.vectorProduct(b);
+        }
+
+        public static vector multiply(vector a, Matrix m){
+            return a.multiply(m);
+        }
+
+        public static boolean compare(vector a, vector b){
+            return a.isEqual(b);
+        }
+
+        public static double magnitude(vector a){
+            return a.getMagnitude();
+        }
+
+        public static vector unitVector(vector a){
+            return a.getUnitVector();
+        }
     }
 
 

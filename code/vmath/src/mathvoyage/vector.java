@@ -107,18 +107,35 @@ public class vector {
         }
     }
 
-    public vector multiplyM(Matrix m){
-        if(m.getCols() != this.size){
-            throw new IllegalArgumentException("Matrix columns must be equal to vector size");
+    public double getMagnitude(){
+        double result = 0;
+        for(int i = 0; i < this.size; i++){
+            result += this.data[i] * this.data[i];
+        }
+        return vmath.algebra.sqrt(result);
+    }
+
+    public vector getUnitVector(){
+        vector result = new vector(this.size);
+        double magnitude = this.getMagnitude();
+        for(int i = 0; i < this.size; i++){
+            result.data[i] = this.data[i] / magnitude;
+        }
+        return result;
+    }
+
+    public boolean isEqual(vector other){
+        if(this.size != other.size){
+            return false;
         }
         else{
-            vector result = new vector(m.getRows());
-            for(int i = 0; i < m.getRows(); i++){
-                for(int j = 0; j < this.size; j++){
-                    result.data[i] += m.getData()[i][j] * this.data[j];
+            for(int i = 0; i < this.size; i++){
+                if(this.data[i] != other.data[i]){
+                    return false;
                 }
             }
-            return result;
+            return true;
         }
     }
+
 }
