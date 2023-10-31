@@ -1,3 +1,4 @@
+import mathvoyage.Geometry;
 import mathvoyage.Matrix;
 import mathvoyage.*;
 import mathvoyage.Angle;
@@ -129,7 +130,23 @@ public class Main {
 //        double[][] data1 = {{1, 2, 3}, {4, 5, 6}};
 
 
-
+        //For Base Conversion Functions
+        System.out.println("Base Conversion Functions");
+        System.out.println("____________________________________________");
+        System.out.println("Binary of 10(dec) : " + vmath.baseConverter.decToBin(10));
+        System.out.println("Octal of 10(dec) : " + vmath.baseConverter.decToOct(10));
+        System.out.println("Hexadecimal of 10(dec) : " + vmath.baseConverter.decToHex(10));
+        System.out.println("Decimal of 1010(bin) : " + vmath.baseConverter.binToDec("1010"));
+        System.out.println("Octal of 1010(bin) : " + vmath.baseConverter.binToOct("1010"));
+        System.out.println("Hexadecimal of 1010(bin) : " + vmath.baseConverter.binToHex("1010"));
+        System.out.println("Binary of 12(oct) : " + vmath.baseConverter.octToBin("12"));
+        System.out.println("Decimal of 12(oct) : " + vmath.baseConverter.octToDec("12"));
+        System.out.println("Hexadecimal of 12(oct) : " + vmath.baseConverter.octToHex("12"));
+        System.out.println("Binary of A(Hex) : " + vmath.baseConverter.hexToBin("A"));
+        System.out.println("Octal of A(Hex) : " + vmath.baseConverter.hexToOct("A"));
+        System.out.println("Decimal of A(Hex) : " + vmath.baseConverter.hexToDec("A"));
+        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
+        System.out.println("____________________________________________\n\n\n\n");
 
 
 
