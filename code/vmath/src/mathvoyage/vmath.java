@@ -646,5 +646,55 @@ public class vmath {
         }
     }
 
+    public static class matrix{
+        public static Matrix add(Matrix a, Matrix b){
+            return a.add(b);
+        }
+
+        public static Matrix subtract(Matrix a, Matrix b){
+            return a.subtract(b);
+        }
+
+        public static Matrix multiply(Matrix a, Matrix b){
+            return a.multiply(b);
+        }
+
+        public static Matrix transpose(Matrix a){
+            return a.transpose();
+        }
+
+        public static Matrix inverse(Matrix a){
+            return a.inverse();
+        }
+
+        public static double detarminant(Matrix a){
+            return a.getDeterminant();
+        }
+
+        public static Matrix zeros(int rows, int cols) {
+            double[][] data = new double[rows][cols];
+            return new Matrix(data);
+        }
+
+        public Matrix ones(int rows, int cols) {
+            double[][] data = new double[rows][cols];
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    data[i][j] = 1;
+                }
+            }
+            return new Matrix(data);
+        }
+
+        public static Matrix eye(int n) {
+            double[][] data = new double[n][n];
+            for (int i = 0; i < n; i++) {
+                data[i][i] = 1;
+            }
+            return new Matrix(data);
+        }
+
+    }
+
 
 }

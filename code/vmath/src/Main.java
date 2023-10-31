@@ -126,9 +126,7 @@ public class Main {
 //            System.out.println(e);
 //        }
 
-        matOparation mo = matOparation.getInstance();
 
-        mo.zeros(10, 2).printMatrix();
 
 
 

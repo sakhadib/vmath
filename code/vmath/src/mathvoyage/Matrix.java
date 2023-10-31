@@ -259,6 +259,36 @@ public class Matrix{
         }
     }
 
+    public Matrix pow(int exponant){
+        Matrix result = this;
+        if(exponant == 0){
+            return vmath.matrix.eye(this.getRows());
+        }else if(exponant > 0){
+            for(int i = 0; i < exponant - 1; i++){
+                result = result.multiply(this);
+            }
+            return result;
+        }else{
+            throw new IllegalArgumentException("Exponant must be positive");
+        }
+    }
+
+    public boolean isEqual(Matrix a){
+        if(this.getRows() != a.getRows() || this.getCols() != a.getCols()){
+            return false;
+        }
+        else{
+            for(int i = 0; i < this.getRows(); i++){
+                for(int j = 0; j < this.getCols(); j++){
+                    if(this.get(i, j) != a.get(i, j)){
+                        return false;
+                    }
+                }
+            }
+            return true;
+        }
+    }
+
 
 
 
