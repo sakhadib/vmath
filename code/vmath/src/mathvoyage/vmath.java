@@ -646,6 +646,10 @@ public class vmath {
         }
     }
 
+    /**
+     * Contains functions to calculate the determinant, inverse, transpose, addition, subtraction, multiplication, and more of matrices.
+     * @Author Adib Sakhawat
+     */
     public static class matrix{
         public static Matrix add(Matrix a, Matrix b){
             return a.add(b);
