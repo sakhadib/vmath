@@ -1,4 +1,4 @@
-package mathvoyage;
+package mathvoyage.geometry;
 
 public interface Point {
     double getX();

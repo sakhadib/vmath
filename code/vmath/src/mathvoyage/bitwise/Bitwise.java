@@ -1,4 +1,4 @@
-package mathvoyage;
+package mathvoyage.bitwise;
 
 public class Bitwise {
 private static Bitwise instance;

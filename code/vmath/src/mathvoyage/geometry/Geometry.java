@@ -1,4 +1,8 @@
-package mathvoyage;
+package mathvoyage.geometry;
+
+import mathvoyage.trig.Angle;
+import mathvoyage.vmath;
+
 /**
  * voyager.geometry.java
  * @author Tahsin Islam

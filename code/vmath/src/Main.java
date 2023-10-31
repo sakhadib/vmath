@@ -1,13 +1,3 @@
-import mathvoyage.Geometry;
-import mathvoyage.Matrix;
-import mathvoyage.*;
-import mathvoyage.Angle;
-import java.util.ArrayList;
-import java.lang.management.ManagementFactory;
-import java.lang.management.ThreadMXBean;
-import java.util.Scanner;
-
-
 public class Main {
     public static void main(String[] args) {
 //

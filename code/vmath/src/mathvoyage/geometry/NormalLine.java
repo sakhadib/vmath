@@ -1,4 +1,4 @@
-package mathvoyage;
+package mathvoyage.geometry;
 
 public class NormalLine implements Line{
     public double slope;

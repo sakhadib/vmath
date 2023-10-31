@@ -1,4 +1,6 @@
-package mathvoyage;
+package mathvoyage.matrix;
+import mathvoyage.vmath;
+
 import java.util.Random;
 
 /**
@@ -123,7 +125,7 @@ import java.util.Random;
         return new Matrix(newData);
     }
 
-      double getDeterminant(){
+      public double getDeterminant(){
         if(this.rows != this.cols){
             throw new IllegalArgumentException("Matrix must be square");
         }else{
@@ -150,7 +152,7 @@ import java.util.Random;
         return data[row][col];
     }
 
-    Matrix add(Matrix b){
+    public Matrix add(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         }
@@ -165,7 +167,7 @@ import java.util.Random;
         }
     }
 
-    Matrix subtract(Matrix b){
+    public Matrix subtract(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         }
@@ -180,7 +182,7 @@ import java.util.Random;
         }
     }
 
-    Matrix multiply(Matrix b) {
+    public Matrix multiply(Matrix b) {
         if (this.getCols() != b.getRows()) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
         } else {
@@ -197,7 +199,7 @@ import java.util.Random;
     }
 
 
-      Matrix multiply(double b){
+      public Matrix multiply(double b){
         double[][] data = new double[this.rows][this.cols];
         for(int i = 0; i < this.rows; i++){
             for(int j = 0; j < this.cols; j++){
@@ -207,7 +209,7 @@ import java.util.Random;
         return new Matrix(data);
     }
 
-      Matrix transpose(){
+      public Matrix transpose(){
         double[][] data = new double[this.cols][this.rows];
         for(int i = 0; i < this.cols; i++){
             for(int j = 0; j < this.rows; j++){
@@ -217,7 +219,7 @@ import java.util.Random;
         return new Matrix(data);
     }
 
-      Matrix inverse() {
+      public Matrix inverse() {
         if (this.rows != this.cols) {
             throw new IllegalArgumentException("Matrix must be square");
         } else {
@@ -245,7 +247,7 @@ import java.util.Random;
     }
 
 
-      void printMatrix() {
+      public void printMatrix() {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.cols; j++) {
                 double value = this.data[i][j];
@@ -259,7 +261,7 @@ import java.util.Random;
         }
     }
 
-      Matrix pow(int exponant){
+      public Matrix pow(int exponant){
         Matrix result = this;
         if(exponant == 0){
             return vmath.matrix.eye(this.getRows());
@@ -273,7 +275,7 @@ import java.util.Random;
         }
     }
 
-      boolean isEqual(Matrix a){
+      public boolean isEqual(Matrix a){
         if(this.getRows() != a.getRows() || this.getCols() != a.getCols()){
             return false;
         }

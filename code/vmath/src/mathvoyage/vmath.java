@@ -1,5 +1,14 @@
 package mathvoyage;
 
+import mathvoyage.NumberSystem.BaseConverter;
+import mathvoyage.algebra.Algebra;
+import mathvoyage.algebra.Factorial_UTIL;
+import mathvoyage.combinatorics.Combinatorics;
+import mathvoyage.matrix.Matrix;
+import mathvoyage.matrix.vector;
+import mathvoyage.trig.Angle;
+import mathvoyage.trig.trigonometry;
+
 import java.util.ArrayList;
 
 public class vmath {

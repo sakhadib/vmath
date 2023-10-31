@@ -1,4 +1,4 @@
-package mathvoyage;
+package mathvoyage.algebra;
 
 public class Factorial_UTIL {
     private double[] fact = new double[171];

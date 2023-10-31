@@ -1,4 +1,7 @@
-package mathvoyage;
+package mathvoyage.trig;
+
+import mathvoyage.vmath;
+
 /**
     * voyager.trigonometry.java
     * @author Tahsin Islam

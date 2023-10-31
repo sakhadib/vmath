@@ -1,6 +1,7 @@
-package mathvoyage;
+package mathvoyage.combinatorics;
+import mathvoyage.vmath;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class Combinatorics {
     private static Combinatorics instance;
@@ -62,20 +63,20 @@ public class Combinatorics {
     * @return the subsets of a sets.
     */
 
-         static ArrayList<ArrayList<Integer>> generateSubsets(Integer[] set){
-             int n = set.length;
-             ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
-             for (int i=0;i<(1<<n);i++){
-                ArrayList<Integer> subset = new ArrayList<>();
-                for (int j=0; j<n; j++){
-                    if ((i&(1<<j))>0){
-                        subset.add(set[j]);
-                    }
+    public static ArrayList<ArrayList<Integer>> generateSubsets(Integer[] set){
+         int n = set.length;
+         ArrayList<ArrayList<Integer>> subsets = new ArrayList<>();
+         for (int i=0;i<(1<<n);i++){
+            ArrayList<Integer> subset = new ArrayList<>();
+            for (int j=0; j<n; j++){
+                if ((i&(1<<j))>0){
+                    subset.add(set[j]);
                 }
-                subsets.add(subset);
-             }
-             return subsets;
-       }
+            }
+            subsets.add(subset);
+         }
+         return subsets;
+    }
 
     /**
      * Return number of subsets of a set.

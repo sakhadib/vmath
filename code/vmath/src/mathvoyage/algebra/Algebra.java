@@ -1,4 +1,4 @@
-package mathvoyage;
+package mathvoyage.algebra;
 
 /**
  * voyager.Algebra.java

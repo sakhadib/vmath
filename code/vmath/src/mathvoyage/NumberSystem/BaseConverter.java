@@ -1,4 +1,6 @@
-package mathvoyage;
+package mathvoyage.NumberSystem;
+
+import mathvoyage.vmath;
 
 public class BaseConverter {
 

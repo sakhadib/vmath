@@ -1,4 +1,6 @@
-package mathvoyage;
+package mathvoyage.matrix;
+
+import mathvoyage.vmath;
 
 public class vector {
     private double[] data;
