@@ -104,27 +104,31 @@ public class Main {
 
 
 
-        //After Progress Presentation
+//        //After Progress Presentation
+//
+//        double[][] data1 = {{2, 1, 1}, {1, 3, 2}, {1, 2, 4}};
+//        double[][] data2 = {{9, 8, 7}, {7, 6, 5}, {5, 4, 3}};
+//        double[][] data3 = {{2, 7}, {3, 9}, {4, 8}, {5, 6}};
+//        double[][] data4 = {{1, 2, 3}, {4, 5, 6}};
+//        Matrix a = new Matrix(data1);
+//        Matrix b = new Matrix(data2);
+//        Matrix c = new Matrix(data3);
+//        Matrix d = new Matrix(data4);
+//
+////        Matrix a = new Matrix(3, 3);
+////        Matrix b = new Matrix(3, 3);
+//
+//        //c.multiply(d).printMatrix();
+//        try {
+//            c.inverse().printMatrix();
+//        }
+//        catch (Exception e) {
+//            System.out.println(e);
+//        }
 
-        double[][] data1 = {{2, 1, 1}, {1, 3, 2}, {1, 2, 4}};
-        double[][] data2 = {{9, 8, 7}, {7, 6, 5}, {5, 4, 3}};
-        double[][] data3 = {{2, 7}, {3, 9}, {4, 8}, {5, 6}};
-        double[][] data4 = {{1, 2, 3}, {4, 5, 6}};
-        Matrix a = new Matrix(data1);
-        Matrix b = new Matrix(data2);
-        Matrix c = new Matrix(data3);
-        Matrix d = new Matrix(data4);
+        matOparation mo = matOparation.getInstance();
 
-//        Matrix a = new Matrix(3, 3);
-//        Matrix b = new Matrix(3, 3);
-
-        //c.multiply(d).printMatrix();
-        try {
-            c.inverse().printMatrix();
-        }
-        catch (Exception e) {
-            System.out.println(e);
-        }
+        mo.zeros(10, 2).printMatrix();
 
 
 
