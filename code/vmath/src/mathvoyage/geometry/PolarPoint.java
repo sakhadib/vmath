@@ -1,6 +1,6 @@
 package mathvoyage.geometry;
 
-import mathvoyage.trig.Angle;
+import mathvoyage.Angle;
 import mathvoyage.vmath;
 
 public class PolarPoint implements Point{

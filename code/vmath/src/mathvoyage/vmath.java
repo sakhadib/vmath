@@ -6,7 +6,6 @@ import mathvoyage.algebra.Factorial_UTIL;
 import mathvoyage.combinatorics.Combinatorics;
 import mathvoyage.matrix.Matrix;
 import mathvoyage.matrix.vector;
-import mathvoyage.trig.Angle;
 import mathvoyage.trig.trigonometry;
 
 import java.util.ArrayList;

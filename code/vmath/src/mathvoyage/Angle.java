@@ -1,4 +1,4 @@
-package mathvoyage.trig;
+package mathvoyage;
 
 public enum Angle {
     DEGREE, RADIAN;
