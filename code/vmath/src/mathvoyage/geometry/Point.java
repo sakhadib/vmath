@@ -5,4 +5,8 @@ public interface Point {
     double getY();
     double getR();
     double getTheta();
+
+    public static Point getPoint(double x, double y){
+        return new CartesianPoint(x, y);
+    }
 }

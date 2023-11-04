@@ -67,5 +67,29 @@ public class Geometry {
         return distance;
     }
 
+    /**
+     * Returns the slope of a line between two points.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @return The slope of the line between the two points
+     */
+    public double slope(Point p1, Point p2){
+        double slope = (p2.getY() - p1.getY()) / (p2.getX() - p1.getX());
+        return slope;
+    }
+
+    /**
+     * Returns the midpoint of a line between two points.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @return The midpoint of the line between the two points
+     */
+    public Point midpoint(Point p1, Point p2) {
+        double x = (p1.getX() + p2.getX()) / 2;
+        double y = (p1.getY() + p2.getY()) / 2;
+        Point midpoint = new CartesianPoint(x, y);
+        return midpoint;
+    }
+
 
 }
