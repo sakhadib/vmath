@@ -1,6 +1,7 @@
 package mathvoyage.geometry;
 
 import mathvoyage.Angle;
+import mathvoyage.matrix.Matrix;
 import mathvoyage.vmath;
 
 /**
@@ -91,5 +92,18 @@ public class Geometry {
         return midpoint;
     }
 
+    /**
+     * Returns the centroid of a triangle.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return The centroid of the triangle
+     */
+    public Point centroid(Point p1, Point p2, Point p3){
+        double x = (p1.getX() + p2.getX() + p3.getX()) / 3;
+        double y = (p1.getY() + p2.getY() + p3.getY()) / 3;
+        Point centroid = new CartesianPoint(x, y);
+        return centroid;
+    }
 
 }
