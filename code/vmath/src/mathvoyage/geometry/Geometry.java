@@ -31,7 +31,10 @@ public class Geometry {
      * @return The distance between the two points in cartesian coordinates
      */
     public double distanceCartesian(Point p1, Point p2){
-        double distance = vmath.algebra.sqrt(vmath.algebra.sqrt(vmath.algebra.pow(p2.getX() - p1.getX(), 2) + vmath.algebra.pow(p2.getY() - p1.getY(), 2)));
+        double compx = vmath.algebra.pow(p2.getX() - p1.getX(), 2);
+        double compy = vmath.algebra.pow(p2.getY() - p1.getY(), 2);
+        double distance = vmath.algebra.sqrt(compx + compy);
+        //double distance = vmath.algebra.sqrt((vmath.algebra.pow(p2.getX() - p1.getX(), 2) + (vmath.algebra.pow(p2.getY() - p1.getY(), 2))));
         return distance;
     }
 
@@ -104,6 +107,13 @@ public class Geometry {
         double y = (p1.getY() + p2.getY() + p3.getY()) / 3;
         Point centroid = new CartesianPoint(x, y);
         return centroid;
+    }
+
+    public double areaOfTriangle(Point p1, Point p2, Point p3){
+        double m[][] = {{p1.getX(), p1.getY(), 1}, {p2.getX(), p2.getY(), 1}, {p3.getX(), p3.getY(), 1}};
+        Matrix matrix = new Matrix(m);
+        double area = 0.5 * matrix.getDeterminant();
+        return area;
     }
 
 }

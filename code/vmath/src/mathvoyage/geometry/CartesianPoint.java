@@ -2,6 +2,7 @@ package mathvoyage.geometry;
 
 import mathvoyage.Angle;
 import mathvoyage.vmath;
+import mathvoyage.*;
 
 public class CartesianPoint implements Point{
     double x;
@@ -12,8 +13,8 @@ public class CartesianPoint implements Point{
     public CartesianPoint(double x, double y){
         this.x = x;
         this.y = y;
-        this.r = getR();
-        this.theta = getTheta();
+        this.r = vmath.algebra.sqrt(x*x + y*y);
+        this.theta = vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
     }
     /**
      * Returns the x-coordinate of the point.
@@ -36,7 +37,7 @@ public class CartesianPoint implements Point{
      * @return The r-coordinate of the point
      */
     public double getR(){
-        return vmath.algebra.sqrt(x*x + y*y);
+        return r;
     }
 
     /**
@@ -44,7 +45,14 @@ public class CartesianPoint implements Point{
      * @return The theta-coordinate of the point
      */
     public double getTheta(){
-        return vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
+        return theta;
     }
 
+    public Point toPolar(){
+        return new PolarPoint(r, theta);
+    }
+
+    public Point toCartesian(){
+        return new CartesianPoint(x, y);
+    }
 }
