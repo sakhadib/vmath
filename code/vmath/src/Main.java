@@ -144,7 +144,15 @@ public class Main {
 //        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
 //        System.out.println("____________________________________________\n\n\n\n");
 //
-        
+        Geometry g = Geometry.getInstance();
+        Point p1 = new CartesianPoint(3, 2);
+        Point p2 = new CartesianPoint(2, -1);
+        Point p3 = new CartesianPoint(8, -3);
+        Point p4 = new CartesianPoint(9, 0);
+
+
+        double area = g.areaOfQuadrilaterial(p1, p2, p3, p4);
+        System.out.println(area);
 
     }
 

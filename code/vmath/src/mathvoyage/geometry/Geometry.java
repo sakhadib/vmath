@@ -109,6 +109,13 @@ public class Geometry {
         return centroid;
     }
 
+    /**
+     * Returns the area of a triangle.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return The area of the triangle
+     */
     public double areaOfTriangle(Point p1, Point p2, Point p3){
         double m[][] = {{p1.getX(), p1.getY(), 1}, {p2.getX(), p2.getY(), 1}, {p3.getX(), p3.getY(), 1}};
         Matrix matrix = new Matrix(m);
@@ -116,4 +123,48 @@ public class Geometry {
         return area;
     }
 
+    /**
+     * Returns the interleaver point of two points that divides the connecting line in a ratio of m:n.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param m The ratio of the first point
+     * @param n The ratio of the second point
+     * @return The interleaver point of the two points
+     */
+    public Point interleaverPoint(Point p1, Point p2, double m, double n){
+        double x = (m * p2.getX() + n * p1.getX()) / (m + n);
+        double y = (m * p2.getY() + n * p1.getY()) / (m + n);
+        Point interleaverPoint = new CartesianPoint(x, y);
+        return interleaverPoint;
+    }
+
+    /**
+     * Returns the externalizer point of two points that divides the connecting line in a ratio of m:n.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param m The ratio of the first point
+     * @param n The ratio of the second point
+     * @return The externalizer point of the two points
+     */
+    public Point externalizerPoint(Point p1, Point p2, double m, double n){
+        double x = (m * p2.getX() - n * p1.getX()) / (m - n);
+        double y = (m * p2.getY() - n * p1.getY()) / (m - n);
+        Point externalizerPoint = new CartesianPoint(x, y);
+        return externalizerPoint;
+    }
+
+    /**
+     * Returns the area of a quadrilaterial.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return The area of the quadrilaterial
+     */
+    public double areaOfQuadrilaterial(Point p1, Point p2, Point p3, Point p4){
+        double comp1 = p1.getX() * p2.getY() + p2.getX() * p3.getY() + p3.getX() * p4.getY() + p4.getX() * p1.getY();
+        double comp2 = p1.getY() * p2.getX() + p2.getY() * p3.getX() + p3.getY() * p4.getX() + p4.getY() * p1.getX();
+        double area = 0.5 * vmath.algebra.abs(comp1 - comp2);
+        return area;
+    }
 }
