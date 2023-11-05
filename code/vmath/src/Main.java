@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 import mathvoyage.bitwise.Bitwise;
-=======
+
 import mathvoyage.geometry.CartesianPoint;
 import mathvoyage.geometry.Geometry;
 import mathvoyage.geometry.Point;
 import mathvoyage.geometry.PolarPoint;
->>>>>>> 7c25cce77b32ee851027ec66aa5d21a48b5b96a7
+
 import mathvoyage.vmath;
 
 public class Main {
@@ -148,6 +148,7 @@ public class Main {
 //        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
 //        System.out.println("____________________________________________\n\n\n\n");
 //
+
 
 
 

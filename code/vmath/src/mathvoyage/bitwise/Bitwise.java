@@ -47,32 +47,7 @@ private static Bitwise instance;
 
 
 
-    public static double bitwiseOR(double a, double b) {
-        String binaryA = vmath.baseConverter.decToBin(a);
-        String binaryB = vmath.baseConverter.decToBin(a);
-
-        // Make the binary strings of equal length by prepending zeros if needed
-        int maxLength = vmath.algebra.max(binaryA.length(), binaryB.length());
-        binaryA = String.format("%" + maxLength + "s", binaryA).replace(' ', '0');
-        binaryB = String.format("%" + maxLength + "s", binaryB).replace(' ', '0');
-
-        StringBuilder resultBinary = new StringBuilder();
-
-        for (int i = 0; i < maxLength; i++) {
-            char bitA = binaryA.charAt(i);
-            char bitB = binaryB.charAt(i);
-
-            // Perform bitwise OR on the bits
-            int resultBit = (bitA == '1' || bitB == '1') ? 1 : 0;
-
-            resultBinary.append(resultBit);
-        }
-
-        // Convert the binary result back to an integer
-        double result = vmath.baseConverter.binToDec(String.valueOf(resultBinary));
-
-        return result;
-    }
+   
 
 
 
