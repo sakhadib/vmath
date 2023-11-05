@@ -12,8 +12,8 @@ public class PolarPoint implements Point{
     public PolarPoint(double r, double theta){
         this.r = r;
         this.theta = theta;
-        this.x = getX();
-        this.y = getY();
+        this.x = r * vmath.Trigonometry.cos(theta, Angle.DEGREE);
+        this.y = r * vmath.Trigonometry.sin(theta, Angle.DEGREE);
     }
 
     /**
@@ -37,7 +37,7 @@ public class PolarPoint implements Point{
      * @return The x-coordinate of the point
      */
     public double getX(){
-        return r * vmath.Trigonometry.cos(theta, Angle.DEGREE);
+        return x;
     }
 
     /**
@@ -45,7 +45,15 @@ public class PolarPoint implements Point{
      * @return The y-coordinate of the point
      */
     public double getY(){
-        return r * vmath.Trigonometry.sin(theta, Angle.DEGREE);
+        return y;
+    }
+
+    public Point toCartesian(){
+        return new CartesianPoint(x, y);
+    }
+
+    public Point toPolar(){
+        return new PolarPoint(r, theta);
     }
 
 }

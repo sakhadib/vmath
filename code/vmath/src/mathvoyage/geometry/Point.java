@@ -5,4 +5,7 @@ public interface Point {
     double getY();
     double getR();
     double getTheta();
+    Point toCartesian();
+    Point toPolar();
+
 }
