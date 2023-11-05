@@ -170,12 +170,26 @@ public class Geometry {
 
     /**
      * Returns the area of a circle.
-     * @param radius The radius of the circle
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
      * @return The area of the circle
      */
-    public double areaOfCircle(double radius){
+    public double areaOfCircle(Point p1, Point p2){
+        double radius = distanceCartesian(p1, p2);
         double area = vmath.constant.PI* vmath.algebra.pow(radius, 2);
         return area;
+    }
+
+    /**
+     * Returns the circumference of a circle.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @return The circumference of the circle
+     */
+    public double circumferenceOfCircle(Point p1, Point p2){
+        double radius = distanceCartesian(p1, p2);
+        double circumference = 2 * vmath.constant.PI * radius;
+        return circumference;
     }
 
     /**
@@ -196,6 +210,45 @@ public class Geometry {
             return false;
         }
     }
+
+    /**
+     * Returns if the triangle is a isosceles triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a isosceles triangle, false otherwise
+     */
+    public boolean isIsoscelesTriangle(Point p1, Point p2, Point p3){
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p1);
+        if (side1 == side2 || side2 == side3 || side3 == side1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the triangle is a scalene triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a scalene triangle, false otherwise
+     */
+    public boolean isScaleneTriangle(Point p1, Point p2, Point p3) {
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p1);
+        if (side1 != side2 && side2 != side3 && side3 != side1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    
 
 
 }
