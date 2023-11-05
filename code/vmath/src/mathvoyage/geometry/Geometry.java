@@ -248,7 +248,73 @@ public class Geometry {
         }
     }
 
-    
+    /**
+     * Returns if the triangle is a right triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a right triangle, false otherwise
+     */
+    public boolean isRightTriangle(Point p1, Point p2, Point p3){
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p1);
+        if (side1 == vmath.algebra.sqrt(vmath.algebra.pow(side2, 2) + vmath.algebra.pow(side3, 2)) || side2 == vmath.algebra.sqrt(vmath.algebra.pow(side1, 2) + vmath.algebra.pow(side3, 2)) || side3 == vmath.algebra.sqrt(vmath.algebra.pow(side1, 2) + vmath.algebra.pow(side2, 2))){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
+    /**
+     * Returns if the triangle is a obtuse triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a obtuse triangle, false otherwise
+     */
+    public boolean isObtuseTriangle(Point p1, Point p2, Point p3){
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p1));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p1), slope(p1, p2));
 
+        if(ang1 > 90 || ang2 > 90 || ang3 > 90){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the triangle is a acute triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a acute triangle, false otherwise
+     */
+    public boolean isAcuteTriangle(Point p1, Point p2, Point p3) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p1));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p1), slope(p1, p2));
+
+        if(ang1 != ang2 && ang2 != ang3 && ang3 != ang1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns the angle between two slopes.
+     * @param m1 The first slope
+     * @param m2 The second slope
+     * @return The angle between the two slopes
+     */
+    public double angleBetweenTwoSlopes(double m1, double m2){
+        double angle = vmath.Trigonometry.arctan(((m1-m2)/(1-m1*m2)), Angle.DEGREE);
+        return angle;
+    }
 }
