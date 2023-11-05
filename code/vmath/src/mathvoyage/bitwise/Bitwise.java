@@ -1,5 +1,9 @@
 package mathvoyage.bitwise;
 
+import mathvoyage.NumberSystem.BaseConverter;
+import mathvoyage.algebra.Algebra;
+import mathvoyage.vmath;
+
 public class Bitwise {
 private static Bitwise instance;
 
@@ -17,6 +21,75 @@ private static Bitwise instance;
         }
         return instance;
     }
+
+    /**
+     * Return the OR value
+     * @param a is the int value given
+     * @param b is the int value given
+     * @return or value
+      */
+    public static int bitwiseOR(int a, int b) {
+        int result = 0;
+        int mask = 1;
+
+        for (int i = 0; i < 32; i++) { // Assuming 32-bit integers
+            int bitA = (a & mask) >> i;
+            int bitB = (b & mask) >> i;
+            int bitwiseOR = (bitA | bitB) << i;
+
+            result |= bitwiseOR;
+            mask <<= 1;
+        }
+
+        return result;
+    }
+
+
+
+
+    public static double bitwiseOR(double a, double b) {
+        String binaryA = vmath.baseConverter.decToBin(a);
+        String binaryB = vmath.baseConverter.decToBin(a);
+
+        // Make the binary strings of equal length by prepending zeros if needed
+        int maxLength = vmath.algebra.max(binaryA.length(), binaryB.length());
+        binaryA = String.format("%" + maxLength + "s", binaryA).replace(' ', '0');
+        binaryB = String.format("%" + maxLength + "s", binaryB).replace(' ', '0');
+
+        StringBuilder resultBinary = new StringBuilder();
+
+        for (int i = 0; i < maxLength; i++) {
+            char bitA = binaryA.charAt(i);
+            char bitB = binaryB.charAt(i);
+
+            // Perform bitwise OR on the bits
+            int resultBit = (bitA == '1' || bitB == '1') ? 1 : 0;
+
+            resultBinary.append(resultBit);
+        }
+
+        // Convert the binary result back to an integer
+        double result = vmath.baseConverter.binToDec(String.valueOf(resultBinary));
+
+        return result;
+    }
+
+
+
+
+
+
+
+
+
+
+
+//    public class BitWiseAnd(String bin1, String bin2){
+//
+//    }
+
+
+
 
 
 }
