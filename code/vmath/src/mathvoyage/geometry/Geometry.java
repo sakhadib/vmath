@@ -167,4 +167,35 @@ public class Geometry {
         double area = 0.5 * vmath.algebra.abs(comp1 - comp2);
         return area;
     }
+
+    /**
+     * Returns the area of a circle.
+     * @param radius The radius of the circle
+     * @return The area of the circle
+     */
+    public double areaOfCircle(double radius){
+        double area = vmath.constant.PI* vmath.algebra.pow(radius, 2);
+        return area;
+    }
+
+    /**
+     * Returns if the triangle is a equilateral triangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @return True if the triangle is a equilateral triangle, false otherwise
+     */
+    public boolean isEquilateralTriangle(Point p1, Point p2, Point p3){
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p1);
+        if (side1 == side2 && side2 == side3){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+
 }
