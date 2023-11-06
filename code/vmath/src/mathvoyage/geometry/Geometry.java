@@ -317,4 +317,109 @@ public class Geometry {
         double angle = vmath.Trigonometry.arctan(((m1-m2)/(1-m1*m2)), Angle.DEGREE);
         return angle;
     }
+
+    /**
+     * Returns if the quadrilaterial is a rectangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a rectangle, false otherwise
+     */
+    public boolean isRectangle(Point p1, Point p2, Point p3, Point p4){
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if(side1 == side3 && side2 == side4 && side1 != side2 && ang1== 90 && ang2 == 90 && ang3 == 90 && ang4 == 90){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a square or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a square, false otherwise
+     */
+    public boolean isSquare(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == 90 && ang2 == 90 && ang3 == 90 && ang4 == 90) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a parallelogram or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a parallelogram, false otherwise
+     */
+    public boolean isParallelogram(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side3 && side2 == side4 && side1 != side2 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a rhombus or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a rhombus, false otherwise
+     */
+    public boolean isRhombus(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
