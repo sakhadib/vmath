@@ -422,4 +422,43 @@ public class Geometry {
             return false;
         }
     }
+
+    /**
+     * Returns if the two given lines are same or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return True if the two given lines are same, false otherwise
+     */
+    public boolean isSameLine(Line l1, Line l2){
+        double xRatio = l1.getCoefficientOfX() / l2.getCoefficientOfX();
+        double yRatio = l1.getCoefficientOfY() / l2.getCoefficientOfY();
+        double constantRatio = l1.getConstant() / l2.getConstant();
+
+        if(xRatio == yRatio && yRatio == constantRatio){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the given three lines are same or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @param l3 The third line
+     * @return True if the given three lines are same, false otherwise
+     */
+    public boolean isThreeLinesSame(Line l1, Line l2, Line l3){
+        double m[][] = {{l1.getCoefficientOfX(), l1.getCoefficientOfY(), l1.getConstant()}, {l2.getCoefficientOfX(), l2.getCoefficientOfY(), l2.getConstant()}, {l3.getCoefficientOfX(), l3.getCoefficientOfY(), l3.getConstant()}};
+        Matrix matrix = new Matrix(m);
+        double determinant = matrix.getDeterminant();
+
+        if(determinant == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }
