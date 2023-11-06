@@ -461,4 +461,19 @@ public class Geometry {
             return false;
         }
     }
+
+    /**
+     * Returns the intersection point of two lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return The intersection point of the two lines
+     */
+    public Point intersectionPoint(Line l1, Line l2){
+        double x = (l1.getCoefficientOfY()*l2.getConstant() - l2.getCoefficientOfY()*l1.getConstant()) / (l1.getCoefficientOfX()*l2.getCoefficientOfY() - l2.getCoefficientOfX()*l1.getCoefficientOfY());
+        double y = (l1.getConstant()*l2.getCoefficientOfX() - l2.getConstant()*l1.getCoefficientOfX()) / (l1.getCoefficientOfX()*l2.getCoefficientOfY() - l2.getCoefficientOfX()*l1.getCoefficientOfY());
+        Point p = new CartesianPoint(x, y);
+        return p;
+    }
+
+    
 }
