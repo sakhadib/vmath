@@ -317,4 +317,163 @@ public class Geometry {
         double angle = vmath.Trigonometry.arctan(((m1-m2)/(1-m1*m2)), Angle.DEGREE);
         return angle;
     }
+
+    /**
+     * Returns if the quadrilaterial is a rectangle or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a rectangle, false otherwise
+     */
+    public boolean isRectangle(Point p1, Point p2, Point p3, Point p4){
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if(side1 == side3 && side2 == side4 && side1 != side2 && ang1== 90 && ang2 == 90 && ang3 == 90 && ang4 == 90){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a square or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a square, false otherwise
+     */
+    public boolean isSquare(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == 90 && ang2 == 90 && ang3 == 90 && ang4 == 90) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a parallelogram or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a parallelogram, false otherwise
+     */
+    public boolean isParallelogram(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side3 && side2 == side4 && side1 != side2 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the quadrilaterial is a rhombus or not.
+     * @param p1 The first point in cartesian coordinates
+     * @param p2 The second point in cartesian coordinates
+     * @param p3 The third point in cartesian coordinates
+     * @param p4 The fourth point in cartesian coordinates
+     * @return True if the quadrilaterial is a rhombus, false otherwise
+     */
+    public boolean isRhombus(Point p1, Point p2, Point p3, Point p4) {
+        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
+        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
+        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
+        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
+
+        double side1 = distanceCartesian(p1, p2);
+        double side2 = distanceCartesian(p2, p3);
+        double side3 = distanceCartesian(p3, p4);
+        double side4 = distanceCartesian(p4, p1);
+
+        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the two given lines are same or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return True if the two given lines are same, false otherwise
+     */
+    public boolean isSameLine(Line l1, Line l2){
+        double xRatio = l1.getCoefficientOfX() / l2.getCoefficientOfX();
+        double yRatio = l1.getCoefficientOfY() / l2.getCoefficientOfY();
+        double constantRatio = l1.getConstant() / l2.getConstant();
+
+        if(xRatio == yRatio && yRatio == constantRatio){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns if the given three lines are same or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @param l3 The third line
+     * @return True if the given three lines are same, false otherwise
+     */
+    public boolean isThreeLinesSame(Line l1, Line l2, Line l3){
+        double m[][] = {{l1.getCoefficientOfX(), l1.getCoefficientOfY(), l1.getConstant()}, {l2.getCoefficientOfX(), l2.getCoefficientOfY(), l2.getConstant()}, {l3.getCoefficientOfX(), l3.getCoefficientOfY(), l3.getConstant()}};
+        Matrix matrix = new Matrix(m);
+        double determinant = matrix.getDeterminant();
+
+        if(determinant == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns the intersection point of two lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return The intersection point of the two lines
+     */
+    public Point intersectionPoint(Line l1, Line l2){
+        double x = (l1.getCoefficientOfY()*l2.getConstant() - l2.getCoefficientOfY()*l1.getConstant()) / (l1.getCoefficientOfX()*l2.getCoefficientOfY() - l2.getCoefficientOfX()*l1.getCoefficientOfY());
+        double y = (l1.getConstant()*l2.getCoefficientOfX() - l2.getConstant()*l1.getCoefficientOfX()) / (l1.getCoefficientOfX()*l2.getCoefficientOfY() - l2.getCoefficientOfX()*l1.getCoefficientOfY());
+        Point p = new CartesianPoint(x, y);
+        return p;
+    }
+
+    
 }
