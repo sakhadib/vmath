@@ -536,6 +536,46 @@ public class Geometry {
         return distance;
     }
 
+    /**
+     * Returns the perpendicular line of a line passing through a point.
+     * @param l The line
+     * @param p The point
+     * @return The perpendicular line of the line passing through the point
+     */
+    public Line getPerpendicularLine(Line l, Point p){
+        double k = -1 * (p.getY()*l.getCoefficientOfX() + p.getX()*l.getCoefficientOfY());
+        Line pl = new NormalLine(p.getY(), -1*p.getX(), k);
+        return pl;
+    }
+
+    /**
+     * Returns the parallel line of a line passing through a point.
+     * @param l The line
+     * @param p The point
+     * @return The parallel line of the line passing through the point
+     */
+    public Line getParallelLine(Line l, Point p){
+        double k = -1 * (p.getX()*l.getCoefficientOfX() + p.getY()*l.getCoefficientOfY());
+        Line pl = new NormalLine(l.getCoefficientOfX(), l.getCoefficientOfY(), k);
+        return pl;
+    }
+
+    /**
+     * Returns the line passing through the intersection point of two lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return The line passing through the intersection point of the two lines
+     */
+    public Line getLineFromIntersectingPoint(Line l1, Line l2){
+        Point p1 = intersectionPoint(l1, l2);
+        double k = -1 * ((l1.getCoefficientOfX()*p1.getX() + l1.getCoefficientOfY()*p1.getY() + l1.getConstant())/
+                l2.getCoefficientOfX() * p1.getX() + l2.getCoefficientOfY() * p1.getY() + l2.getConstant());
+        double a = l1.getCoefficientOfX() + k * l2.getCoefficientOfX();
+        double b = l1.getCoefficientOfY() + k * l2.getCoefficientOfY();
+        double c = l1.getConstant() + k * l2.getConstant();
+        Line l = new NormalLine(a, b, c);
+        return l;
+    }
 
     
 }
