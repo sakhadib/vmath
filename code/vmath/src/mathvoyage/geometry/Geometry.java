@@ -443,6 +443,19 @@ public class Geometry {
     }
 
     /**
+     * Returns the area of a triangle given three lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @param l3 The third line
+     * @return The area of the triangle
+     */
+    public double areaOfTriangleGivenLine(Line l1, Line l2, Line l3){
+        double m [][] = {{l1.getCoefficientOfX(), l1.getCoefficientOfY(), l1.getConstant()}, {l2.getCoefficientOfX(), l2.getCoefficientOfY(), l2.getConstant()}, {l3.getCoefficientOfX(), l3.getCoefficientOfY(), l3.getConstant()}};
+        Matrix matrix = new Matrix(m);
+        double area = matrix.getDeterminant();
+        return area;
+    }
+    /**
      * Returns if the given three lines are same or not
      * @param l1 The first line
      * @param l2 The second line
@@ -450,11 +463,8 @@ public class Geometry {
      * @return True if the given three lines are same, false otherwise
      */
     public boolean isThreeLinesSame(Line l1, Line l2, Line l3){
-        double m[][] = {{l1.getCoefficientOfX(), l1.getCoefficientOfY(), l1.getConstant()}, {l2.getCoefficientOfX(), l2.getCoefficientOfY(), l2.getConstant()}, {l3.getCoefficientOfX(), l3.getCoefficientOfY(), l3.getConstant()}};
-        Matrix matrix = new Matrix(m);
-        double determinant = matrix.getDeterminant();
-
-        if(determinant == 0){
+        double area = areaOfTriangleGivenLine(l1, l2, l3);
+        if(area == 0){
             return true;
         }
         else{
@@ -473,6 +483,98 @@ public class Geometry {
         double y = (l1.getConstant()*l2.getCoefficientOfX() - l2.getConstant()*l1.getCoefficientOfX()) / (l1.getCoefficientOfX()*l2.getCoefficientOfY() - l2.getCoefficientOfX()*l1.getCoefficientOfY());
         Point p = new CartesianPoint(x, y);
         return p;
+    }
+
+    /**
+     * Returns if the two given lines are parallel or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return True if the two given lines are parallel, false otherwise
+     */
+    public boolean isParallel(Line l1, Line l2){
+        return l1.getSlope() == l2.getSlope();
+    }
+
+    /**
+     * Returns if the two given lines are perpendicular or not
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return True if the two given lines are perpendicular, false otherwise
+     */
+    public boolean isPerpendicular(Line l1, Line l2){
+        return l1.getSlope() * l2.getSlope() == -1;
+    }
+
+    /**
+     * Returns the slope of a line.
+     * @param l The line
+     * @return The slope of the line
+     */
+    public double slopeOfLine(Line l){
+        return l.getSlope();
+    }
+
+    /**
+     * Returns the distance between two parallel lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return The distance between the two parallel lines
+     */
+    public double distanceBetweenTwoParallelLines(Line l1, Line l2){
+        double distance = vmath.algebra.abs((l1.getConstant()-l2.getConstant())/vmath.algebra.sqrt(vmath.algebra.pow(l1.getCoefficientOfX(), 2) + vmath.algebra.pow(l1.getCoefficientOfY(), 2)));
+        return distance;
+    }
+
+    /**
+     * Returns the perpendicular distance of a line form a point.
+     * @param l The line
+     * @param p The point
+     * @return The perpendicular distance of the line form the point
+     */
+    double perpendicularDistanceFromAPoint(Line l, Point p){
+        double distance = vmath.algebra.abs(l.getCoefficientOfX()*p.getX() + l.getCoefficientOfY()*p.getY() + l.getConstant()) / vmath.algebra.sqrt(vmath.algebra.pow(l.getCoefficientOfX(), 2) + vmath.algebra.pow(l.getCoefficientOfY(), 2));
+        return distance;
+    }
+
+    /**
+     * Returns the perpendicular line of a line passing through a point.
+     * @param l The line
+     * @param p The point
+     * @return The perpendicular line of the line passing through the point
+     */
+    public Line getPerpendicularLine(Line l, Point p){
+        double k = -1 * (p.getY()*l.getCoefficientOfX() + p.getX()*l.getCoefficientOfY());
+        Line pl = new NormalLine(p.getY(), -1*p.getX(), k);
+        return pl;
+    }
+
+    /**
+     * Returns the parallel line of a line passing through a point.
+     * @param l The line
+     * @param p The point
+     * @return The parallel line of the line passing through the point
+     */
+    public Line getParallelLine(Line l, Point p){
+        double k = -1 * (p.getX()*l.getCoefficientOfX() + p.getY()*l.getCoefficientOfY());
+        Line pl = new NormalLine(l.getCoefficientOfX(), l.getCoefficientOfY(), k);
+        return pl;
+    }
+
+    /**
+     * Returns the line passing through the intersection point of two lines.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @return The line passing through the intersection point of the two lines
+     */
+    public Line getLineFromIntersectingPoint(Line l1, Line l2){
+        Point p1 = intersectionPoint(l1, l2);
+        double k = -1 * ((l1.getCoefficientOfX()*p1.getX() + l1.getCoefficientOfY()*p1.getY() + l1.getConstant())/
+                l2.getCoefficientOfX() * p1.getX() + l2.getCoefficientOfY() * p1.getY() + l2.getConstant());
+        double a = l1.getCoefficientOfX() + k * l2.getCoefficientOfX();
+        double b = l1.getCoefficientOfY() + k * l2.getCoefficientOfY();
+        double c = l1.getConstant() + k * l2.getConstant();
+        Line l = new NormalLine(a, b, c);
+        return l;
     }
 
     
