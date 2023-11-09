@@ -156,4 +156,19 @@ private static Bitwise instance;
 
 
 
+     public int LeftShift (int num, int shiftBy) {
+
+
+         for (int i = 0; i < shiftBy; i++) {
+
+             num <<= 1;
+
+         }
+
+         return num;
+
+     }
+
+
+
 }
