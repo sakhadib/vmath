@@ -133,6 +133,26 @@ private static Bitwise instance;
      }
 
 
+    /**
+     * Return the rightshift value
+     * @param num the int value
+     * @param shiftBy is the value of how much value need to be shifted
+     * @return the rightshift value
+     */
+
+
+    public int RightShift (int num, int shiftBy){
+
+        for( int i=0; i<shiftBy; i++ ){
+
+            num >>= 1;
+
+        }
+
+        return num;
+
+     }
+
 
 
 
