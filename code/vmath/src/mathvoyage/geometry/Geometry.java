@@ -110,7 +110,7 @@ public class Geometry {
     }
 
     /**
-     * Returns the area of a triangle.
+     * Returns the area of a triangle inputted in anti-clockwise order.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -154,7 +154,7 @@ public class Geometry {
     }
 
     /**
-     * Returns the area of a quadrilaterial.
+     * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -575,6 +575,23 @@ public class Geometry {
         double c = l1.getConstant() + k * l2.getConstant();
         Line l = new NormalLine(a, b, c);
         return l;
+    }
+
+    /**
+     * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+     * @param l1 The first line
+     * @param l2 The second line
+     * @param l3 The third line
+     * @param l4 The fourth line
+     * @return The area of the quadrilaterial
+     */
+    public double areaOfQuadrilaterialUsingLine(Line l1, Line l2, Line l3, Line l4){
+        Point p1 = intersectionPoint(l1, l2);
+        Point p2 = intersectionPoint(l2, l3);
+        Point p3 = intersectionPoint(l3, l4);
+        Point p4 = intersectionPoint(l4, l1);
+        double area = areaOfQuadrilaterial(p1, p2, p3, p4);
+        return area;
     }
 
     
