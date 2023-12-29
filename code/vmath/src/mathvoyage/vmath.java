@@ -7,6 +7,7 @@ import mathvoyage.combinatorics.Combinatorics;
 import mathvoyage.matrix.Matrix;
 import mathvoyage.matrix.vector;
 import mathvoyage.trig.trigonometry;
+import mathvoyage.geometry.*;
 
 import java.util.ArrayList;
 
@@ -699,6 +700,10 @@ public class vmath {
             return a.multiply(b);
         }
 
+        public static Matrix multiply(Matrix m, double x){
+            return m.multiply(x);
+        }
+
         public static Matrix transpose(Matrix a){
             return a.transpose();
         }
@@ -779,6 +784,54 @@ public class vmath {
 
         public static vector unitVector(vector a){
             return a.getUnitVector();
+        }
+    }
+
+    public static class geometry{
+        public static double distance(Point p1, Point p2, distanceType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == distanceType.CARTESIAN){
+                return geo.distanceCartesian(p1, p2);
+            }
+            else if(c == distanceType.MANHATTAN){
+                return geo.manhattanDistance(p1, p2);
+            }
+            else if(c == distanceType.CHEBYSHEV){
+                return geo.chebyshevDistance(p1, p2);
+            }
+            else{
+                return geo.distancePolar(p1, p2);
+            }
+        }
+
+        public static double slope(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.slope(p1, p2);
+        }
+
+        public static Point midpoint(Point p1, Point p2) {
+            Geometry geo = Geometry.getInstance();
+            return geo.midpoint(p1, p2);
+        }
+
+        public static Point centroid(Point p1, Point p2, Point p3){
+            Geometry geo = Geometry.getInstance();
+            return geo.centroid(p1, p2, p3);
+        }
+
+        public static double areaOfTriangle(Point p1, Point p2, Point p3){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfTriangle(p1, p2, p3);
+        }
+
+        public static Point interleaverPoint(Point p1, Point p2, double m, double n){
+            Geometry geo = Geometry.getInstance();
+            return geo.interleaverPoint(p1, p2, m, n);
+        }
+
+        public Point externalizerPoint(Point p1, Point p2, double m, double n){
+            Geometry geo = Geometry.getInstance();
+            return geo.externalizerPoint(p1, p2, m, n);
         }
     }
 
