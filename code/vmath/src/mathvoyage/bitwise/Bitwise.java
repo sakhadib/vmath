@@ -84,7 +84,7 @@ private static Bitwise instance;
      */
     
 
-    public int BitWishNOT (int a){
+    public int BitWiseNOT (int a){
 
 
         int result = 0;
@@ -111,7 +111,7 @@ private static Bitwise instance;
      */
 
 
-     public int BitWishXOR( int a, int b){
+     public int BitWiseXOR( int a, int b){
 
         int result = 0;
 

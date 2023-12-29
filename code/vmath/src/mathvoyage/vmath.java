@@ -3,6 +3,7 @@ package mathvoyage;
 import mathvoyage.NumberSystem.BaseConverter;
 import mathvoyage.algebra.Algebra;
 import mathvoyage.algebra.Factorial_UTIL;
+import mathvoyage.bitwise.Bitwise;
 import mathvoyage.combinatorics.Combinatorics;
 import mathvoyage.matrix.Matrix;
 import mathvoyage.matrix.vector;
@@ -832,6 +833,43 @@ public class vmath {
         public Point externalizerPoint(Point p1, Point p2, double m, double n){
             Geometry geo = Geometry.getInstance();
             return geo.externalizerPoint(p1, p2, m, n);
+        }
+    }
+
+    public static class bitwise{
+        public static int and(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseAND(a, b);
+        }
+
+        public static int or(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseOR(a, b);
+        }
+
+        public static int xor(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseXOR(a, b);
+        }
+
+        public static int not(int a){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseNOT(a);
+        }
+
+        public static int leftShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.LeftShift(a, b);
+        }
+
+        public static int rightShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.RightShift(a, b);
+        }
+
+        public static String zeroFillRightShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.bitwiseZeroFillRightShift(a, b);
         }
     }
 
