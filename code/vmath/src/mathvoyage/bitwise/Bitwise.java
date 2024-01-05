@@ -84,7 +84,7 @@ private static Bitwise instance;
      */
     
 
-    public int BitWishNOT (int a){
+    public int BitWiseNOT (int a){
 
 
         int result = 0;
@@ -111,7 +111,7 @@ private static Bitwise instance;
      */
 
 
-     public int BitWishXOR( int a, int b){
+     public int BitWiseXOR( int a, int b){
 
         int result = 0;
 
@@ -154,7 +154,12 @@ private static Bitwise instance;
      }
 
 
-
+    /**
+     * Return the LeftShift value
+     * @param num the int value
+     * @param shiftBy is the value of how much value need to be shifted
+     * @return the LeftShift value
+     */
 
      public int LeftShift (int num, int shiftBy) {
 
@@ -168,6 +173,22 @@ private static Bitwise instance;
          return num;
 
      }
+
+  /**
+    * Returns the binary representation of a number.
+    * @param binaryNumber The number to be converted
+   * @param shiftAmount The number of bits to shift
+    * @return The binary representation of the number
+
+   */
+  public  String bitwiseZeroFillRightShift(int binaryNumber, int shiftAmount) {
+    binaryNumber = binaryNumber >> shiftAmount;
+     String r = BaseConverter.getInstance().decimalToBinary(binaryNumber);
+
+      return r;
+  }
+
+
 
 
 

@@ -11,7 +11,7 @@ import mathvoyage.vmath;
 public class Main {
     public static void main(String[] args) {
 //
-//        //For Algebraic Functions
+        //For Algebraic Functions
 //        Integer[] arr = {1, 5, 2, 4, 7, 3, 9, 8, 6, 10};
 //
 //        System.out.println("Algebraic Functions");
@@ -151,7 +151,7 @@ public class Main {
 
 
 
-      
+
 
 
 
