@@ -531,7 +531,7 @@ public class Geometry {
      * @param p The point
      * @return The perpendicular distance of the line form the point
      */
-    double perpendicularDistanceFromAPoint(Line l, Point p){
+    public double perpendicularDistanceFromAPoint(Line l, Point p){
         double distance = vmath.algebra.abs(l.getCoefficientOfX()*p.getX() + l.getCoefficientOfY()*p.getY() + l.getConstant()) / vmath.algebra.sqrt(vmath.algebra.pow(l.getCoefficientOfX(), 2) + vmath.algebra.pow(l.getCoefficientOfY(), 2));
         return distance;
     }

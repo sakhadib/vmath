@@ -788,7 +788,18 @@ public class vmath {
         }
     }
 
+    /**
+     * Contains functions to calculate coordinate geometric operations.
+     * @Author Tahsin Islam
+     */
     public static class geometry{
+        /**
+         * Returns the distance between two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param c The type of distance to return
+         * @return The distance between the two points
+         */
         public static double distance(Point p1, Point p2, distanceType c){
             Geometry geo = Geometry.getInstance();
             if(c == distanceType.CARTESIAN){
@@ -805,35 +816,309 @@ public class vmath {
             }
         }
 
+        /**
+         * Returns the slope of a line given two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The slope
+         */
         public static double slope(Point p1, Point p2){
             Geometry geo = Geometry.getInstance();
             return geo.slope(p1, p2);
         }
 
+        /**
+         * Returns the midpoint of given two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The midpoint
+         */
         public static Point midpoint(Point p1, Point p2) {
             Geometry geo = Geometry.getInstance();
             return geo.midpoint(p1, p2);
         }
 
+        /**
+         * Returns the centroid of given three points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @return The centroid
+         */
         public static Point centroid(Point p1, Point p2, Point p3){
             Geometry geo = Geometry.getInstance();
             return geo.centroid(p1, p2, p3);
         }
 
+        /**
+         * Returns the area of a triangle given three points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @return The area of the triangle
+         */
         public static double areaOfTriangle(Point p1, Point p2, Point p3){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfTriangle(p1, p2, p3);
         }
 
+        /**
+         * Returns the interleave point of two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The interleave point
+         */
         public static Point interleaverPoint(Point p1, Point p2, double m, double n){
             Geometry geo = Geometry.getInstance();
             return geo.interleaverPoint(p1, p2, m, n);
         }
 
+        /**
+         * Returns the externalizer point of two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The externalizer point
+         */
         public Point externalizerPoint(Point p1, Point p2, double m, double n){
             Geometry geo = Geometry.getInstance();
             return geo.externalizerPoint(p1, p2, m, n);
         }
+
+        /**
+         * Returns the area of a circle given two end points of the radius.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The area of the circle
+         */
+        public double areaOfCircle(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfCircle(p1, p2);
+        }
+
+        /**
+         * Returns the circumference of a circle given two end points of the radius.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The circumference of the circle
+         */
+        public double circumferenceOfCircle(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.circumferenceOfCircle(p1, p2);
+        }
+
+        /**
+         * Returns if the given three points form a triangle is of the given type.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @param c The type of triangle to check
+         * @return true if the triangle is of the given type, else false
+         */
+        public boolean isTriangle(Point p1, Point p2, Point p3, triangleType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == triangleType.EQUILATERAL){
+                return geo.isEquilateralTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.ISOSCELES){
+                return geo.isIsoscelesTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.SCALENE){
+                return geo.isScaleneTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.RIGHTANGLE){
+                return geo.isRightTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.OBTUSE){
+                return geo.isObtuseTriangle(p1, p2, p3);
+            }
+            else{
+                return geo.isAcuteTriangle(p1, p2, p3);
+            }
+        }
+
+        /**
+         * Return the angle between two slopes.
+         * @param m1 The first slope
+         * @param m2 The second slope
+         * @return The angle between the two slopes
+         */
+        public double angleBetweenTwoSlopes(double m1, double m2){
+            Geometry geo = Geometry.getInstance();
+            return geo.angleBetweenTwoSlopes(m1, m2);
+        }
+
+        /**
+         * Returns if the given four points form a quadrilaterial is of the given type.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @param p4 The fourth point
+         * @param c The type of quadrilaterial to check
+         * @return true if the quadrilaterial is of the given type, else false
+         */
+        public boolean isQuadrilaterial(Point p1, Point p2, Point p3, Point p4, quadrilaterialType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == quadrilaterialType.SQUARE){
+                return geo.isSquare(p1, p2, p3, p4);
+            }
+            else if(c == quadrilaterialType.RECTANGLE){
+                return geo.isRectangle(p1, p2, p3, p4);
+            }
+            else if(c == quadrilaterialType.RHOMBUS){
+                return geo.isRhombus(p1, p2, p3, p4);
+            }
+            else{
+                return geo.isParallelogram(p1, p2, p3, p4);
+            }
+        }
+
+        /**
+         * Returns if the given two lines are of the given type.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param c The type of line to check
+         * @return true if the line is of the given type, else false
+         */
+        public boolean isLine(Line l1, Line l2, lineType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == lineType.SAME){
+                return geo.isSameLine(l1, l2);
+            }
+            else if(c == lineType.PARALLEL){
+                return geo.isParallel(l1, l2);
+            }
+            else{
+                return geo.isPerpendicular(l1, l2);
+            }
+        }
+
+        /**
+         * Returns if the given three lines are same
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @return true if the lines are same, else false
+         */
+        public boolean areThreeLinesSame(Line l1, Line l2, Line l3){
+            Geometry geo = Geometry.getInstance();
+            return geo.isThreeLinesSame(l1, l2, l3);
+        }
+
+        /**
+         * Returns the intersection point of two lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The intersection point
+         */
+        public Point intersectionOfTwoLines(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.intersectionPoint(l1, l2);
+        }
+
+        /**
+         * Returns the slope of a line.
+         * @param l The line
+         * @return The slope
+         */
+        public double slopeOfLine(Line l){
+            Geometry geo = Geometry.getInstance();
+            return geo.slopeOfLine(l);
+        }
+
+        /**
+         * Returns the distance between two parallel lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The distance between the two lines
+         */
+        public double distanceBetweenTwoParallelLines(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.distanceBetweenTwoParallelLines(l1, l2);
+        }
+
+        /**
+         * Returns the perpendicular distance of a point from a line.
+         * @param l The line
+         * @param p The point
+         * @return The perpendicular distance
+         */
+        public double perpendicularDistanceFromAPointToALine(Line l, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.perpendicularDistanceFromAPoint(l, p);
+        }
+
+        /**
+         * Returns the perpendicular line of a line passing through a point.
+         * @param l The line
+         * @param p The point
+         * @return The perpendicular line of the line passing through the point
+         */
+        public Line getPerpendicularLine(Line l, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.getPerpendicularLine(l, p);
+        }
+
+        /**
+         * Returns the parallel line of a line passing through a point.
+         * @param l The line
+         * @param p The point
+         * @return The parallel line of the line passing through the point
+         */
+        public Line getParallelLine(Line l, Point p) {
+            Geometry geo = Geometry.getInstance();
+            return geo.getParallelLine(l, p);
+        }
+
+        /**
+         * Returns the line passing through the intersection point of two lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The line passing through the intersection point of the two lines
+         */
+        public Line getLineFromIntersectionPoint(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.getLineFromIntersectingPoint(l1, l2);
+        }
+
+        /**
+         * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @param l4 The fourth line
+         * @return The area of the quadrilaterial
+         */
+        public double areaOfQuadrilaterialUsingLines(Line l1, Line l2, Line l3, Line l4){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfQuadrilaterialUsingLine(l1, l2, l3, l4);
+        }
+
+        /**
+         * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
+         * @param p1 The first point in cartesian coordinates
+         * @param p2 The second point in cartesian coordinates
+         * @param p3 The third point in cartesian coordinates
+         * @param p4 The fourth point in cartesian coordinates
+         * @return The area of the quadrilaterial
+         */
+        public double areaOfQuadrilaterialUsingPoints(Point p1, Point p2, Point p3, Point p4){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfQuadrilaterial(p1, p2, p3, p4);
+        }
+
+        /**
+         * Returns the area of a triangle given three lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @return The area of the triangle
+         */
+        public double areaOfTriangleUsingLines(Line l1, Line l2, Line l3){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfTriangleGivenLine(l1, l2, l3);
+        }
+
+
     }
 
     public static class bitwise{
