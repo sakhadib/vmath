@@ -531,7 +531,7 @@ public class Geometry {
      * @param p The point
      * @return The perpendicular distance of the line form the point
      */
-    double perpendicularDistanceFromAPoint(Line l, Point p){
+    public double perpendicularDistanceFromAPoint(Line l, Point p){
         double distance = vmath.algebra.abs(l.getCoefficientOfX()*p.getX() + l.getCoefficientOfY()*p.getY() + l.getConstant()) / vmath.algebra.sqrt(vmath.algebra.pow(l.getCoefficientOfX(), 2) + vmath.algebra.pow(l.getCoefficientOfY(), 2));
         return distance;
     }
@@ -594,5 +594,40 @@ public class Geometry {
         return area;
     }
 
+    /**
+     * Returns the area of a convex polygon using points inputted in anticlockwise order.
+     * @param points The points of the convex polygon
+     * @return The area of the convex polygon
+     */
+    public double areaOfConvexPolygon(Point[] points){
+        double area = 0;
+        for(int i = 0; i < points.length - 1; i++){
+            area += points[i].getX() * points[i+1].getY() - points[i+1].getX() * points[i].getY();
+        }
+        area += points[points.length - 1].getX() * points[0].getY() - points[0].getX() * points[points.length - 1].getY();
+        area = vmath.algebra.abs(area) / 2;
+        return area;
+    }
+
+    /**
+     * Returns if the point is inside the polygon or not.
+     * @param points The points of the polygon
+     * @param p The point
+     * @return True if the point is inside the polygon, false otherwise
+     */
+    public boolean isPointInPolygon(Point[] points, Point p){
+        double areaOfPolygon = areaOfConvexPolygon(points);
+        double areaOfTriangle = 0;
+        for(int i = 0; i < points.length - 1; i++){
+            areaOfTriangle += areaOfTriangle(points[i], points[i+1], p);
+        }
+        areaOfTriangle += areaOfTriangle(points[points.length - 1], points[0], p);
+        if(areaOfTriangle == areaOfPolygon){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
     
 }

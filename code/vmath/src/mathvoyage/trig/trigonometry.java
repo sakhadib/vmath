@@ -253,14 +253,37 @@ public class trigonometry {
     public double arctanRad(double x) {
         if (x == 1)
             return PI / 4;
-        double arctan = 0;
-        for (int i = 0; i < 80; i++) {
-            double term = vmath.algebra.pow(-1, i) * vmath.algebra.pow(x, 2 * i + 1) / (2 * i + 1);
-            arctan += term;
+        else if (x>-1 && x<1){
+            double arctan = 0;
+            for (int i = 0; i < 100; i++) {
+                double term = vmath.algebra.pow(-1, i) * vmath.algebra.pow(x, 2 * i + 1) / (2 * i + 1);
+                arctan += term;
+            }
+            if(arctan < 0)
+                arctan = Math.PI + arctan;
+            return arctan;
         }
-        if(arctan < 0)
+        else if (x > 1) {
+            double arctan = Math.PI/2;
+            for(int i=0; i<100; i++){
+                double term = vmath.algebra.pow(-1,i)/(vmath.algebra.pow(x,2*i+1)*(2*i+1));
+                arctan -= term;
+            }
+            return arctan;
+        }
+
+        else if (x < -1) {
+            double arctan = -PI/2;
+            for(int i=0; i<100; i++){
+                double term = vmath.algebra.pow(-1,i)/(vmath.algebra.pow(x,2*i+1)*(2*i+1));
+                arctan -= term;
+            }
             arctan = PI + arctan;
-        return arctan;
+            return arctan;
+        }
+        else{
+            return PI - PI/4;
+        }
     }
 
     /**
