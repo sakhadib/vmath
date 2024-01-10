@@ -1020,7 +1020,7 @@ public class vmath {
          * @param l The line
          * @return The slope
          */
-        public double slopeOfLine(Line l){
+        public double slope(Line l){
             Geometry geo = Geometry.getInstance();
             return geo.slopeOfLine(l);
         }
@@ -1088,7 +1088,7 @@ public class vmath {
          * @param l4 The fourth line
          * @return The area of the quadrilaterial
          */
-        public double areaOfQuadrilaterialUsingLines(Line l1, Line l2, Line l3, Line l4){
+        public double areaOfQuadrilaterial(Line l1, Line l2, Line l3, Line l4){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfQuadrilaterialUsingLine(l1, l2, l3, l4);
         }
@@ -1101,7 +1101,7 @@ public class vmath {
          * @param p4 The fourth point in cartesian coordinates
          * @return The area of the quadrilaterial
          */
-        public double areaOfQuadrilaterialUsingPoints(Point p1, Point p2, Point p3, Point p4){
+        public double areaOfQuadrilaterial(Point p1, Point p2, Point p3, Point p4){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfQuadrilaterial(p1, p2, p3, p4);
         }
@@ -1113,45 +1113,112 @@ public class vmath {
          * @param l3 The third line
          * @return The area of the triangle
          */
-        public double areaOfTriangleUsingLines(Line l1, Line l2, Line l3){
+        public double areaOfTriangle(Line l1, Line l2, Line l3){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfTriangleGivenLine(l1, l2, l3);
         }
 
+        /**
+         * Returns the area of a convex polygon using points inputted in anticlockwise order.
+         * @param points The points of the convex polygon
+         * @return The area of the convex polygon
+         */
+        public double areaOfConvexPolygon(Point[] points){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfConvexPolygon(points);
+        }
+
+        /**
+         * Returns if the point is inside the polygon or not.
+         * @param points The points of the polygon
+         * @param p The point
+         * @return True if the point is inside the polygon, false otherwise
+         */
+        public boolean isPointInPolygon(Point[] points, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.isPointInPolygon(points, p);
+        }
 
     }
 
+    /**
+     * Contains functions to calculate bitwise operations.
+     * @Author Takia Farhin
+     */
     public static class bitwise{
+
+        /**
+         * Return the bitwise And value
+         * @param a is the given value
+         * @param b is the given value
+         * @return AND value
+         */
         public static int and(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseAND(a, b);
         }
 
+        /**
+         * Return the bitwise OR value
+         * @param a is the given value
+         * @param b is the given value
+         * @return OR value
+         */
         public static int or(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseOR(a, b);
         }
 
+        /**
+         * Return the bitwise XOR value
+         * @param a is the given value
+         * @param b is the given value
+         * @return XOR value
+         */
         public static int xor(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseXOR(a, b);
         }
 
+        /**
+         * Return the bitwise NOT value
+         * @param a is the given value
+         * @return NOT value
+         */
         public static int not(int a){
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseNOT(a);
         }
 
+        /**
+         * Return the leftshift value
+         * @param a the int value
+         * @param b is the value of how much value need to be shifted
+         * @return the rightshift value
+         */
         public static int leftShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.LeftShift(a, b);
         }
 
+        /**
+         * Return the rightshift value
+         * @param a the int value
+         * @param b is the value of how much value need to be shifted
+         * @return the rightshift value
+         */
         public static int rightShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.RightShift(a, b);
         }
 
+        /**
+         * Returns the binary representation of a number.
+         * @param a The number to be converted
+         * @param b The number of bits to shift
+         * @return The binary representation of the number
+
+         */
         public static String zeroFillRightShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
             return bit.bitwiseZeroFillRightShift(a, b);
