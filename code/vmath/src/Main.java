@@ -1,10 +1,5 @@
 
-import mathvoyage.bitwise.Bitwise;
-
-import mathvoyage.geometry.CartesianPoint;
-import mathvoyage.geometry.Geometry;
-import mathvoyage.geometry.Point;
-import mathvoyage.geometry.PolarPoint;
+import mathvoyage.*;
 
 import mathvoyage.vmath;
 
@@ -56,17 +51,25 @@ public class Main {
 //        System.out.println("____________________________________________");
 //        System.out.println("Arc sine of 0.5: " + vmath.Trigonometry.arcsin(0.5, Angle.DEGREE));
 //        System.out.println("Arc cosine of 0.5: " + vmath.Trigonometry.arccos(0.5, Angle.DEGREE));
-//        System.out.println("Arc-tangent of 0.5: " + vmath.Trigonometry.arctan(0.5, Angle.DEGREE));
-//        System.out.println("Arc cotangent of 2: " + vmath.Trigonometry.arccot(2, Angle.DEGREE));
+//        System.out.println("Arc-tangent of 0.5: " + vmath.Trigonometry.arctan((vmath.algebra.sqrt(3)), Angle.DEGREE));
+//        System.out.println("Arc cotangent of 2: " + vmath.Trigonometry.arccot(1, Angle.DEGREE));
 //        System.out.println("Arccosecant of 2: " + vmath.Trigonometry.arccosec(2, Angle.DEGREE));
 //        System.out.println("Arcsecant of 2: " + vmath.Trigonometry.arcsec(2, Angle.DEGREE));
 //        System.out.println("Arcsine of 0.5: " + vmath.Trigonometry.arcsin(0.5, Angle.RADIAN));
 //        System.out.println("Arccosine of 0.5: " + vmath.Trigonometry.arccos(0.5, Angle.RADIAN));
-//        System.out.println("Arctangent of 0.5: " + vmath.Trigonometry.arctan(0.5, Angle.RADIAN));
+//        System.out.println("Arctangent of 0.5: " + vmath.Trigonometry.arctan((vmath.algebra.sqrt(3)), Angle.RADIAN));
 //        System.out.println("Arccotangent of 2: " + vmath.Trigonometry.arccot(2, Angle.RADIAN));
 //        System.out.println("Arccosecant of 2: " + vmath.Trigonometry.arccosec(2, Angle.RADIAN));
 //        System.out.println("Arcsecant of 2: " + vmath.Trigonometry.arcsec(2, Angle.RADIAN));
 //        System.out.println("____________________________________________\n\n\n\n");
+
+        System.out.println(vmath.Trigonometry.arctan(1, Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(-1, Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(0, Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(1*vmath.algebra.sqrt(3), Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(-1*vmath.algebra.sqrt(3), Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(1/vmath.algebra.sqrt(3), Angle.DEGREE));
+        System.out.println(vmath.Trigonometry.arctan(-1/vmath.algebra.sqrt(3), Angle.DEGREE));
 //
 //        //For Combinatorics Functions
 //        System.out.println("Combinatorics Functions");
