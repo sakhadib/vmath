@@ -1,5 +1,5 @@
 package mathvoyage;
 
-public enum quadrilaterialType {
+public enum quadrilateralType {
     SQUARE, RECTANGLE, RHOMBUS, PARALLELOGRAM
 }
