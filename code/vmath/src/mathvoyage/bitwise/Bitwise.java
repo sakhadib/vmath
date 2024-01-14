@@ -178,7 +178,7 @@ private static Bitwise instance;
     * Returns the binary representation of a number.
     * @param binaryNumber The number to be converted
    * @param shiftAmount The number of bits to shift
-    * @return The binary representation of the number
+    * @return The binary representation of the bitwiseZeroFillRightShift number
 
    */
   public  String bitwiseZeroFillRightShift(int binaryNumber, int shiftAmount) {
