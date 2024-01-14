@@ -33,8 +33,11 @@ public class Geometry {
     public double distanceCartesian(Point p1, Point p2){
         double compx = vmath.algebra.pow(p2.getX() - p1.getX(), 2);
         double compy = vmath.algebra.pow(p2.getY() - p1.getY(), 2);
-        double distance = vmath.algebra.sqrt(compx + compy);
+        double tot = compx + compy;
+        double distance = vmath.algebra.sqrt(tot);
+//        double distance = Math.sqrt(tot);
         return distance;
+
     }
 
     /**
@@ -138,7 +141,7 @@ public class Geometry {
     }
 
     /**
-     * Returns the externalizer point of two points that divides the connecting line in a ratio of m:n.
+     * Returns the ent
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param m The ratio of the first point
@@ -560,14 +563,9 @@ public class Geometry {
      * @param l2 The second line
      * @return The line passing through the intersection point of the two lines
      */
-    public Line getLineFromIntersectingPoint(Line l1, Line l2){
+    public Line getLineFromIntersectingPoint(Line l1, Line l2, Point p){
         Point p1 = intersectionPoint(l1, l2);
-        double k = -1 * ((l1.getCoefficientOfX()*p1.getX() + l1.getCoefficientOfY()*p1.getY() + l1.getConstant())/
-                l2.getCoefficientOfX() * p1.getX() + l2.getCoefficientOfY() * p1.getY() + l2.getConstant());
-        double a = l1.getCoefficientOfX() + k * l2.getCoefficientOfX();
-        double b = l1.getCoefficientOfY() + k * l2.getCoefficientOfY();
-        double c = l1.getConstant() + k * l2.getConstant();
-        Line l = new NormalLine(a, b, c);
+        Line l = getLineFromTwoPoints(p, p1);
         return l;
     }
 
