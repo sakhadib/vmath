@@ -386,8 +386,8 @@ It returns the sine of an angle given in radians or degrees. The **time complexi
    
 **02. `Matrix subtract(Matrix a, Matrix b)`**  <br>
 It returns the difference of two matrices. The **time complexity** of this function is **$O(n^2)$**. <br>
-**Sample Input:** $\begin{bmatrix}9 & 8 & 7\\7 & 6 & 5\\5 & 4 & 3\end{bmatrix} , \begin{bmatrix}2 & 1 & 1\\1 & 3 & 2\\1 & 2 & 4\end{bmatrix}$   <br>
-**Sample Output:**  $\begin{bmatrix}7 & 7 & 6\\6 & 3 & 3\\4 & 2 & -1\end{bmatrix}$
+**Sample Input:** $\begin{bmatrix}9 & 8 & 7\\\7 & 6 & 5\\\5 & 4 & 3\end{bmatrix} , \begin{bmatrix}2 & 1 & 1\\\1 & 3 & 2\\\1 & 2 & 4\end{bmatrix}$   <br>
+**Sample Output:**  $\begin{bmatrix}7 & 7 & 6\\\6 & 3 & 3\\\4 & 2 & -1\end{bmatrix}$
 <hr>
 
  **03. `Matrix multiply(Matrix a, Matrix b)`**  <br>
