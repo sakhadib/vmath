@@ -3,10 +3,12 @@ package mathvoyage;
 import mathvoyage.NumberSystem.BaseConverter;
 import mathvoyage.algebra.Algebra;
 import mathvoyage.algebra.Factorial_UTIL;
+import mathvoyage.bitwise.Bitwise;
 import mathvoyage.combinatorics.Combinatorics;
 import mathvoyage.matrix.Matrix;
 import mathvoyage.matrix.vector;
 import mathvoyage.trig.trigonometry;
+import mathvoyage.geometry.*;
 
 import java.util.ArrayList;
 
@@ -454,7 +456,7 @@ public class vmath {
         }
 
         /**
-         * Returns the sine of an angle given in radian.
+         * Returns the sine of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The sine of the angle
@@ -469,7 +471,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cosine of an angle given in radian.
+         * Returns the cosine of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cosine of the angle
@@ -484,7 +486,7 @@ public class vmath {
         }
 
         /**
-         * Returns the tangent of an angle given in radian.
+         * Returns the tangent of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The tangent of the angle
@@ -499,7 +501,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cotangent of an angle given in radian.
+         * Returns the cotangent of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cotangent of the angle
@@ -514,7 +516,7 @@ public class vmath {
         }
 
         /**
-         * Returns the secant of an angle given in radian.
+         * Returns the secant of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The secant of the angle
@@ -529,7 +531,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cosecant of an angle given in radian.
+         * Returns the cosecant of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cosecant of the angle
@@ -687,36 +689,91 @@ public class vmath {
      * @Author Adib Sakhawat
      */
     public static class matrix{
+        /**
+         * Returns the addition of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The addition of the two matrices
+         */
         public static Matrix add(Matrix a, Matrix b){
             return a.add(b);
         }
 
+        /**
+         * Returns the subtraction of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The subtraction of the two matrices
+         */
         public static Matrix subtract(Matrix a, Matrix b){
             return a.subtract(b);
         }
 
+        /**
+         * Returns the multiplication of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The multiplication of the two matrices
+         */
         public static Matrix multiply(Matrix a, Matrix b){
             return a.multiply(b);
         }
 
+        /**
+         * Returns the multiplication of a matrix and a number.
+         * @param m The matrix
+         * @param x The number
+         * @return The multiplication of the matrix and the number
+         */
+        public static Matrix multiply(Matrix m, double x){
+            return m.multiply(x);
+        }
+
+        /**
+         * Returns the transpose of a matrix.
+         * @param a The matrix
+         * @return The transpose of the matrix
+         */
         public static Matrix transpose(Matrix a){
             return a.transpose();
         }
 
+        /**
+         * Returns the inverse of a matrix.
+         * @param a The matrix
+         * @return The inverse of the matrix
+         */
         public static Matrix inverse(Matrix a){
             return a.inverse();
         }
 
-        public static double detarminant(Matrix a){
+        /**
+         * Returns the determinant of a matrix.
+         * @param a The matrix
+         * @return The determinant of the matrix
+         */
+        public static double determinant(Matrix a){
             return a.getDeterminant();
         }
 
+        /**
+         * Returns a matrix of zeros of the given size.
+         * @param rows The number of rows
+         * @param cols The number of columns
+         * @return The matrix of zeros
+         */
         public static Matrix zeros(int rows, int cols) {
             double[][] data = new double[rows][cols];
             return new Matrix(data);
         }
 
-        public Matrix ones(int rows, int cols) {
+        /**
+         * Returns a matrix of ones of the given size.
+         * @param rows The number of rows
+         * @param cols The number of columns
+         * @return The matrix of ones
+         */
+        public static Matrix ones(int rows, int cols) {
             double[][] data = new double[rows][cols];
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
@@ -726,6 +783,11 @@ public class vmath {
             return new Matrix(data);
         }
 
+        /**
+         * Returns an identity matrix of the given size.
+         * @param n The size of the matrix
+         * @return The identity matrix
+         */
         public static Matrix eye(int n) {
             double[][] data = new double[n][n];
             for (int i = 0; i < n; i++) {
@@ -734,10 +796,22 @@ public class vmath {
             return new Matrix(data);
         }
 
+        /**
+         * Compares two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return true if the matrices are equal, else false
+         */
         public static boolean compare(Matrix a, Matrix b){
             return a.isEqual(b);
         }
 
+        /**
+         * Returns the power of a matrix.
+         * @param a The matrix
+         * @param power The power
+         * @return The power of the matrix
+         */
         public static Matrix pow(Matrix a, int power){
             return a.pow(power);
         }
@@ -779,6 +853,454 @@ public class vmath {
 
         public static vector unitVector(vector a){
             return a.getUnitVector();
+        }
+    }
+
+    /**
+     * Contains functions to calculate coordinate geometric operations.
+     * @Author Tahsin Islam
+     */
+    public static class geometry{
+        /**
+         * Returns the distance between two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param c The type of distance to return
+         * @return The distance between the two points
+         */
+        public static double distance(Point p1, Point p2, DistanceType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == DistanceType.CARTESIAN){
+                return geo.distanceCartesian(p1, p2);
+            }
+            else if(c == DistanceType.MANHATTAN){
+                return geo.manhattanDistance(p1, p2);
+            }
+            else if(c == DistanceType.CHEBYSHEV){
+                return geo.chebyshevDistance(p1, p2);
+            }
+            else{
+                return geo.distancePolar(p1, p2);
+            }
+        }
+
+        /**
+         * Returns the slope of a line given two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The slope
+         */
+        public static double slope(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.slope(p1, p2);
+        }
+
+        /**
+         * Returns the midpoint of given two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The midpoint
+         */
+        public static Point midpoint(Point p1, Point p2) {
+            Geometry geo = Geometry.getInstance();
+            return geo.midpoint(p1, p2);
+        }
+
+        /**
+         * Returns the centroid of given three points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @return The centroid
+         */
+        public static Point centroid(Point p1, Point p2, Point p3){
+            Geometry geo = Geometry.getInstance();
+            return geo.centroid(p1, p2, p3);
+        }
+
+        /**
+         * Returns the area of a triangle given three points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @return The area of the triangle
+         */
+        public static double areaOfTriangle(Point p1, Point p2, Point p3){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfTriangle(p1, p2, p3);
+        }
+
+        /**
+         * Returns the interleave point of two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The interleave point
+         */
+        public static Point interleaverPoint(Point p1, Point p2, double m, double n){
+            Geometry geo = Geometry.getInstance();
+            return geo.interleaverPoint(p1, p2, m, n);
+        }
+
+        /**
+         * Returns the externalizer point of two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The externalizer point
+         */
+        public static Point externalizerPoint(Point p1, Point p2, double m, double n){
+            Geometry geo = Geometry.getInstance();
+            return geo.externalizerPoint(p1, p2, m, n);
+        }
+
+        /**
+         * Returns the area of a circle given two end points of the radius.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The area of the circle
+         */
+        public static double areaOfCircle(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfCircle(p1, p2);
+        }
+
+        /**
+         * Returns the circumference of a circle given two end points of the radius.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The circumference of the circle
+         */
+        public static double circumferenceOfCircle(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.circumferenceOfCircle(p1, p2);
+        }
+
+        /**
+         * Returns if the given three points form a triangle is of the given type.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @param c The type of triangle to check
+         * @return true if the triangle is of the given type, else false
+         */
+        public static boolean isTriangle(Point p1, Point p2, Point p3, triangleType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == triangleType.EQUILATERAL){
+                return geo.isEquilateralTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.ISOSCELES){
+                return geo.isIsoscelesTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.SCALENE){
+                return geo.isScaleneTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.RIGHTANGLE){
+                return geo.isRightTriangle(p1, p2, p3);
+            }
+            else if(c == triangleType.OBTUSE){
+                return geo.isObtuseTriangle(p1, p2, p3);
+            }
+            else{
+                return geo.isAcuteTriangle(p1, p2, p3);
+            }
+        }
+
+        /**
+         * Return the angle between two slopes.
+         * @param m1 The first slope
+         * @param m2 The second slope
+         * @return The angle between the two slopes
+         */
+        public static double angleBetweenTwoSlopes(double m1, double m2){
+            Geometry geo = Geometry.getInstance();
+            return geo.angleBetweenTwoSlopes(m1, m2);
+        }
+
+        /**
+         * Returns if the given four points form a quadrilaterial is of the given type.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @param p3 The third point
+         * @param p4 The fourth point
+         * @param c The type of quadrilaterial to check
+         * @return true if the quadrilaterial is of the given type, else false
+         */
+        public static boolean isQuadrilaterial(Point p1, Point p2, Point p3, Point p4, quadrilateralType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == quadrilateralType.SQUARE){
+                return geo.isSquare(p1, p2, p3, p4);
+            }
+            else if(c == quadrilateralType.RECTANGLE){
+                return geo.isRectangle(p1, p2, p3, p4);
+            }
+            else if(c == quadrilateralType.RHOMBUS){
+                return geo.isRhombus(p1, p2, p3, p4);
+            }
+            else{
+                return geo.isParallelogram(p1, p2, p3, p4);
+            }
+        }
+
+        /**
+         * Returns if the given two lines are of the given type.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param c The type of line to check
+         * @return true if the line is of the given type, else false
+         */
+        public static boolean isLine(Line l1, Line l2, lineType c){
+            Geometry geo = Geometry.getInstance();
+            if(c == lineType.SAME){
+                return geo.isSameLine(l1, l2);
+            }
+            else if(c == lineType.PARALLEL){
+                return geo.isParallel(l1, l2);
+            }
+            else{
+                return geo.isPerpendicular(l1, l2);
+            }
+        }
+
+        /**
+         * Returns if the given three lines are same
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @return true if the lines are same, else false
+         */
+        public static boolean areThreeLinesSame(Line l1, Line l2, Line l3){
+            Geometry geo = Geometry.getInstance();
+            return geo.isThreeLinesSame(l1, l2, l3);
+        }
+
+        /**
+         * Returns the intersection point of two lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The intersection point
+         */
+        public static Point intersectionOfTwoLines(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.intersectionPoint(l1, l2);
+        }
+
+        /**
+         * Returns the slope of a line.
+         * @param l The line
+         * @return The slope
+         */
+        public static double slope(Line l){
+            Geometry geo = Geometry.getInstance();
+            return geo.slopeOfLine(l);
+        }
+
+        /**
+         * Returns the distance between two parallel lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The distance between the two lines
+         */
+        public static double distanceBetweenTwoParallelLines(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.distanceBetweenTwoParallelLines(l1, l2);
+        }
+
+        /**
+         * Returns the perpendicular distance of a point from a line.
+         * @param l The line
+         * @param p The point
+         * @return The perpendicular distance
+         */
+        public static double perpendicularDistanceFromAPointToALine(Line l, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.perpendicularDistanceFromAPoint(l, p);
+        }
+
+        /**
+         * Returns the perpendicular line of a line passing through a point.
+         * @param l The line
+         * @param p The point
+         * @return The perpendicular line of the line passing through the point
+         */
+        public static Line getPerpendicularLine(Line l, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.getPerpendicularLine(l, p);
+        }
+
+        /**
+         * Returns the parallel line of a line passing through a point.
+         * @param l The line
+         * @param p The point
+         * @return The parallel line of the line passing through the point
+         */
+        public static Line getParallelLine(Line l, Point p) {
+            Geometry geo = Geometry.getInstance();
+            return geo.getParallelLine(l, p);
+        }
+
+        /**
+         * Returns the line passing through the intersection point of two lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @return The line passing through the intersection point of the two lines
+         */
+        public static Line getLineFromIntersectionPoint(Line l1, Line l2){
+            Geometry geo = Geometry.getInstance();
+            return geo.getLineFromIntersectingPoint(l1, l2);
+        }
+
+        /**
+         * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @param l4 The fourth line
+         * @return The area of the quadrilaterial
+         */
+        public static double areaOfQuadrilateral(Line l1, Line l2, Line l3, Line l4){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfQuadrilateralUsingLine(l1, l2, l3, l4);
+        }
+
+        /**
+         * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
+         * @param p1 The first point in cartesian coordinates
+         * @param p2 The second point in cartesian coordinates
+         * @param p3 The third point in cartesian coordinates
+         * @param p4 The fourth point in cartesian coordinates
+         * @return The area of the quadrilaterial
+         */
+        public static double areaOfQuadrilateral(Point p1, Point p2, Point p3, Point p4){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfQuadrilateral(p1, p2, p3, p4);
+        }
+
+        /**
+         * Returns the area of a triangle given three lines.
+         * @param l1 The first line
+         * @param l2 The second line
+         * @param l3 The third line
+         * @return The area of the triangle
+         */
+        public static double areaOfTriangle(Line l1, Line l2, Line l3){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfTriangleGivenLine(l1, l2, l3);
+        }
+
+        /**
+         * Returns the area of a convex polygon using points inputted in anticlockwise order.
+         * @param points The points of the convex polygon
+         * @return The area of the convex polygon
+         */
+        public static double areaOfConvexPolygon(Point[] points){
+            Geometry geo = Geometry.getInstance();
+            return geo.areaOfConvexPolygon(points);
+        }
+
+        /**
+         * Returns if the point is inside the polygon or not.
+         * @param points The points of the polygon
+         * @param p The point
+         * @return True if the point is inside the polygon, false otherwise
+         */
+        public static boolean isPointInPolygon(Point[] points, Point p){
+            Geometry geo = Geometry.getInstance();
+            return geo.isPointInPolygon(points, p);
+        }
+
+        /**
+         * Returns the line passing through two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The line passing through the two points
+         */
+        public static Line getLineFromTwoPoints(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.getLineFromTwoPoints(p1, p2);
+        }
+
+    }
+
+    /**
+     * Contains functions to calculate bitwise operations.
+     * @Author Takia Farhin
+     */
+    public static class bitwise{
+
+        /**
+         * Return the bitwise And value
+         * @param a is the given value
+         * @param b is the given value
+         * @return AND value
+         */
+        public static int and(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseAND(a, b);
+        }
+
+        /**
+         * Return the bitwise OR value
+         * @param a is the given value
+         * @param b is the given value
+         * @return OR value
+         */
+        public static int or(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseOR(a, b);
+        }
+
+        /**
+         * Return the bitwise XOR value
+         * @param a is the given value
+         * @param b is the given value
+         * @return XOR value
+         */
+        public static int xor(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseXOR(a, b);
+        }
+
+        /**
+         * Return the bitwise NOT value
+         * @param a is the given value
+         * @return NOT value
+         */
+        public static int not(int a){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.BitWiseNOT(a);
+        }
+
+        /**
+         * Return the leftshift value
+         * @param a the int value
+         * @param b is the value of how much value need to be shifted
+         * @return the rightshift value
+         */
+        public static int leftShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.LeftShift(a, b);
+        }
+
+        /**
+         * Return the rightshift value
+         * @param a the int value
+         * @param b is the value of how much value need to be shifted
+         * @return the rightshift value
+         */
+        public static int rightShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.RightShift(a, b);
+        }
+
+        /**
+         * Returns the binary representation of a number.
+         * @param a The number to be converted
+         * @param b The number of bits to shift
+         * @return The binary representation of the number
+
+         */
+        public static String zeroFillRightShift(int a, int b){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.bitwiseZeroFillRightShift(a, b);
         }
     }
 

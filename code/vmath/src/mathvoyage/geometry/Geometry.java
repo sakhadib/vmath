@@ -34,7 +34,6 @@ public class Geometry {
         double compx = vmath.algebra.pow(p2.getX() - p1.getX(), 2);
         double compy = vmath.algebra.pow(p2.getY() - p1.getY(), 2);
         double distance = vmath.algebra.sqrt(compx + compy);
-        //double distance = vmath.algebra.sqrt((vmath.algebra.pow(p2.getX() - p1.getX(), 2) + (vmath.algebra.pow(p2.getY() - p1.getY(), 2))));
         return distance;
     }
 
@@ -120,7 +119,7 @@ public class Geometry {
         double m[][] = {{p1.getX(), p1.getY(), 1}, {p2.getX(), p2.getY(), 1}, {p3.getX(), p3.getY(), 1}};
         Matrix matrix = new Matrix(m);
         double area = 0.5 * matrix.getDeterminant();
-        return area;
+        return vmath.algebra.abs(area);
     }
 
     /**
@@ -154,14 +153,14 @@ public class Geometry {
     }
 
     /**
-     * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
+     * Returns the area of a quadrilateral using points inputted in anti-clockwise order.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
      * @param p4 The fourth point in cartesian coordinates
-     * @return The area of the quadrilaterial
+     * @return The area of the quadrilateral
      */
-    public double areaOfQuadrilaterial(Point p1, Point p2, Point p3, Point p4){
+    public double areaOfQuadrilateral(Point p1, Point p2, Point p3, Point p4){
         double comp1 = p1.getX() * p2.getY() + p2.getX() * p3.getY() + p3.getX() * p4.getY() + p4.getX() * p1.getY();
         double comp2 = p1.getY() * p2.getX() + p2.getY() * p3.getX() + p3.getY() * p4.getX() + p4.getY() * p1.getX();
         double area = 0.5 * vmath.algebra.abs(comp1 - comp2);
@@ -319,25 +318,22 @@ public class Geometry {
     }
 
     /**
-     * Returns if the quadrilaterial is a rectangle or not.
+     * Returns if the quadrilateral is a rectangle or not.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
      * @param p4 The fourth point in cartesian coordinates
-     * @return True if the quadrilaterial is a rectangle, false otherwise
+     * @return True if the quadrilateral is a rectangle, false otherwise
      */
     public boolean isRectangle(Point p1, Point p2, Point p3, Point p4){
-        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
-        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
-        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
-        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
-
         double side1 = distanceCartesian(p1, p2);
         double side2 = distanceCartesian(p2, p3);
         double side3 = distanceCartesian(p3, p4);
         double side4 = distanceCartesian(p4, p1);
+        double dig1 = distanceCartesian(p1, p3);
+        double dig2 = distanceCartesian(p2, p4);
 
-        if(side1 == side3 && side2 == side4 && side1 != side2 && ang1== 90 && ang2 == 90 && ang3 == 90 && ang4 == 90){
+        if(side1 == side3 && side2 == side4 && side1 != side2 && dig1 == dig2){
             return true;
         }
         else{
@@ -346,79 +342,73 @@ public class Geometry {
     }
 
     /**
-     * Returns if the quadrilaterial is a square or not.
+     * Returns if the quadrilateral is a square or not.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
      * @param p4 The fourth point in cartesian coordinates
-     * @return True if the quadrilaterial is a square, false otherwise
+     * @return True if the quadrilateral is a square, false otherwise
      */
     public boolean isSquare(Point p1, Point p2, Point p3, Point p4) {
-        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
-        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
-        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
-        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
-
         double side1 = distanceCartesian(p1, p2);
         double side2 = distanceCartesian(p2, p3);
         double side3 = distanceCartesian(p3, p4);
         double side4 = distanceCartesian(p4, p1);
+        double dig1 = distanceCartesian(p1, p3);
+        double dig2 = distanceCartesian(p2, p4);
 
-        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == 90 && ang2 == 90 && ang3 == 90 && ang4 == 90) {
+        if(side1 == side3 && side2 == side4 && side1 == side2 && dig1 == dig2){
             return true;
-        } else {
+        }
+        else{
             return false;
         }
     }
 
     /**
-     * Returns if the quadrilaterial is a parallelogram or not.
+     * Returns if the quadrilateral is a parallelogram or not.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
      * @param p4 The fourth point in cartesian coordinates
-     * @return True if the quadrilaterial is a parallelogram, false otherwise
+     * @return True if the quadrilateral is a parallelogram, false otherwise
      */
     public boolean isParallelogram(Point p1, Point p2, Point p3, Point p4) {
-        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
-        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
-        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
-        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
-
         double side1 = distanceCartesian(p1, p2);
         double side2 = distanceCartesian(p2, p3);
         double side3 = distanceCartesian(p3, p4);
         double side4 = distanceCartesian(p4, p1);
+        double dig1 = distanceCartesian(p1, p3);
+        double dig2 = distanceCartesian(p2, p4);
 
-        if (side1 == side3 && side2 == side4 && side1 != side2 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+        if(side1 == side3 && side2 == side4 && side1 != side2 && dig1 != dig2){
             return true;
-        } else {
+        }
+        else{
             return false;
         }
     }
 
     /**
-     * Returns if the quadrilaterial is a rhombus or not.
+     * Returns if the quadrilateral is a rhombus or not.
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
      * @param p4 The fourth point in cartesian coordinates
-     * @return True if the quadrilaterial is a rhombus, false otherwise
+     * @return True if the quadrilateral is a rhombus, false otherwise
      */
     public boolean isRhombus(Point p1, Point p2, Point p3, Point p4) {
-        double ang1 = angleBetweenTwoSlopes(slope(p1, p2), slope(p2, p3));
-        double ang2 = angleBetweenTwoSlopes(slope(p2, p3), slope(p3, p4));
-        double ang3 = angleBetweenTwoSlopes(slope(p3, p4), slope(p4, p1));
-        double ang4 = angleBetweenTwoSlopes(slope(p4, p1), slope(p1, p2));
-
         double side1 = distanceCartesian(p1, p2);
         double side2 = distanceCartesian(p2, p3);
         double side3 = distanceCartesian(p3, p4);
         double side4 = distanceCartesian(p4, p1);
+        double dig1 = distanceCartesian(p1, p3);
+        double dig2 = distanceCartesian(p2, p4);
 
-        if (side1 == side2 && side2 == side3 && side3 == side4 && ang1 == ang3 && ang2 == ang4 && ang1 != ang2) {
+        if(side1 == side3 && side2 == side4 && side1 == side2 && dig1 != dig2){
             return true;
-        } else {
+        }
+        else{
             return false;
         }
     }
@@ -450,10 +440,13 @@ public class Geometry {
      * @return The area of the triangle
      */
     public double areaOfTriangleGivenLine(Line l1, Line l2, Line l3){
-        double m [][] = {{l1.getCoefficientOfX(), l1.getCoefficientOfY(), l1.getConstant()}, {l2.getCoefficientOfX(), l2.getCoefficientOfY(), l2.getConstant()}, {l3.getCoefficientOfX(), l3.getCoefficientOfY(), l3.getConstant()}};
+        Point p1 = intersectionPoint(l1, l2);
+        Point p2 = intersectionPoint(l2, l3);
+        Point p3 = intersectionPoint(l3, l1);
+        double m[][] = {{p1.getX(), p1.getY(), 1}, {p2.getX(), p2.getY(), 1}, {p3.getX(), p3.getY(), 1}};
         Matrix matrix = new Matrix(m);
-        double area = matrix.getDeterminant();
-        return area;
+        double area = 0.5* matrix.getDeterminant();
+        return vmath.algebra.abs(area);
     }
     /**
      * Returns if the given three lines are same or not
@@ -531,7 +524,7 @@ public class Geometry {
      * @param p The point
      * @return The perpendicular distance of the line form the point
      */
-    double perpendicularDistanceFromAPoint(Line l, Point p){
+    public double perpendicularDistanceFromAPoint(Line l, Point p){
         double distance = vmath.algebra.abs(l.getCoefficientOfX()*p.getX() + l.getCoefficientOfY()*p.getY() + l.getConstant()) / vmath.algebra.sqrt(vmath.algebra.pow(l.getCoefficientOfX(), 2) + vmath.algebra.pow(l.getCoefficientOfY(), 2));
         return distance;
     }
@@ -543,8 +536,9 @@ public class Geometry {
      * @return The perpendicular line of the line passing through the point
      */
     public Line getPerpendicularLine(Line l, Point p){
-        double k = -1 * (p.getY()*l.getCoefficientOfX() + p.getX()*l.getCoefficientOfY());
-        Line pl = new NormalLine(p.getY(), -1*p.getX(), k);
+        double k = l.getCoefficientOfX() * p.getY() - l.getCoefficientOfY() * p.getX();
+        System.out.println(k);
+        Line pl = new NormalLine(l.getCoefficientOfY(), -1*l.getCoefficientOfX(), k);
         return pl;
     }
 
@@ -578,21 +572,70 @@ public class Geometry {
     }
 
     /**
-     * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+     * Returns the area of a quadrilateral using four lines inputted in anticlockwise order.
      * @param l1 The first line
      * @param l2 The second line
      * @param l3 The third line
      * @param l4 The fourth line
-     * @return The area of the quadrilaterial
+     * @return The area of the quadrilateral
      */
-    public double areaOfQuadrilaterialUsingLine(Line l1, Line l2, Line l3, Line l4){
+    public double areaOfQuadrilateralUsingLine(Line l1, Line l2, Line l3, Line l4){
         Point p1 = intersectionPoint(l1, l2);
         Point p2 = intersectionPoint(l2, l3);
         Point p3 = intersectionPoint(l3, l4);
         Point p4 = intersectionPoint(l4, l1);
-        double area = areaOfQuadrilaterial(p1, p2, p3, p4);
+        double area = areaOfQuadrilateral(p1, p2, p3, p4);
         return area;
     }
 
+    /**
+     * Returns the area of a convex polygon using points inputted in anticlockwise order.
+     * @param points The points of the convex polygon
+     * @return The area of the convex polygon
+     */
+    public double areaOfConvexPolygon(Point[] points){
+        double area = 0;
+        for(int i = 0; i < points.length - 1; i++){
+            area += points[i].getX() * points[i+1].getY() - points[i+1].getX() * points[i].getY();
+        }
+        area += points[points.length - 1].getX() * points[0].getY() - points[0].getX() * points[points.length - 1].getY();
+        area = vmath.algebra.abs(area) / 2;
+        return area;
+    }
+
+    /**
+     * Returns if the point is inside the polygon or not.
+     * @param points The points of the polygon
+     * @param p The point
+     * @return True if the point is inside the polygon, false otherwise
+     */
+    public boolean isPointInPolygon(Point[] points, Point p){
+        double areaOfPolygon = areaOfConvexPolygon(points);
+        double areaOfTriangle = 0;
+        for(int i = 0; i < points.length - 1; i++){
+            areaOfTriangle += areaOfTriangle(points[i], points[i+1], p);
+        }
+        areaOfTriangle += areaOfTriangle(points[points.length - 1], points[0], p);
+        if(areaOfTriangle == areaOfPolygon){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    /**
+     * Returns the line passing through two points.
+     * @param p1 The first point
+     * @param p2 The second point
+     * @return The line passing through the two points
+     */
+    public Line getLineFromTwoPoints(Point p1, Point p2){
+        double a = p2.getY() - p1.getY();
+        double b = p1.getX() - p2.getX();
+        double c = p1.getY() * (p2.getX() - p1.getX()) - p1.getX() * (p2.getY() - p1.getY());
+        Line l = new NormalLine(a, b, c);
+        return l;
+    }
     
 }

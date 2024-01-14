@@ -140,4 +140,15 @@ public class vector {
         }
     }
 
+    public void printVector(){
+        System.out.print("[");
+        for(int i = 0; i < this.size; i++){
+            System.out.print(this.data[i]);
+            if(i != this.size - 1){
+                System.out.print(", ");
+            }
+        }
+        System.out.println("]");
+    }
+
 }
