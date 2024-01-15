@@ -17,7 +17,7 @@ public class Main {
 //        System.out.println("Algebraic Functions");
 //        System.out.println("____________________________________________");
 //        System.out.println("Absolute Value of -5: " + vmath.algebra.abs(-5));
-////        System.out.println("3 to the power of 4: " + vmath.algebra.pow(3, 4));
+//        System.out.println("3 to the power of 4: " + vmath.algebra.pow(0, 4));
 //        System.out.println("Square root of 16: " + vmath.algebra.sqrt(16));
 //        System.out.println("Cube root of 27: " + vmath.algebra.cubeRoot(27));
 //        System.out.println("6th root of 64: " + vmath.algebra.nthRoot(64, 6));
@@ -279,9 +279,10 @@ public class Main {
 
 //        System.out.println("Geometry Functions");
 //        System.out.println("____________________________________________");
-
 //        System.out.println("Cartesian Distance between (1, 2) and (3, 4): " + vmath.geometry.distance(new CartesianPoint(1,2), new CartesianPoint(3,4), DistanceType.CARTESIAN));
-//        System.out.println("Slope between (1, 2) and (3, 4): " + vmath.geometry.slope(new CartesianPoint(1,2), new CartesianPoint(3,4)));
+//        Point pp = new CartesianPoint(0,0);
+//        System.out.println(pp.getR());
+        //        System.out.println("Slope between (1, 2) and (3, 4): " + vmath.geometry.slope(new CartesianPoint(1,2), new CartesianPoint(3,4)));
 //        Point p1 = vmath.geometry.midpoint(new CartesianPoint(1,2), new CartesianPoint(3,4));
 //        System.out.println("Midpoint between (1, 2) and (3, 4): (" + p1.getX() + ", " + p1.getY() + ")");
 //        Point p2 = vmath.geometry.centroid(new CartesianPoint(1,2), new CartesianPoint(3,4), new CartesianPoint(5,6));
@@ -307,27 +308,29 @@ public class Main {
 //        System.out.println("Line that is perpendicular to 3x+12y-7=0 and passes through (2,5): (" + l1.getCoefficientOfX() + ", " + l1.getCoefficientOfY() + ", " + l1.getConstant() + ")");
 //        Line l2 = vmath.geometry.getParallelLine(new NormalLine(2, 11, -2), new CartesianPoint(4, -3));
 //        System.out.println("Line that is parallel to 2x+11y-2=0 and passes through (4,-3): (" + l2.getCoefficientOfX() + ", " + l2.getCoefficientOfY() + ", " + l2.getConstant() + ")");
-//        Line l3 = vmath.geometry.getLineFromIntersectionPoint(new NormalLine(2, 11, -2), new NormalLine(3, 12, -7));
-//        System.out.println("Line that passes through the intersection point of 2x+11y-2=0 and 3x+12y-7=0: (" + l3.getCoefficientOfX() + ", " + l3.getCoefficientOfY() + ", " + l3.getConstant() + ")");
+//        Line l3 = vmath.geometry.getLineFromIntersectionPoint(new NormalLine(2, 11, -2), new NormalLine(3, 12, -7), new CartesianPoint(2, 5));
+//        System.out.println("Line that passes through the intersection point of 2x+11y-2=0 and 3x+12y-7=0 and goes through (2,5): (" + l3.getCoefficientOfX() + ", " + l3.getCoefficientOfY() + ", " + l3.getConstant() + ")");
 //        System.out.println("Area of quadrilateral with vertices (6,8), (2,5), (5,9) and (9,12): " + vmath.geometry.areaOfQuadrilateral(new CartesianPoint(6,8), new CartesianPoint(2,5), new CartesianPoint(5,9), new CartesianPoint(9,12)));
 //        System.out.println("Area of quadrilateral created by 4x-3y+7=0, 3x-4y+21=0, 4x-3y=0 and 3x-4y+14=0 : " + vmath.geometry.areaOfQuadrilateral(new NormalLine(4,-3,7), new NormalLine(3,-4,21), new NormalLine(4,-3,0), new NormalLine(3,-4,14)));
 //        System.out.println("Area of a triangle created by 4x-3y+7=0, x+y-14=0 and 3x-4y+14=0: " + vmath.geometry.areaOfTriangle(new NormalLine(4,-3,7), new NormalLine(1,1,-14), new NormalLine(3,-4,14)));
 //        Point[] points = {new CartesianPoint(1,1), new CartesianPoint(1,5), new CartesianPoint(5,5), new CartesianPoint(5,1)};
 //        System.out.println("Area of Polygon with (1,1), (1,5), (5,5), (5,1) vertices: " + vmath.geometry.areaOfConvexPolygon(points));
 //        System.out.println("Is (2,2) inside the polygon with (1,1), (1,5), (5,5), (5,1) vertices: " + vmath.geometry.isPointInPolygon(points, new CartesianPoint(2,2)));
-
+//
 //        System.out.println("____________________________________________\n\n\n\n");
+//
+//        System.out.println("Bitwise Functions");
+//        System.out.println("____________________________________________");
+//
+//        System.out.println("Bitwise AND of 5 and 6: " + vmath.bitwise.and(5, 6));
+//        System.out.println("Bitwise OR of 5 and 6: " + vmath.bitwise.or(5, 6));
+//        System.out.println("Bitwise XOR of 5 and 6: " + vmath.bitwise.xor(5, 6));
+//        System.out.println("Bitwise NOT of 5: " + vmath.bitwise.not(5));
+//        System.out.println("Bitwise Left Shift of 5 by 2: " + vmath.bitwise.leftShift(5, 2));
+//        System.out.println("Bitwise Right Shift of 5 by 2: " + vmath.bitwise.rightShift(5, 2));
+//        System.out.println("Bitwise Zero Fill Right Shift of 5 by 2: " + vmath.bitwise.zeroFillRightShift(5, 2));
 
-        System.out.println("Bitwise Functions");
-        System.out.println("____________________________________________");
 
-        System.out.println("Bitwise AND of 5 and 6: " + vmath.bitwise.and(5, 6));
-        System.out.println("Bitwise OR of 5 and 6: " + vmath.bitwise.or(5, 6));
-        System.out.println("Bitwise XOR of 5 and 6: " + vmath.bitwise.xor(5, 6));
-        System.out.println("Bitwise NOT of 5: " + vmath.bitwise.not(5));
-        System.out.println("Bitwise Left Shift of 5 by 2: " + vmath.bitwise.leftShift(5, 2));
-        System.out.println("Bitwise Right Shift of 5 by 2: " + vmath.bitwise.rightShift(5, 2));
-        System.out.println("Bitwise Zero Fill Right Shift of 5 by 2: " + vmath.bitwise.zeroFillRightShift(5, 2));
 
 
 

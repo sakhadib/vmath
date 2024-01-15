@@ -219,6 +219,9 @@ public class Algebra {
      * @return The result
      */
     public <T extends Number> double sqrt(T number) {
+        if(number.equals(0)){
+            return 0;
+        }
         double x0 = number.doubleValue();
         double epsilon = 1e-6;
         while (true) {

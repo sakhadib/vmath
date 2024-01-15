@@ -1016,15 +1016,15 @@ public class vmath {
         }
 
         /**
-         * Returns if the given four points form a quadrilaterial is of the given type.
+         * Returns if the given four points form a quadrilateral is of the given type.
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
          * @param p4 The fourth point
-         * @param c The type of quadrilaterial to check
-         * @return true if the quadrilaterial is of the given type, else false
+         * @param c The type of quadrilateral to check
+         * @return true if the quadrilateral is of the given type, else false
          */
-        public static boolean isQuadrilaterial(Point p1, Point p2, Point p3, Point p4, quadrilateralType c){
+        public static boolean isQuadrilateral(Point p1, Point p2, Point p3, Point p4, quadrilateralType c){
             Geometry geo = Geometry.getInstance();
             if(c == quadrilateralType.SQUARE){
                 return geo.isSquare(p1, p2, p3, p4);
@@ -1143,18 +1143,18 @@ public class vmath {
          * @param l2 The second line
          * @return The line passing through the intersection point of the two lines
          */
-        public static Line getLineFromIntersectionPoint(Line l1, Line l2){
+        public static Line getLineFromIntersectionPoint(Line l1, Line l2, Point p){
             Geometry geo = Geometry.getInstance();
-            return geo.getLineFromIntersectingPoint(l1, l2);
+            return geo.getLineFromIntersectingPoint(l1, l2, p);
         }
 
         /**
-         * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+         * Returns the area of a quadrilateral using four lines inputted in anticlockwise order.
          * @param l1 The first line
          * @param l2 The second line
          * @param l3 The third line
          * @param l4 The fourth line
-         * @return The area of the quadrilaterial
+         * @return The area of the quadrilateral
          */
         public static double areaOfQuadrilateral(Line l1, Line l2, Line l3, Line l4){
             Geometry geo = Geometry.getInstance();
@@ -1162,12 +1162,12 @@ public class vmath {
         }
 
         /**
-         * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
+         * Returns the area of a quadrilateral using points inputted in anti-clockwise order.
          * @param p1 The first point in cartesian coordinates
          * @param p2 The second point in cartesian coordinates
          * @param p3 The third point in cartesian coordinates
          * @param p4 The fourth point in cartesian coordinates
-         * @return The area of the quadrilaterial
+         * @return The area of the quadrilateral
          */
         public static double areaOfQuadrilateral(Point p1, Point p2, Point p3, Point p4){
             Geometry geo = Geometry.getInstance();
