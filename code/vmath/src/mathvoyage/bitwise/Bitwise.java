@@ -199,13 +199,14 @@ private static Bitwise instance;
             return res;
         }
     }
-//
-//    public static int setBit0(int n, int i) {
-//        return (n & ~(1 << i));
-//    }
-//    public static int setBit1(int n, int i) {
-//        return (n | (1 << i));
-//    }
+
+    public static int setBit0(int n, int i) {
+        return (n & ~(1 << i));
+    }
+    public static int setBit1(int n, int i) {
+        return (n | (1 << i));
+    }
+    
 //    public static int toggleBit(int n, int i) {
 //        return (n ^ (1 << i));
 //    }
