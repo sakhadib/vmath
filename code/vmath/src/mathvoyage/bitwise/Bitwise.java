@@ -189,16 +189,16 @@ private static Bitwise instance;
 
 
 
-//    public static int getByte(int x, int n, boolean isUnsigned) {
-//        if (isUnsigned) {
-//            // Use bitwise AND to mask out the desired byte, no need for sign extension
-//            return (x >> (n << 3)) & 0xff;
-//        } else {
-//            // Use the existing logic for signed integers
-//            int res = ((x & (0xff << (n << 3))) >> (n << 3)) & 0xff;
-//            return res;
-//        }
-//    }
+    public static int getByte(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            // Use bitwise AND to mask out the desired byte, no need for sign extension
+            return (x >> (n << 3)) & 0xff;
+        } else {
+            // Use the existing logic for signed integers
+            int res = ((x & (0xff << (n << 3))) >> (n << 3)) & 0xff;
+            return res;
+        }
+    }
 //
 //    public static int setBit0(int n, int i) {
 //        return (n & ~(1 << i));
