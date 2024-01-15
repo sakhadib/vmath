@@ -200,25 +200,39 @@ private static Bitwise instance;
         }
     }
 
+    
+
     public static int setBit0(int n, int i) {
         return (n & ~(1 << i));
     }
     public static int setBit1(int n, int i) {
         return (n | (1 << i));
     }
+
+
+
+
+
+
     
     public static int toggleBit(int n, int i) {
         return (n ^ (1 << i));
     }
 
-//    public static int logicalShift(int x, int n, boolean isUnsigned) {
-//        if (isUnsigned) {
-//            return x >>> n;
-//        } else {
-//            int res = (x >> n) & (~(((1 << 31) >> n) << 1));
-//            return res;
-//        }
-//    }
+
+
+
+
+    public static int logicalShift(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            return x >>> n;
+        } else {
+            int res = (x >> n) & (~(((1 << 31) >> n) << 1));
+            return res;
+        }
+    }
+
+
 
 //    public static int rotateRight(int x, int n, boolean isUnsigned) {
 //        if (isUnsigned) {
