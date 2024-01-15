@@ -207,13 +207,10 @@ private static Bitwise instance;
         return (n | (1 << i));
     }
     
-//    public static int toggleBit(int n, int i) {
-//        return (n ^ (1 << i));
-//    }
-//    public static int getByte(int x, int n) {
-//        int res = ((x & (0xff << (n << 3))) >> (n << 3)) & 0xff;
-//        return res;
-//    }
+    public static int toggleBit(int n, int i) {
+        return (n ^ (1 << i));
+    }
+
 //    public static int logicalShift(int x, int n, boolean isUnsigned) {
 //        if (isUnsigned) {
 //            return x >>> n;
@@ -222,7 +219,7 @@ private static Bitwise instance;
 //            return res;
 //        }
 //    }
-//
+
 //    public static int rotateRight(int x, int n, boolean isUnsigned) {
 //        if (isUnsigned) {
 //            // Ensure n is in the range [0, 31] for unsigned rotation
