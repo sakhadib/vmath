@@ -234,37 +234,37 @@ private static Bitwise instance;
 
 
 
-//    public static int rotateRight(int x, int n, boolean isUnsigned) {
-//        if (isUnsigned) {
-//            // Ensure n is in the range [0, 31] for unsigned rotation
-//            n = n % 32;
-//            return (x >>> n) | (x << (32 - n));
-//        } else {
-//            int m = x << (32 + ((~n) + 1));
-//            int p = ~((~0) << (32 + ((~n) + 1)));
-//            int k = x >> n;
-//            k = k & p;
-//            return (k + m);
-//        }
-//    }
+    public static int rotateRight(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            // Ensure n is in the range [0, 31] for unsigned rotation
+            n = n % 32;
+            return (x >>> n) | (x << (32 - n));
+        } else {
+            int m = x << (32 + ((~n) + 1));
+            int p = ~((~0) << (32 + ((~n) + 1)));
+            int k = x >> n;
+            k = k & p;
+            return (k + m);
+        }
+    }
 
 
-//    public static boolean addOK(int x, int y, boolean isUnsigned) {
-//        int sum = x + y;
-//
-//        if (isUnsigned) {
-//            // Check for overflow in unsigned addition
-//            return sum >= 0;
-//        } else {
-//            // Check for overflow in signed addition
-//            int xsign = x >> 31;
-//            int ysign = y >> 31;
-//            int xysign = sum >> 31;
-//
-//            // Check for overflow (sum has different sign than x or y)
-//            return (xsign == ysign) || (ysign != xysign);
-//        }
-//    }
+    public static boolean addOK(int x, int y, boolean isUnsigned) {
+        int sum = x + y;
+
+        if (isUnsigned) {
+            // Check for overflow in unsigned addition
+            return sum >= 0;
+        } else {
+            // Check for overflow in signed addition
+            int xsign = x >> 31;
+            int ysign = y >> 31;
+            int xysign = sum >> 31;
+
+            // Check for overflow (sum has different sign than x or y)
+            return (xsign == ysign) || (ysign != xysign);
+        }
+    }
 
 
 
