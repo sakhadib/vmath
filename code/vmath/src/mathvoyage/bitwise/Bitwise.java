@@ -200,7 +200,7 @@ private static Bitwise instance;
         }
     }
 
-    
+
 
     public static int setBit0(int n, int i) {
         return (n & ~(1 << i));
