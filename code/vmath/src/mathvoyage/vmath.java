@@ -1224,47 +1224,51 @@ public class vmath {
      * Contains functions to calculate bitwise operations.
      * @Author Takia Farhin
      */
-    public static class bitwise{
+    public static class bitwise {
 
         /**
          * Return the bitwise And value
+         *
          * @param a is the given value
          * @param b is the given value
          * @return AND value
          */
-        public static int and(int a, int b){
+        public static int and(int a, int b) {
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseAND(a, b);
         }
 
         /**
          * Return the bitwise OR value
+         *
          * @param a is the given value
          * @param b is the given value
          * @return OR value
          */
-        public static int or(int a, int b){
+        public static int or(int a, int b) {
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseOR(a, b);
         }
 
         /**
          * Return the bitwise XOR value
+         *
          * @param a is the given value
          * @param b is the given value
          * @return XOR value
          */
-        public static int xor(int a, int b){
+        public static int xor(int a, int b) {
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseXOR(a, b);
         }
 
         /**
          * Return the bitwise NOT value
+         *
          * @param a is the given value
          * @return NOT value
          */
-        public static int not(int a){
+        public static int not(int a) {
             Bitwise bit = Bitwise.getInstance();
             return bit.BitWiseNOT(a);
         }
@@ -1277,7 +1281,7 @@ public class vmath {
          */
         public static int leftShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
-            return bit.LeftShift(a, b);
+            return bit.leftShift(a, b);
         }
 
         /**
@@ -1288,7 +1292,7 @@ public class vmath {
          */
         public static int rightShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
-            return bit.RightShift(a, b);
+            return bit.rightShift(a, b);
         }
 
         /**
@@ -1304,5 +1308,5 @@ public class vmath {
         }
     }
 
-
+    }
 }

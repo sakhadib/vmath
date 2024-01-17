@@ -114,19 +114,19 @@ public class Main {
 //        System.out.println("Octal of A(Hex) : " + vmath.baseConverter.hexToOct("A"));
 //        System.out.println("Decimal of A(Hex) : " + vmath.baseConverter.hexToDec("A"));
 //        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
-
+//
 //        System.out.println(" Decimal of 10(base 6): " + vmath.baseConverter.decToN(10, 6));
 //        System.out.println(" 14 of base 6 to Decimal: " + vmath.baseConverter.nToDec("14", 6));
-
+//
 //        System.out.println("12(Oct) to base 6 : " + vmath.baseConverter.octToN("12", 6));
 //        System.out.println("A(Hex) to base 6: " + vmath.baseConverter.hexToN("A", 6));
 //        System.out.println("1010(bin) to base 6: " + vmath.baseConverter.binToN("1010", 6));
-
-
+//
+//
 //        System.out.println("____________________________________________\n\n\n\n");
-
-
-
+//
+//
+//
 //        //After Progress Presentation
 //
 //        double[][] data1 = {{2, 1, 1}, {1, 3, 2}, {1, 2, 4}};
@@ -148,11 +148,11 @@ public class Main {
 //        catch (Exception e) {
 //            System.out.println(e);
 //        }
-
+//
 //        double[][] data1 = {{1, 2, 3}, {4, 5, 6}};
-
-
-        //For Base Conversion Functions
+//
+//
+//        For Base Conversion Functions
 //        System.out.println("Base Conversion Functions");
 //        System.out.println("____________________________________________");
 //        System.out.println("Binary of 10(dec) : " + vmath.baseConverter.decToBin(10));
@@ -170,8 +170,8 @@ public class Main {
 //        System.out.println("1010 of base 2 to base 10 : " + vmath.baseConverter.nToK("8", 10, 8));
 //        System.out.println("____________________________________________\n\n\n\n");
 //
-
-
+//
+//
 //        System.out.println("Matrix Functions");
 //        System.out.println("____________________________________________");
 //
@@ -230,14 +230,15 @@ public class Main {
 //        System.out.println("2 power of Matrix A: ");
 //        vmath.matrix.pow(a, 2).printMatrix();
 //        System.out.println("\n");
-
-
+//        System.out.println(vmath.Trigonometry.cosec(0, Angle.DEGREE));
+//
+//
 //        System.out.println("____________________________________________\n\n\n\n");
-
-
-
-
-
+//
+//
+//
+//
+//
 //        System.out.println("Vector Functions");
 //        System.out.println("____________________________________________");
 //
@@ -271,18 +272,18 @@ public class Main {
 //        System.out.println("Unit Vector of Vector A: ");
 //        vmath.Vector.unitVector(a).printVector();
 //        System.out.println("\n");
-
+//
 //        System.out.println("____________________________________________\n\n\n\n");
-
-
-
-
+//
+//
+//
+//
 //        System.out.println("Geometry Functions");
 //        System.out.println("____________________________________________");
 //        System.out.println("Cartesian Distance between (1, 2) and (3, 4): " + vmath.geometry.distance(new CartesianPoint(1,2), new CartesianPoint(3,4), DistanceType.CARTESIAN));
 //        Point pp = new CartesianPoint(0,0);
-//        System.out.println(pp.getR());
-        //        System.out.println("Slope between (1, 2) and (3, 4): " + vmath.geometry.slope(new CartesianPoint(1,2), new CartesianPoint(3,4)));
+//        System.out.println(pp.getR())
+//        System.out.println("Slope between (1, 2) and (3, 4): " + vmath.geometry.slope(new CartesianPoint(1,2), new CartesianPoint(3,4)));
 //        Point p1 = vmath.geometry.midpoint(new CartesianPoint(1,2), new CartesianPoint(3,4));
 //        System.out.println("Midpoint between (1, 2) and (3, 4): (" + p1.getX() + ", " + p1.getY() + ")");
 //        Point p2 = vmath.geometry.centroid(new CartesianPoint(1,2), new CartesianPoint(3,4), new CartesianPoint(5,6));
