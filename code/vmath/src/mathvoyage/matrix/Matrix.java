@@ -16,8 +16,6 @@ import java.util.Random;
         this.data = data;
         this.rows = data.length;
         this.cols = data[0].length;
-
-
     }
 
       public Matrix(int[][] data){
@@ -209,7 +207,7 @@ import java.util.Random;
         return new Matrix(data);
     }
 
-      public Matrix transpose(){
+    public Matrix transpose(){
         double[][] data = new double[this.cols][this.rows];
         for(int i = 0; i < this.cols; i++){
             for(int j = 0; j < this.rows; j++){
