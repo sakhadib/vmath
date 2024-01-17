@@ -1651,15 +1651,66 @@ public class vmath {
          * Returns an integer resulting from the logical right shift
          * @param x The integer on which to perform the shift.
          * @param n The number of positions to shift to the right.
-         * @param isUnsigned Whether the number is unsigned.
+         * @param st The sign type
          * @return an integer resulting from the logical right shift
          */
-        public static int logicalRightShift(int x, int n, boolean isUnsigned) {
+        public static int logicalShift(int x, int n, signType st) {
             Bitwise bit = Bitwise.getInstance();
-            return bit.logicalShift(x, n, isUnsigned);
+            if(st == signType.UNSIGNED){
+                return bit.logicalShift(x, n, true);
+            }
+            else{
+                return bit.logicalShift(x, n, false);
+            }
         }
 
+        /**
+         * Returns  an integer resulting from the right rotation
+         * @param x The integer on which to perform the rotation.
+         * @param n The number of positions to rotate to the right.
+         * @param st The sign type
+         * @return an integer resulting from the right rotation
+         */
+        public static int rightRotate(int x, int n, signType st) {
+            Bitwise bit = Bitwise.getInstance();
+            if (st == signType.UNSIGNED) {
+                return bit.rotateRight(x, n, true);
+            } else {
+                return bit.rotateRight(x, n, false);
+            }
+        }
 
+        /**
+         * Returns  an integer resulting from the left rotation
+         * @param x The integer on which to perform the rotation.
+         * @param n The number of positions to rotate to the left.
+         * @param st The sign type
+         * @return an integer resulting from the left rotation
+         */
+        public static int leftRotate(int x, int n, signType st) {
+            Bitwise bit = Bitwise.getInstance();
+            if (st == signType.UNSIGNED) {
+                return bit.rotateLeft(x, n, true);
+            } else {
+                return bit.rotateLeft(x, n, false);
+            }
+        }
+
+        /**
+         * returns true if the addition of a and b does not result in overflow, and false otherwise.
+         * @param a The first integer operand.
+         * @param b The second integer operand.
+         * @param st The sign type
+         * @return true if the addition of x and y does not result in overflow, and false otherwise.
+         */
+        public static boolean addOK(int a, int b, signType st) {
+            Bitwise bit = Bitwise.getInstance();
+            if (st == signType.UNSIGNED) {
+                return bit.addOK(a, b, true);
+            } else {
+                return bit.addOK(a, b, false);
+            }
+        }
     }
 
 }

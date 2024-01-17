@@ -182,8 +182,8 @@ private static Bitwise instance;
 
         /**
          * Returns the value of the n-th byte of the integer x
-         * @param x The integer from which to extract the byte.
-         * @param n The byte position to extract
+         * @param x          The integer from which to extract the byte.
+         * @param n          The byte position to extract
          * @param isUnsigned Whether the number is unsigned
          * @return the value of the n-th byte of the integer x
          */
@@ -228,18 +228,18 @@ private static Bitwise instance;
          * @return an integer where the bit at position i in n is flipped
          */
 
-         public static int toggleBit ( int n, int i){
+         public int toggleBit ( int n, int i){
              return (n ^ (1 << i));
          }
 
             /**
              * Returns an integer resulting from the logical right shift
-             * @param x The integer on which to perform the shift.
-             * @param n The number of positions to shift to the right.
+             * @param x          The integer on which to perform the shift.
+             * @param n          The number of positions to shift to the right.
              * @param isUnsigned Whether the number is unsigned.
              * @return an integer resulting from the logical right shift
              */
-            public static int logicalShift ( int x, int n, boolean isUnsigned){
+            public int logicalShift ( int x, int n, boolean isUnsigned){
                 if (isUnsigned) {
                     return x >>> n;
                 } else {
@@ -250,13 +250,13 @@ private static Bitwise instance;
 
             /**
              * Returns  an integer resulting from the right rotation
-             * @param x The integer on which to perform the rotation.
-             * @param n The number of positions to rotate to the right.
+             * @param x          The integer on which to perform the rotation.
+             * @param n          The number of positions to rotate to the right.
              * @param isUnsigned Whether the number is unsigned.
              * @return an integer resulting from the right rotation
              */
 
-            public static int rotateRight ( int x, int n, boolean isUnsigned){
+            public int rotateRight ( int x, int n, boolean isUnsigned){
                 if (isUnsigned) {
                     // Ensure n is in the range [0, 31] for unsigned rotation
                     n = n % 32;
@@ -272,8 +272,8 @@ private static Bitwise instance;
 
             /**
              * Returns  an integer resulting from the left rotation
-             * @param x The integer on which to perform the rotation
-             * @param n The number of positions to rotate to the left
+             * @param x          The integer on which to perform the rotation
+             * @param n          The number of positions to rotate to the left
              * @param isUnsigned Whether the number is unsigned
              * @return an integer resulting from the left rotation
              */
@@ -299,7 +299,7 @@ private static Bitwise instance;
              * @param isUnsigned Whether the numbers are unsigned.
              * @return true if the addition of x and y does not result in overflow, and false otherwise.
              */
-            public static boolean addOK ( int x, int y, boolean isUnsigned){
+            public boolean addOK ( int x, int y, boolean isUnsigned){
                 int sum = x + y;
                 if (isUnsigned) {
                     // Check for overflow in unsigned addition

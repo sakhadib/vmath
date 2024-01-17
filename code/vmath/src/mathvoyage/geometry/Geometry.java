@@ -470,12 +470,14 @@ public class Geometry {
      * @return The area of the triangle
      */
     public double areaOfTriangleGivenLine(Line l1, Line l2, Line l3){
+        if(isParallel(l1, l2) || isParallel(l2, l3) || isParallel(l3, l1)){
+            throw new IllegalArgumentException("The given lines are parallel");
+        }
         Point p1 = intersectionPoint(l1, l2);
         Point p2 = intersectionPoint(l2, l3);
         Point p3 = intersectionPoint(l3, l1);
-        double m[][] = {{p1.getX(), p1.getY(), 1}, {p2.getX(), p2.getY(), 1}, {p3.getX(), p3.getY(), 1}};
-        Matrix matrix = new Matrix(m);
-        double area = 0.5* matrix.getDeterminant();
+        double a = areaOfTriangle(p1, p2, p3);
+        double area = 0.5 * a;
         return vmath.algebra.abs(area);
     }
 
@@ -488,8 +490,7 @@ public class Geometry {
      * @return True if the given three lines are same, false otherwise
      */
     public boolean isThreeLinesSame(Line l1, Line l2, Line l3){
-        double area = areaOfTriangleGivenLine(l1, l2, l3);
-        if(area == 0){
+        if(isSameLine(l1, l2) && isSameLine(l2, l3)){
             return true;
         }
         else{
@@ -576,7 +577,6 @@ public class Geometry {
      */
     public Line getPerpendicularLine(Line l, Point p){
         double k = l.getCoefficientOfX() * p.getY() - l.getCoefficientOfY() * p.getX();
-        System.out.println(k);
         Line pl = new NormalLine(l.getCoefficientOfY(), -1*l.getCoefficientOfX(), k);
         return pl;
     }
