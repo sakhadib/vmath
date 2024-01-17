@@ -137,42 +137,41 @@ private static Bitwise instance;
      * Return the rightshift value
      * @param num the int value
      * @param shiftBy is the value of how much value need to be shifted
+     * @param isUnsigned is the boolean value
      * @return the rightshift value
      */
 
 
-    public int RightShift (int num, int shiftBy){
-
-        for( int i=0; i<shiftBy; i++ ){
-
-            num >>= 1;
-
+    public int rightShift(int num, int shiftBy, boolean isUnsigned) {
+        if (isUnsigned) {
+            return num >>> shiftBy;
+        } else {
+            for (int i = 0; i < shiftBy; i++) {
+                num >>= 1;
+            }
+            return num;
         }
-
-        return num;
-
-     }
+    }
 
 
     /**
      * Return the LeftShift value
      * @param num the int value
      * @param shiftBy is the value of how much value need to be shifted
+     * @param isUnsigned is the boolean value
      * @return the LeftShift value
      */
 
-     public int LeftShift (int num, int shiftBy) {
-
-
-         for (int i = 0; i < shiftBy; i++) {
-
-             num <<= 1;
-
-         }
-
-         return num;
-
-     }
+    public int leftShift(int num, int shiftBy, boolean isUnsigned) {
+        if (isUnsigned) {
+            return num << shiftBy;
+        } else {
+            for (int i = 0; i < shiftBy; i++) {
+                num <<= 1;
+            }
+            return num;
+        }
+    }
 
   /**
     * Returns the binary representation of a number.
@@ -188,6 +187,124 @@ private static Bitwise instance;
       return r;
   }
 
+
+    /**
+     * Returns the value of the n-th byte of the integer x
+     * @param x  The integer from which to extract the byte.
+     * @param n  The byte position to extract
+     * @param isUnsigned Whether the number is unsigned
+     * @return the value of the n-th byte of the integer x
+     */
+    public static int getByte(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            // Use bitwise AND to mask out the desired byte, no need for sign extension
+            return (x >> (n << 3)) & 0xff;
+        } else {
+            // Use the existing logic for signed integers
+            int res = ((x & (0xff << (n << 3))) >> (n << 3)) & 0xff;
+            return res;
+        }
+    }
+
+
+    /**
+     * Returns an integer where the bit at position i in n is set to 0, and all other bits remain unchanged.
+     * @param n The integer on which to operate.
+     * @param i The bit position to set to 0.
+     * @return an integer where the bit at position i in n is set to 0, and all other bits remain unchanged.
+     */
+    public static int setBit0(int n, int i) {
+        return (n & ~(1 << i));
+    }
+
+
+    /**
+     * Returns an integer where the bit at position i in n is set to 1, and all other bits remain unchanged.
+     * @param n The integer on which to operate.
+     * @param i The bit position to set to 1.
+     * @return an integer where the bit at position i in n is set to 1, and all other bits remain unchanged.
+     */
+    public static int setBit1(int n, int i) {
+        return (n | (1 << i));
+    }
+
+
+    /**
+     *returns an integer where the bit at position i in n is flipped
+     * @param n The integer on which to operate.
+     * @param i  The bit position to toggle.
+     * @return an integer where the bit at position i in n is flipped
+     */
+
+    public static int toggleBit(int n, int i) {
+        return (n ^ (1 << i));
+    }
+
+    /**
+     * Returns an integer resulting from the logical right shift
+     * @param x The integer on which to perform the shift.
+     * @param n The number of positions to shift to the right.
+     * @param isUnsigned Whether the number is unsigned.
+     * @return an integer resulting from the logical right shift
+     */
+
+
+
+    public static int logicalShift(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            return x >>> n;
+        } else {
+            int res = (x >> n) & (~(((1 << 31) >> n) << 1));
+            return res;
+        }
+    }
+
+    /**
+     * Returns  an integer resulting from the right rotation
+     * @param x The integer on which to perform the rotation.
+     * @param n The number of positions to rotate to the right.
+     * @param isUnsigned Whether the number is unsigned.
+     * @return  an integer resulting from the right rotation
+     */
+
+    public static int rotateRight(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            // Ensure n is in the range [0, 31] for unsigned rotation
+            n = n % 32;
+            return (x >>> n) | (x << (32 - n));
+        } else {
+            int m = x << (32 + ((~n) + 1));
+            int p = ~((~0) << (32 + ((~n) + 1)));
+            int k = x >> n;
+            k = k & p;
+            return (k + m);
+        }
+    }
+
+
+    /**
+     *  returns true if the addition of x and y does not result in overflow, and false otherwise.
+     * @param x The first integer operand.
+     * @param y The second integer operand.
+     * @param isUnsigned Whether the numbers are unsigned.
+     * @return true if the addition of x and y does not result in overflow, and false otherwise.
+     */
+    public static boolean addOK(int x, int y, boolean isUnsigned) {
+        int sum = x + y;
+
+        if (isUnsigned) {
+            // Check for overflow in unsigned addition
+            return sum >= 0;
+        } else {
+            // Check for overflow in signed addition
+            int xsign = x >> 31;
+            int ysign = y >> 31;
+            int xysign = sum >> 31;
+
+            // Check for overflow (sum has different sign than x or y)
+            return (xsign == ysign) || (ysign != xysign);
+        }
+    }
 
 
 
