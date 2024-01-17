@@ -11,10 +11,18 @@ public class CartesianPoint implements Point{
     double theta;
 
     public CartesianPoint(double x, double y){
-        this.x = x;
-        this.y = y;
-        this.r = vmath.algebra.sqrt(x*x + y*y);
-        this.theta = vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
+        if(x != 0 || y != 0){
+            this.theta = vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
+            this.x = x;
+            this.y = y;
+            this.r = vmath.algebra.sqrt(x*x + y*y);
+        }
+        else{
+            this.theta = 0;
+            this.x = 0;
+            this.y = 0;
+            this.r = 0;
+        }
     }
     /**
      * Returns the x-coordinate of the point.
@@ -54,5 +62,15 @@ public class CartesianPoint implements Point{
 
     public Point toCartesian(){
         return new CartesianPoint(x, y);
+    }
+
+    private void setTheta(double x, double y){
+        if(x != 0 && y != 0){
+            theta = vmath.Trigonometry.arctan(y/x, Angle.DEGREE);
+        }
+        else{
+            theta = 0;
+        }
+
     }
 }

@@ -456,7 +456,7 @@ public class vmath {
         }
 
         /**
-         * Returns the sine of an angle given in radian.
+         * Returns the sine of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The sine of the angle
@@ -471,7 +471,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cosine of an angle given in radian.
+         * Returns the cosine of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cosine of the angle
@@ -486,7 +486,7 @@ public class vmath {
         }
 
         /**
-         * Returns the tangent of an angle given in radian.
+         * Returns the tangent of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The tangent of the angle
@@ -501,7 +501,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cotangent of an angle given in radian.
+         * Returns the cotangent of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cotangent of the angle
@@ -516,7 +516,7 @@ public class vmath {
         }
 
         /**
-         * Returns the secant of an angle given in radian.
+         * Returns the secant of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The secant of the angle
@@ -531,7 +531,7 @@ public class vmath {
         }
 
         /**
-         * Returns the cosecant of an angle given in radian.
+         * Returns the cosecant of an angle given in radian or degree.
          * @param angle The angle
          * @param unit The unit of the angle
          * @return The cosecant of the angle
@@ -689,40 +689,91 @@ public class vmath {
      * @Author Adib Sakhawat
      */
     public static class matrix{
+        /**
+         * Returns the addition of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The addition of the two matrices
+         */
         public static Matrix add(Matrix a, Matrix b){
             return a.add(b);
         }
 
+        /**
+         * Returns the subtraction of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The subtraction of the two matrices
+         */
         public static Matrix subtract(Matrix a, Matrix b){
             return a.subtract(b);
         }
 
+        /**
+         * Returns the multiplication of two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return The multiplication of the two matrices
+         */
         public static Matrix multiply(Matrix a, Matrix b){
             return a.multiply(b);
         }
 
+        /**
+         * Returns the multiplication of a matrix and a number.
+         * @param m The matrix
+         * @param x The number
+         * @return The multiplication of the matrix and the number
+         */
         public static Matrix multiply(Matrix m, double x){
             return m.multiply(x);
         }
 
+        /**
+         * Returns the transpose of a matrix.
+         * @param a The matrix
+         * @return The transpose of the matrix
+         */
         public static Matrix transpose(Matrix a){
             return a.transpose();
         }
 
+        /**
+         * Returns the inverse of a matrix.
+         * @param a The matrix
+         * @return The inverse of the matrix
+         */
         public static Matrix inverse(Matrix a){
             return a.inverse();
         }
 
-        public static double detarminant(Matrix a){
+        /**
+         * Returns the determinant of a matrix.
+         * @param a The matrix
+         * @return The determinant of the matrix
+         */
+        public static double determinant(Matrix a){
             return a.getDeterminant();
         }
 
+        /**
+         * Returns a matrix of zeros of the given size.
+         * @param rows The number of rows
+         * @param cols The number of columns
+         * @return The matrix of zeros
+         */
         public static Matrix zeros(int rows, int cols) {
             double[][] data = new double[rows][cols];
             return new Matrix(data);
         }
 
-        public Matrix ones(int rows, int cols) {
+        /**
+         * Returns a matrix of ones of the given size.
+         * @param rows The number of rows
+         * @param cols The number of columns
+         * @return The matrix of ones
+         */
+        public static Matrix ones(int rows, int cols) {
             double[][] data = new double[rows][cols];
             for (int i = 0; i < rows; i++) {
                 for (int j = 0; j < cols; j++) {
@@ -732,6 +783,11 @@ public class vmath {
             return new Matrix(data);
         }
 
+        /**
+         * Returns an identity matrix of the given size.
+         * @param n The size of the matrix
+         * @return The identity matrix
+         */
         public static Matrix eye(int n) {
             double[][] data = new double[n][n];
             for (int i = 0; i < n; i++) {
@@ -740,10 +796,22 @@ public class vmath {
             return new Matrix(data);
         }
 
+        /**
+         * Compares two matrices.
+         * @param a The first matrix
+         * @param b The second matrix
+         * @return true if the matrices are equal, else false
+         */
         public static boolean compare(Matrix a, Matrix b){
             return a.isEqual(b);
         }
 
+        /**
+         * Returns the power of a matrix.
+         * @param a The matrix
+         * @param power The power
+         * @return The power of the matrix
+         */
         public static Matrix pow(Matrix a, int power){
             return a.pow(power);
         }
@@ -800,15 +868,15 @@ public class vmath {
          * @param c The type of distance to return
          * @return The distance between the two points
          */
-        public static double distance(Point p1, Point p2, distanceType c){
+        public static double distance(Point p1, Point p2, DistanceType c){
             Geometry geo = Geometry.getInstance();
-            if(c == distanceType.CARTESIAN){
+            if(c == DistanceType.CARTESIAN){
                 return geo.distanceCartesian(p1, p2);
             }
-            else if(c == distanceType.MANHATTAN){
+            else if(c == DistanceType.MANHATTAN){
                 return geo.manhattanDistance(p1, p2);
             }
-            else if(c == distanceType.CHEBYSHEV){
+            else if(c == DistanceType.CHEBYSHEV){
                 return geo.chebyshevDistance(p1, p2);
             }
             else{
@@ -879,7 +947,7 @@ public class vmath {
          * @param p2 The second point
          * @return The externalizer point
          */
-        public Point externalizerPoint(Point p1, Point p2, double m, double n){
+        public static Point externalizerPoint(Point p1, Point p2, double m, double n){
             Geometry geo = Geometry.getInstance();
             return geo.externalizerPoint(p1, p2, m, n);
         }
@@ -890,7 +958,7 @@ public class vmath {
          * @param p2 The second point
          * @return The area of the circle
          */
-        public double areaOfCircle(Point p1, Point p2){
+        public static double areaOfCircle(Point p1, Point p2){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfCircle(p1, p2);
         }
@@ -901,7 +969,7 @@ public class vmath {
          * @param p2 The second point
          * @return The circumference of the circle
          */
-        public double circumferenceOfCircle(Point p1, Point p2){
+        public static double circumferenceOfCircle(Point p1, Point p2){
             Geometry geo = Geometry.getInstance();
             return geo.circumferenceOfCircle(p1, p2);
         }
@@ -914,7 +982,7 @@ public class vmath {
          * @param c The type of triangle to check
          * @return true if the triangle is of the given type, else false
          */
-        public boolean isTriangle(Point p1, Point p2, Point p3, triangleType c){
+        public static boolean isTriangle(Point p1, Point p2, Point p3, triangleType c){
             Geometry geo = Geometry.getInstance();
             if(c == triangleType.EQUILATERAL){
                 return geo.isEquilateralTriangle(p1, p2, p3);
@@ -942,29 +1010,29 @@ public class vmath {
          * @param m2 The second slope
          * @return The angle between the two slopes
          */
-        public double angleBetweenTwoSlopes(double m1, double m2){
+        public static double angleBetweenTwoSlopes(double m1, double m2){
             Geometry geo = Geometry.getInstance();
             return geo.angleBetweenTwoSlopes(m1, m2);
         }
 
         /**
-         * Returns if the given four points form a quadrilaterial is of the given type.
+         * Returns if the given four points form a quadrilateral is of the given type.
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
          * @param p4 The fourth point
-         * @param c The type of quadrilaterial to check
-         * @return true if the quadrilaterial is of the given type, else false
+         * @param c The type of quadrilateral to check
+         * @return true if the quadrilateral is of the given type, else false
          */
-        public boolean isQuadrilaterial(Point p1, Point p2, Point p3, Point p4, quadrilaterialType c){
+        public static boolean isQuadrilateral(Point p1, Point p2, Point p3, Point p4, quadrilateralType c){
             Geometry geo = Geometry.getInstance();
-            if(c == quadrilaterialType.SQUARE){
+            if(c == quadrilateralType.SQUARE){
                 return geo.isSquare(p1, p2, p3, p4);
             }
-            else if(c == quadrilaterialType.RECTANGLE){
+            else if(c == quadrilateralType.RECTANGLE){
                 return geo.isRectangle(p1, p2, p3, p4);
             }
-            else if(c == quadrilaterialType.RHOMBUS){
+            else if(c == quadrilateralType.RHOMBUS){
                 return geo.isRhombus(p1, p2, p3, p4);
             }
             else{
@@ -979,7 +1047,7 @@ public class vmath {
          * @param c The type of line to check
          * @return true if the line is of the given type, else false
          */
-        public boolean isLine(Line l1, Line l2, lineType c){
+        public static boolean isLine(Line l1, Line l2, lineType c){
             Geometry geo = Geometry.getInstance();
             if(c == lineType.SAME){
                 return geo.isSameLine(l1, l2);
@@ -999,7 +1067,7 @@ public class vmath {
          * @param l3 The third line
          * @return true if the lines are same, else false
          */
-        public boolean areThreeLinesSame(Line l1, Line l2, Line l3){
+        public static boolean areThreeLinesSame(Line l1, Line l2, Line l3){
             Geometry geo = Geometry.getInstance();
             return geo.isThreeLinesSame(l1, l2, l3);
         }
@@ -1010,7 +1078,7 @@ public class vmath {
          * @param l2 The second line
          * @return The intersection point
          */
-        public Point intersectionOfTwoLines(Line l1, Line l2){
+        public static Point intersectionOfTwoLines(Line l1, Line l2){
             Geometry geo = Geometry.getInstance();
             return geo.intersectionPoint(l1, l2);
         }
@@ -1020,7 +1088,7 @@ public class vmath {
          * @param l The line
          * @return The slope
          */
-        public double slope(Line l){
+        public static double slope(Line l){
             Geometry geo = Geometry.getInstance();
             return geo.slopeOfLine(l);
         }
@@ -1031,7 +1099,7 @@ public class vmath {
          * @param l2 The second line
          * @return The distance between the two lines
          */
-        public double distanceBetweenTwoParallelLines(Line l1, Line l2){
+        public static double distanceBetweenTwoParallelLines(Line l1, Line l2){
             Geometry geo = Geometry.getInstance();
             return geo.distanceBetweenTwoParallelLines(l1, l2);
         }
@@ -1042,7 +1110,7 @@ public class vmath {
          * @param p The point
          * @return The perpendicular distance
          */
-        public double perpendicularDistanceFromAPointToALine(Line l, Point p){
+        public static double perpendicularDistanceFromAPointToALine(Line l, Point p){
             Geometry geo = Geometry.getInstance();
             return geo.perpendicularDistanceFromAPoint(l, p);
         }
@@ -1053,7 +1121,7 @@ public class vmath {
          * @param p The point
          * @return The perpendicular line of the line passing through the point
          */
-        public Line getPerpendicularLine(Line l, Point p){
+        public static Line getPerpendicularLine(Line l, Point p){
             Geometry geo = Geometry.getInstance();
             return geo.getPerpendicularLine(l, p);
         }
@@ -1064,7 +1132,7 @@ public class vmath {
          * @param p The point
          * @return The parallel line of the line passing through the point
          */
-        public Line getParallelLine(Line l, Point p) {
+        public static Line getParallelLine(Line l, Point p) {
             Geometry geo = Geometry.getInstance();
             return geo.getParallelLine(l, p);
         }
@@ -1075,35 +1143,35 @@ public class vmath {
          * @param l2 The second line
          * @return The line passing through the intersection point of the two lines
          */
-        public Line getLineFromIntersectionPoint(Line l1, Line l2){
+        public static Line getLineFromIntersectionPoint(Line l1, Line l2, Point p){
             Geometry geo = Geometry.getInstance();
-            return geo.getLineFromIntersectingPoint(l1, l2);
+            return geo.getLineFromIntersectingPoint(l1, l2, p);
         }
 
         /**
-         * Returns the area of a quadrilaterial using four lines inputted in anticlockwise order.
+         * Returns the area of a quadrilateral using four lines inputted in anticlockwise order.
          * @param l1 The first line
          * @param l2 The second line
          * @param l3 The third line
          * @param l4 The fourth line
-         * @return The area of the quadrilaterial
+         * @return The area of the quadrilateral
          */
-        public double areaOfQuadrilaterial(Line l1, Line l2, Line l3, Line l4){
+        public static double areaOfQuadrilateral(Line l1, Line l2, Line l3, Line l4){
             Geometry geo = Geometry.getInstance();
-            return geo.areaOfQuadrilaterialUsingLine(l1, l2, l3, l4);
+            return geo.areaOfQuadrilateralUsingLine(l1, l2, l3, l4);
         }
 
         /**
-         * Returns the area of a quadrilaterial using points inputted in anti-clockwise order.
+         * Returns the area of a quadrilateral using points inputted in anti-clockwise order.
          * @param p1 The first point in cartesian coordinates
          * @param p2 The second point in cartesian coordinates
          * @param p3 The third point in cartesian coordinates
          * @param p4 The fourth point in cartesian coordinates
-         * @return The area of the quadrilaterial
+         * @return The area of the quadrilateral
          */
-        public double areaOfQuadrilaterial(Point p1, Point p2, Point p3, Point p4){
+        public static double areaOfQuadrilateral(Point p1, Point p2, Point p3, Point p4){
             Geometry geo = Geometry.getInstance();
-            return geo.areaOfQuadrilaterial(p1, p2, p3, p4);
+            return geo.areaOfQuadrilateral(p1, p2, p3, p4);
         }
 
         /**
@@ -1113,7 +1181,7 @@ public class vmath {
          * @param l3 The third line
          * @return The area of the triangle
          */
-        public double areaOfTriangle(Line l1, Line l2, Line l3){
+        public static double areaOfTriangle(Line l1, Line l2, Line l3){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfTriangleGivenLine(l1, l2, l3);
         }
@@ -1123,7 +1191,7 @@ public class vmath {
          * @param points The points of the convex polygon
          * @return The area of the convex polygon
          */
-        public double areaOfConvexPolygon(Point[] points){
+        public static double areaOfConvexPolygon(Point[] points){
             Geometry geo = Geometry.getInstance();
             return geo.areaOfConvexPolygon(points);
         }
@@ -1134,9 +1202,20 @@ public class vmath {
          * @param p The point
          * @return True if the point is inside the polygon, false otherwise
          */
-        public boolean isPointInPolygon(Point[] points, Point p){
+        public static boolean isPointInPolygon(Point[] points, Point p){
             Geometry geo = Geometry.getInstance();
             return geo.isPointInPolygon(points, p);
+        }
+
+        /**
+         * Returns the line passing through two points.
+         * @param p1 The first point
+         * @param p2 The second point
+         * @return The line passing through the two points
+         */
+        public static Line getLineFromTwoPoints(Point p1, Point p2){
+            Geometry geo = Geometry.getInstance();
+            return geo.getLineFromTwoPoints(p1, p2);
         }
 
     }
