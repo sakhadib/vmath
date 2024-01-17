@@ -281,6 +281,28 @@ private static Bitwise instance;
         }
     }
 
+    /**
+     * Returns  an integer resulting from the left rotation
+     * @param x The integer on which to perform the rotation
+     * @param n The number of positions to rotate to the left
+     * @param isUnsigned Whether the number is unsigned
+     * @return an integer resulting from the left rotation
+     */
+    public static int rotateLeft(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            // Ensure n is in the range [0, 31] for unsigned rotation
+            n = n % 32;
+            return (x << n) | (x >>> (32 - n));
+        } else {
+            int m = x >>> (32 + ((~n) + 1));
+            int p = ~((~0) << (32 + ((~n) + 1)));
+            int k = x << n;
+            k = k & p;
+            return (k + m);
+        }
+    }
+
+
 
     /**
      *  returns true if the addition of x and y does not result in overflow, and false otherwise.
