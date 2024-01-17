@@ -146,11 +146,10 @@ private static Bitwise instance;
         if (isUnsigned) {
             return num >>> shiftBy;
         } else {
-            for (int i = 0; i < shiftBy; i++) {
-                num >>= 1;
+            return num >> shiftBy;
             }
-            return num;
-        }
+
+
     }
 
 
@@ -166,10 +165,7 @@ private static Bitwise instance;
         if (isUnsigned) {
             return num << shiftBy;
         } else {
-            for (int i = 0; i < shiftBy; i++) {
-                num <<= 1;
-            }
-            return num;
+            return num << shiftBy;
         }
     }
 
@@ -240,24 +236,7 @@ private static Bitwise instance;
         return (n ^ (1 << i));
     }
 
-    /**
-     * Returns an integer resulting from the logical right shift
-     * @param x The integer on which to perform the shift.
-     * @param n The number of positions to shift to the right.
-     * @param isUnsigned Whether the number is unsigned.
-     * @return an integer resulting from the logical right shift
-     */
 
-
-
-    public static int logicalShift(int x, int n, boolean isUnsigned) {
-        if (isUnsigned) {
-            return x >>> n;
-        } else {
-            int res = (x >> n) & (~(((1 << 31) >> n) << 1));
-            return res;
-        }
-    }
 
     /**
      * Returns  an integer resulting from the right rotation
