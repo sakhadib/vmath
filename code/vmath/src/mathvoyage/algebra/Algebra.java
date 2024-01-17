@@ -2,9 +2,9 @@ package mathvoyage.algebra;
 
 /**
  * voyager.Algebra.java
+ *
  * @author Adib Sakhawat
  */
-
 public class Algebra {
     private static Algebra instance;
 
@@ -14,6 +14,7 @@ public class Algebra {
 
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static Algebra getInstance() {
@@ -26,6 +27,7 @@ public class Algebra {
 
     /**
      * returns the absolute value of a number.
+     *
      * @param number The number
      * @return The absolute value
      */
@@ -39,6 +41,7 @@ public class Algebra {
 
     /**
      * returns the absolute value of a number.
+     *
      * @param number The number
      * @return The absolute value
      */
@@ -52,8 +55,10 @@ public class Algebra {
 
     /**
      * Returns the minimum of two comparable objects.
-     * @param a The first object
-     * @param b The second object
+     *
+     * @param <T> the type parameter
+     * @param a   The first object
+     * @param b   The second object
      * @return The minimum of the two objects
      */
     public <T extends Comparable<T>> T min(T a, T b) {
@@ -71,6 +76,8 @@ public class Algebra {
 
     /**
      * Returns the minimum of an array of comparable objects.
+     *
+     * @param <T>   the type parameter
      * @param array The array of objects
      * @return The minimum of the array
      */
@@ -96,8 +103,10 @@ public class Algebra {
 
     /**
      * Returns the maximum of two comparable objects.
-     * @param a The first object
-     * @param b The second object
+     *
+     * @param <T> the type parameter
+     * @param a   The first object
+     * @param b   The second object
      * @return The maximum of the two objects
      */
     public <T extends Comparable<T>> T max(T a, T b) {
@@ -115,6 +124,8 @@ public class Algebra {
 
     /**
      * Returns the maximum of an array of comparable objects.
+     *
+     * @param <T>   the type parameter
      * @param array The array of objects
      * @return The maximum of the array
      */
@@ -140,6 +151,8 @@ public class Algebra {
 
     /**
      * returns the index of the minimum of an array of comparable objects.
+     *
+     * @param <T>   the type parameter
      * @param array The array of objects
      * @return The index of the minimum of the array
      */
@@ -165,6 +178,8 @@ public class Algebra {
 
     /**
      * returns the index of the maximum of an array of comparable objects.
+     *
+     * @param <T>   the type parameter
      * @param array The array of objects
      * @return The index of the maximum of the array
      */
@@ -190,7 +205,9 @@ public class Algebra {
 
     /**
      * Calculates the power of a number.
-     * @param base The base
+     *
+     * @param <T>      the type parameter
+     * @param base     The base
      * @param exponent The exponent
      * @return The result
      */
@@ -215,6 +232,8 @@ public class Algebra {
 
     /**
      * Calculates the square root of a number.
+     *
+     * @param <T>    the type parameter
      * @param number The number
      * @return The result
      */
@@ -236,6 +255,8 @@ public class Algebra {
 
     /**
      * Calculates the cube root of a number.
+     *
+     * @param <T>    the type parameter
      * @param number The number
      * @return The result
      */
@@ -258,9 +279,11 @@ public class Algebra {
 
     /**
      * Finds the nth root of a number.
-     * @param x the number which I have to find nth root
-     * @param n the root
-     * @return result
+     *
+     * @param <T> the type parameter
+     * @param x   the number which I have to find nth root
+     * @param n   the root
+     * @return result double
      */
     public <T extends Number> double nthRoot(T x, int n) {
         if (n == 0) {
@@ -285,6 +308,7 @@ public class Algebra {
 
     /**
      * Calculates the GCD of a number.
+     *
      * @param a The first number
      * @param b The second number
      * @return The result
@@ -298,8 +322,9 @@ public class Algebra {
 
     /**
      * Calculates LCM of a number.
-     * @param a
-     * @param b
+     *
+     * @param a the a
+     * @param b the b
      * @return The result
      */
     public int lcm(int a, int b) {
@@ -308,8 +333,9 @@ public class Algebra {
 
     /**
      * Calculates the floor value of a number.
-     * @param value
-     * @return
+     *
+     * @param value the value
+     * @return double
      */
     public double floor(double value) {
         if (value >= 0) {

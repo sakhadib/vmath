@@ -1,5 +1,15 @@
 package mathvoyage;
 
+/**
+ * The enum Angle.
+ */
 public enum Angle {
-    DEGREE, RADIAN;
+    /**
+     * Degree angle.
+     */
+    DEGREE,
+    /**
+     * Radian angle.
+     */
+    RADIAN;
 }

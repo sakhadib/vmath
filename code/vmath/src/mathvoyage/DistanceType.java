@@ -1,5 +1,23 @@
 package mathvoyage;
 
+/**
+ * The enum Distance type.
+ */
 public enum DistanceType {
-    CARTESIAN, POLAR, MANHATTAN, CHEBYSHEV;
+    /**
+     * Cartesian distance type.
+     */
+    CARTESIAN,
+    /**
+     * Polar distance type.
+     */
+    POLAR,
+    /**
+     * Manhattan distance type.
+     */
+    MANHATTAN,
+    /**
+     * Chebyshev distance type.
+     */
+    CHEBYSHEV;
 }

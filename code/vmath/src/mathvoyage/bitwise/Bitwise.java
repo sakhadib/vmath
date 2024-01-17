@@ -4,6 +4,9 @@ import mathvoyage.NumberSystem.BaseConverter;
 import mathvoyage.algebra.Algebra;
 import mathvoyage.vmath;
 
+/**
+ * The type Bitwise.
+ */
 public class Bitwise {
 private static Bitwise instance;
 
@@ -13,6 +16,7 @@ private static Bitwise instance;
 
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static Bitwise getInstance() {
@@ -24,10 +28,11 @@ private static Bitwise instance;
 
     /**
      * Return the OR value
+     *
      * @param a is the int value given
      * @param b is the int value given
      * @return or value
-      */
+     */
     public  int BitWiseOR(int a, int b) {
         int result = 0;
         int mask = 1;
@@ -47,6 +52,7 @@ private static Bitwise instance;
 
     /**
      * Return the bitwise And value
+     *
      * @param a is the given value
      * @param b is the given value
      * @return AND value
@@ -79,11 +85,10 @@ private static Bitwise instance;
 
     /**
      * Return the NOT value
+     *
      * @param a is the int value
      * @return the NOT value
      */
-    
-
     public int BitWiseNOT (int a){
 
 
@@ -105,13 +110,12 @@ private static Bitwise instance;
 
     /**
      * Return the XOR value
+     *
      * @param a is the int value
      * @param b is the int value
      * @return the XOR value
      */
-
-
-     public int BitWiseXOR( int a, int b){
+    public int BitWiseXOR( int a, int b){
 
         int result = 0;
 
@@ -135,13 +139,12 @@ private static Bitwise instance;
 
     /**
      * Return the rightshift value
-     * @param num the int value
-     * @param shiftBy is the value of how much value need to be shifted
+     *
+     * @param num        the int value
+     * @param shiftBy    is the value of how much value need to be shifted
      * @param isUnsigned is the boolean value
      * @return the rightshift value
      */
-
-
     public int rightShift(int num, int shiftBy, boolean isUnsigned) {
         if (isUnsigned) {
             return num >>> shiftBy;
@@ -155,12 +158,12 @@ private static Bitwise instance;
 
     /**
      * Return the LeftShift value
-     * @param num the int value
-     * @param shiftBy is the value of how much value need to be shifted
+     *
+     * @param num        the int value
+     * @param shiftBy    is the value of how much value need to be shifted
      * @param isUnsigned is the boolean value
      * @return the LeftShift value
      */
-
     public int leftShift(int num, int shiftBy, boolean isUnsigned) {
         if (isUnsigned) {
             return num << shiftBy;
@@ -169,14 +172,14 @@ private static Bitwise instance;
         }
     }
 
-  /**
-    * Returns the binary representation of a number.
-    * @param binaryNumber The number to be converted
-   * @param shiftAmount The number of bits to shift
-    * @return The binary representation of the bitwiseZeroFillRightShift number
-
-   */
-  public  String bitwiseZeroFillRightShift(int binaryNumber, int shiftAmount) {
+    /**
+     * Returns the binary representation of a number.
+     *
+     * @param binaryNumber The number to be converted
+     * @param shiftAmount  The number of bits to shift
+     * @return The binary representation of the bitwiseZeroFillRightShift number
+     */
+    public  String bitwiseZeroFillRightShift(int binaryNumber, int shiftAmount) {
     binaryNumber = binaryNumber >> shiftAmount;
      String r = BaseConverter.getInstance().decimalToBinary(binaryNumber);
 
@@ -186,8 +189,9 @@ private static Bitwise instance;
 
     /**
      * Returns the value of the n-th byte of the integer x
-     * @param x  The integer from which to extract the byte.
-     * @param n  The byte position to extract
+     *
+     * @param x          The integer from which to extract the byte.
+     * @param n          The byte position to extract
      * @param isUnsigned Whether the number is unsigned
      * @return the value of the n-th byte of the integer x
      */
@@ -205,6 +209,7 @@ private static Bitwise instance;
 
     /**
      * Returns an integer where the bit at position i in n is set to 0, and all other bits remain unchanged.
+     *
      * @param n The integer on which to operate.
      * @param i The bit position to set to 0.
      * @return an integer where the bit at position i in n is set to 0, and all other bits remain unchanged.
@@ -216,6 +221,7 @@ private static Bitwise instance;
 
     /**
      * Returns an integer where the bit at position i in n is set to 1, and all other bits remain unchanged.
+     *
      * @param n The integer on which to operate.
      * @param i The bit position to set to 1.
      * @return an integer where the bit at position i in n is set to 1, and all other bits remain unchanged.
@@ -226,26 +232,45 @@ private static Bitwise instance;
 
 
     /**
-     *returns an integer where the bit at position i in n is flipped
+     * returns an integer where the bit at position i in n is flipped
+     *
      * @param n The integer on which to operate.
-     * @param i  The bit position to toggle.
+     * @param i The bit position to toggle.
      * @return an integer where the bit at position i in n is flipped
      */
-
     public static int toggleBit(int n, int i) {
         return (n ^ (1 << i));
     }
 
 
+<<<<<<< HEAD
+=======
+    /**
+     * Returns an integer resulting from the logical right shift
+     *
+     * @param x          The integer on which to perform the shift.
+     * @param n          The number of positions to shift to the right.
+     * @param isUnsigned Whether the number is unsigned.
+     * @return an integer resulting from the logical right shift
+     */
+    public static int logicalShift(int x, int n, boolean isUnsigned) {
+        if (isUnsigned) {
+            return x >>> n;
+        } else {
+            int res = (x >> n) & (~(((1 << 31) >> n) << 1));
+            return res;
+        }
+    }
+>>>>>>> a64610bb275373ba5f24fdb6fd91bbf8c97a8a16
 
     /**
      * Returns  an integer resulting from the right rotation
-     * @param x The integer on which to perform the rotation.
-     * @param n The number of positions to rotate to the right.
+     *
+     * @param x          The integer on which to perform the rotation.
+     * @param n          The number of positions to rotate to the right.
      * @param isUnsigned Whether the number is unsigned.
-     * @return  an integer resulting from the right rotation
+     * @return an integer resulting from the right rotation
      */
-
     public static int rotateRight(int x, int n, boolean isUnsigned) {
         if (isUnsigned) {
             // Ensure n is in the range [0, 31] for unsigned rotation
@@ -262,8 +287,9 @@ private static Bitwise instance;
 
     /**
      * Returns  an integer resulting from the left rotation
-     * @param x The integer on which to perform the rotation
-     * @param n The number of positions to rotate to the left
+     *
+     * @param x          The integer on which to perform the rotation
+     * @param n          The number of positions to rotate to the left
      * @param isUnsigned Whether the number is unsigned
      * @return an integer resulting from the left rotation
      */
@@ -282,11 +308,11 @@ private static Bitwise instance;
     }
 
 
-
     /**
-     *  returns true if the addition of x and y does not result in overflow, and false otherwise.
-     * @param x The first integer operand.
-     * @param y The second integer operand.
+     * returns true if the addition of x and y does not result in overflow, and false otherwise.
+     *
+     * @param x          The first integer operand.
+     * @param y          The second integer operand.
      * @param isUnsigned Whether the numbers are unsigned.
      * @return true if the addition of x and y does not result in overflow, and false otherwise.
      */
