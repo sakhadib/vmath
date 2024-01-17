@@ -1,15 +1,45 @@
 package mathvoyage.geometry;
 
+/**
+ * The type Slope line.
+ */
 public class SlopeLine implements Line{
+    /**
+     * The Slope.
+     */
     public double slope;
+    /**
+     * The Shift.
+     */
     public double shift;
+    /**
+     * The Y intercept.
+     */
     public double yIntercept;
+    /**
+     * The X intercept.
+     */
     public double xIntercept;
+    /**
+     * The Coefficient of x.
+     */
     public double coefficientOfX;
+    /**
+     * The Coefficient of y.
+     */
     public double coefficientOfY;
+    /**
+     * The Constant.
+     */
     public double constant;
 
 
+    /**
+     * Instantiates a new Slope line.
+     *
+     * @param slope the slope
+     * @param shift the shift
+     */
     public SlopeLine(double slope, double shift){
         this.slope = slope;
         this.shift = shift;

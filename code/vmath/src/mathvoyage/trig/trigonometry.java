@@ -3,8 +3,9 @@ package mathvoyage.trig;
 import mathvoyage.vmath;
 
 /**
-    * voyager.trigonometry.java
-    * @author Tahsin Islam
+ * voyager.trigonometry.java
+ *
+ * @author Tahsin Islam
  */
 public class trigonometry {
     private static trigonometry instance;
@@ -15,6 +16,7 @@ public class trigonometry {
 
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static trigonometry getInstance() {
@@ -28,6 +30,7 @@ public class trigonometry {
 
     /**
      * Returns the conversion of degree to radian.
+     *
      * @param angleDegree The angle in degree
      * @return The angle in radian
      */
@@ -38,8 +41,9 @@ public class trigonometry {
 
     /**
      * Returns the conversion of radian to degree.
+     *
      * @param angleRadian The angle in radian
-     * @return
+     * @return double
      */
     public static double radianToDegree(double angleRadian){
         double degree = angleRadian * 180 / PI;
@@ -48,6 +52,7 @@ public class trigonometry {
 
     /**
      * Returns the sine of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The sine of the angle
      */
@@ -60,8 +65,10 @@ public class trigonometry {
         }
         return sine;
     }
+
     /**
      * Returns the sine of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The sine of the angle
      */
@@ -73,6 +80,7 @@ public class trigonometry {
 
     /**
      * Returns the cosine of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The cosine of the angle
      */
@@ -91,6 +99,7 @@ public class trigonometry {
 
     /**
      * Returns the cosine of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The cosine of the angle
      */
@@ -102,6 +111,7 @@ public class trigonometry {
 
     /**
      * Returns the tangent of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The tangent of the angle
      */
@@ -114,6 +124,7 @@ public class trigonometry {
 
     /**
      * Returns the tangent of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The tangent of the angle
      */
@@ -125,6 +136,7 @@ public class trigonometry {
 
     /**
      * Returns the cotangent of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The cotangent of the angle
      */
@@ -135,6 +147,7 @@ public class trigonometry {
 
     /**
      * Returns the cotangent of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The cotangent of the angle
      */
@@ -143,8 +156,10 @@ public class trigonometry {
         double cot = cotRad(radian);
         return cot;
     }
+
     /**
      * Returns the secant of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The secant of the angle
      */
@@ -152,8 +167,10 @@ public class trigonometry {
         double sec = 1 / cosRad(angleRadian);
         return sec;
     }
+
     /**
      * Returns the secant of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The secant of the angle
      */
@@ -165,6 +182,7 @@ public class trigonometry {
 
     /**
      * Returns the cosecant of an angle given in radian.
+     *
      * @param angleRadian The angle in radian
      * @return The cosecant of the angle
      */
@@ -175,6 +193,7 @@ public class trigonometry {
 
     /**
      * Returns the cosecant of an angle given in degree.
+     *
      * @param angleDegree The angle in degree
      * @return The cosecant of the angle
      */
@@ -186,6 +205,7 @@ public class trigonometry {
 
     /**
      * Returns the arcsine of a number.
+     *
      * @param x The number
      * @return The arcsine of the number in radian
      */
@@ -211,6 +231,7 @@ public class trigonometry {
 
     /**
      * Returns the arcsine of a number.
+     *
      * @param x The number
      * @return The arcsine of the number in degree
      */
@@ -222,6 +243,7 @@ public class trigonometry {
 
     /**
      * Returns the arccosine of a number.
+     *
      * @param x The number
      * @return The arccosine of the number in radian
      */
@@ -236,6 +258,7 @@ public class trigonometry {
 
     /**
      * Returns the arccosine of a number.
+     *
      * @param x The number
      * @return The arccosine of the number in degree
      */
@@ -247,6 +270,7 @@ public class trigonometry {
 
     /**
      * Returns the arctangent of a number.
+     *
      * @param x The number
      * @return The arctangent of the number in radian
      */
@@ -288,6 +312,7 @@ public class trigonometry {
 
     /**
      * Returns the arctangent of a number.
+     *
      * @param x The number
      * @return The arctangent of the number in degree
      */
@@ -296,8 +321,10 @@ public class trigonometry {
         double degree = radianToDegree(radian);
         return degree;
     }
+
     /**
      * Returns the arccotangent of a number.
+     *
      * @param x The number
      * @return The arccotangent of the number in radian
      */
@@ -305,8 +332,10 @@ public class trigonometry {
         double arccot = arctanRad(1/x);
         return arccot;
     }
+
     /**
      * Returns the arccotangent of a number.
+     *
      * @param x The number
      * @return The arccotangent of the number in degree
      */
@@ -318,6 +347,7 @@ public class trigonometry {
 
     /**
      * Returns the arcosec of a number.
+     *
      * @param x The number
      * @return The arccosec of the number in radian
      */
@@ -325,8 +355,10 @@ public class trigonometry {
         double arccosec = arcsinRad(1/x);
         return arccosec;
     }
+
     /**
      * Returns the arcosec of a number.
+     *
      * @param x The number
      * @return The arcosec of the number in degree
      */
@@ -338,6 +370,7 @@ public class trigonometry {
 
     /**
      * Returns the arcsec of a number.
+     *
      * @param x The number
      * @return The arcsec of the number in radian
      */
@@ -348,6 +381,7 @@ public class trigonometry {
 
     /**
      * Returns the arcsec of a number.
+     *
      * @param x The number
      * @return The arcsec of the number in degree
      */

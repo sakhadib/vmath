@@ -1,5 +1,8 @@
 package mathvoyage.algebra;
 
+/**
+ * The type Factorial util.
+ */
 public class Factorial_UTIL {
     private double[] fact = new double[171];
     private static Factorial_UTIL instance;
@@ -14,6 +17,7 @@ public class Factorial_UTIL {
 
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static Factorial_UTIL getInstance() {
@@ -25,6 +29,7 @@ public class Factorial_UTIL {
 
     /**
      * Returns the factorial of a number.
+     *
      * @param number The number
      * @return The factorial
      */

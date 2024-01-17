@@ -4,12 +4,33 @@ import mathvoyage.Angle;
 import mathvoyage.vmath;
 import mathvoyage.*;
 
+/**
+ * The type Cartesian point.
+ */
 public class CartesianPoint implements Point{
+    /**
+     * The X.
+     */
     double x;
+    /**
+     * The Y.
+     */
     double y;
+    /**
+     * The R.
+     */
     double r;
+    /**
+     * The Theta.
+     */
     double theta;
 
+    /**
+     * Instantiates a new Cartesian point.
+     *
+     * @param x the x
+     * @param y the y
+     */
     public CartesianPoint(double x, double y){
         if(x != 0 || y != 0){
             this.theta = vmath.Trigonometry.arctan(y/x, Angle.DEGREE);

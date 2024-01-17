@@ -12,64 +12,174 @@ import mathvoyage.geometry.*;
 
 import java.util.ArrayList;
 
+/**
+ * The type Vmath.
+ */
 public class vmath {
 
+    /**
+     * The type Constant.
+     */
     public static class constant {
-        // Mathematical Constants
+        /**
+         * The constant PI.
+         */
+// Mathematical Constants
         public static final double PI = 3.14159265358979323846;
+        /**
+         * The constant E.
+         */
         public static final double E = 2.71828182845904523536;
+        /**
+         * The constant GOLDEN_RATIO.
+         */
         public static final double GOLDEN_RATIO = 1.61803398874989484820;
+        /**
+         * The constant EULER_MASCHERONI_CONSTANT.
+         */
         public static final double EULER_MASCHERONI_CONSTANT = 0.57721566490153286060;
+        /**
+         * The constant ARCHIMEDES_CONSTANT.
+         */
         public static final double ARCHIMEDES_CONSTANT = 3.14159265358979323846;
+        /**
+         * The constant CATALAN_CONSTANT.
+         */
         public static final double CATALAN_CONSTANT = 0.91596559417721901505;
+        /**
+         * The constant FEIGENBAUM_ALPHA.
+         */
         public static final double FEIGENBAUM_ALPHA = 2.50290787509589282228;
+        /**
+         * The constant FEIGENBAUM_DELTA.
+         */
         public static final double FEIGENBAUM_DELTA = 4.66920160910299067185;
 
-        // Physical Constants
+        /**
+         * The constant SPEED_OF_LIGHT.
+         */
+// Physical Constants
         public static final double SPEED_OF_LIGHT = 299792458; // meters per second
+        /**
+         * The constant PLANCK_CONSTANT.
+         */
         public static final double PLANCK_CONSTANT = 6.62607015e-34; // Joule seconds
+        /**
+         * The constant GRAVITATIONAL_CONSTANT.
+         */
         public static final double GRAVITATIONAL_CONSTANT = 6.67430e-11; // m^3/kg/s^2
+        /**
+         * The constant BOLTZMANN_CONSTANT.
+         */
         public static final double BOLTZMANN_CONSTANT = 1.380649e-23; // J/K
+        /**
+         * The constant AVOGADRO_NUMBER.
+         */
         public static final double AVOGADRO_NUMBER = 6.02214076e23; // mol⁻¹
+        /**
+         * The constant UNIVERSAL_GRAVITATIONAL_CONSTANT.
+         */
         public static final double UNIVERSAL_GRAVITATIONAL_CONSTANT = 6.67430e-11; // N m²/kg²
+        /**
+         * The constant PLANCK_LENGTH.
+         */
         public static final double PLANCK_LENGTH = 1.616255e-35; // meters
+        /**
+         * The constant PLANCK_TIME.
+         */
         public static final double PLANCK_TIME = 5.39116e-44; // seconds
 
-        // Additional Mathematical Constants
+        /**
+         * The constant SQUARE_ROOT_2.
+         */
+// Additional Mathematical Constants
         public static final double SQUARE_ROOT_2 = 1.41421356237309504880;
+        /**
+         * The constant SQUARE_ROOT_3.
+         */
         public static final double SQUARE_ROOT_3 = 1.73205080756887729352;
+        /**
+         * The constant SQUARE_ROOT_5.
+         */
         public static final double SQUARE_ROOT_5 = 2.23606797749978969640;
+        /**
+         * The constant SQUARE_ROOT_7.
+         */
         public static final double SQUARE_ROOT_7 = 2.64575131106459059050;
+        /**
+         * The constant PHI.
+         */
         public static final double PHI = (1 + SQUARE_ROOT_5) / 2; // The golden ratio
 
-        // Constants related to Planck Units
+        /**
+         * The constant PLANCK_MASS.
+         */
+// Constants related to Planck Units
         public static final double PLANCK_MASS = 2.17647e-8; // kg
+        /**
+         * The constant PLANCK_CHARGE.
+         */
         public static final double PLANCK_CHARGE = 1.87555e-18; // C
+        /**
+         * The constant PLANCK_TEMPERATURE.
+         */
         public static final double PLANCK_TEMPERATURE = 1.416808e32; // K
 
-        // Atomic Constants
+        /**
+         * The constant ELECTRON_MASS.
+         */
+// Atomic Constants
         public static final double ELECTRON_MASS = 9.10938356e-31; // kg
+        /**
+         * The constant PROTON_MASS.
+         */
         public static final double PROTON_MASS = 1.6726219e-27; // kg
+        /**
+         * The constant NEUTRON_MASS.
+         */
         public static final double NEUTRON_MASS = 1.674927471e-27; // kg
+        /**
+         * The constant ELECTRON_CHARGE.
+         */
         public static final double ELECTRON_CHARGE = 1.60217662e-19; // C
 
-        // Astronomical Constants
+        /**
+         * The constant LIGHT_YEAR.
+         */
+// Astronomical Constants
         public static final double LIGHT_YEAR = 9.461e15; // meters
+        /**
+         * The constant PARSEC.
+         */
         public static final double PARSEC = 3.086e16; // meters
+        /**
+         * The constant SOLAR_MASS.
+         */
         public static final double SOLAR_MASS = 1.989e30; // kg
+        /**
+         * The constant EARTH_RADIUS.
+         */
         public static final double EARTH_RADIUS = 6371000; // meters
+        /**
+         * The constant MOON_RADIUS.
+         */
         public static final double MOON_RADIUS = 1737100; // meters
+        /**
+         * The constant ASTRONOMICAL_UNIT.
+         */
         public static final double ASTRONOMICAL_UNIT = 1.496e11; // meters
     }
 
 
     /**
      * Contains Basic Algebraic functions to find min, max, min and max index of an array, factorial, and more.
+     *
      * @author Adib Sakhawat
      */
     public static class algebra{
         /**
          * Returns the floor of a number.
+         *
          * @param number The number
          * @return The floor
          */
@@ -77,10 +187,13 @@ public class vmath {
             Algebra alg = Algebra.getInstance();
             return alg.floor(number);
         }
+
         /**
          * Returns the minimum of two comparable objects.
-         * @param a The first object
-         * @param b The second object
+         *
+         * @param <T> the type parameter
+         * @param a   The first object
+         * @param b   The second object
          * @return The minimum of the two objects
          */
         public static <T extends Comparable<T>> T min(T a, T b) {
@@ -90,6 +203,8 @@ public class vmath {
 
         /**
          * Returns the minimum of an array of comparable objects.
+         *
+         * @param <T>   the type parameter
          * @param array The array of objects
          * @return The minimum of the array
          */
@@ -100,8 +215,10 @@ public class vmath {
 
         /**
          * Returns the maximum of two comparable objects.
-         * @param a The first object
-         * @param b The second object
+         *
+         * @param <T> the type parameter
+         * @param a   The first object
+         * @param b   The second object
          * @return The maximum of the two objects
          */
         public static <T extends Comparable<T>> T max(T a, T b) {
@@ -111,6 +228,8 @@ public class vmath {
 
         /**
          * Returns the maximum of an array of comparable objects.
+         *
+         * @param <T>   the type parameter
          * @param array The array of objects
          * @return The maximum of the array
          */
@@ -121,6 +240,8 @@ public class vmath {
 
         /**
          * Returns the index of the maximum of an array of comparable objects.
+         *
+         * @param <T>   the type parameter
          * @param array The array of objects
          * @return The index of the maximum of the array
          */
@@ -131,6 +252,8 @@ public class vmath {
 
         /**
          * Returns the index of the minimum of an array of comparable objects.
+         *
+         * @param <T>   the type parameter
          * @param array The array of objects
          * @return The index of the minimum of the array
          */
@@ -141,7 +264,9 @@ public class vmath {
 
         /**
          * Calculates the power of a number.
-         * @param base The base
+         *
+         * @param <T>      the type parameter
+         * @param base     The base
          * @param exponent The exponent
          * @return The result
          */
@@ -152,6 +277,8 @@ public class vmath {
 
         /**
          * Calculates the square root of a number.
+         *
+         * @param <T>    the type parameter
          * @param number The number
          * @return The result
          */
@@ -162,6 +289,8 @@ public class vmath {
 
         /**
          * Calculates the cube root of a number.
+         *
+         * @param <T>    the type parameter
          * @param number The number
          * @return The result
          */
@@ -172,9 +301,11 @@ public class vmath {
 
         /**
          * Finds the nth root of a number.
+         *
+         * @param <T>    the type parameter
          * @param number the number which I have to find nth root
-         * @param n the root
-         * @return result
+         * @param n      the root
+         * @return result double
          */
         public static <T extends Number> double nthRoot(T number, int n){
             Algebra alg = Algebra.getInstance();
@@ -183,6 +314,7 @@ public class vmath {
 
         /**
          * Returns the Absolute value of a number.
+         *
          * @param number The number
          * @return The result
          */
@@ -193,6 +325,7 @@ public class vmath {
 
         /**
          * Returns the Absolute value of a number.
+         *
          * @param number The number
          * @return The result
          */
@@ -203,6 +336,7 @@ public class vmath {
 
         /**
          * Returns the factorial of a number.
+         *
          * @param number The number
          * @return The factorial
          */
@@ -213,8 +347,9 @@ public class vmath {
 
         /**
          * Returns the greatest common divisor of two numbers.
-         * @param a
-         * @param b
+         *
+         * @param a the a
+         * @param b the b
          * @return The greatest common divisor
          */
         public static int gcd(int a, int b){
@@ -224,8 +359,9 @@ public class vmath {
 
         /**
          * Returns the least common multiple of two numbers.
-         * @param a
-         * @param b
+         *
+         * @param a the a
+         * @param b the b
          * @return The least common multiple
          */
         public static int lcm(int a, int b){
@@ -237,11 +373,13 @@ public class vmath {
 
     /**
      * Contains functions to convert numbers from one base to another.
+     *
      * @author Adib Sakhawat
      */
     public static class baseConverter{
         /**
          * Converts a binery number (string) to decimal number (double).
+         *
          * @param bineryNumber The binery number in string format
          * @return The decimal number
          */
@@ -252,6 +390,7 @@ public class vmath {
 
         /**
          * Converts a decimal number (double) to binery number (string).
+         *
          * @param decimalNumber The decimal number
          * @return The binery number in string format
          */
@@ -262,6 +401,7 @@ public class vmath {
 
         /**
          * Converts a decimal number (double) to Hexadecimal number (string).
+         *
          * @param decimalNumber The decimal number
          * @return The Hexadecimal number in string format
          */
@@ -272,6 +412,7 @@ public class vmath {
 
         /**
          * Converts a Hexadecimal number (string) to decimal number (double).
+         *
          * @param hexadecimalString The Hexadecimal number in string format
          * @return The decimal number
          */
@@ -282,6 +423,7 @@ public class vmath {
 
         /**
          * Converts an Octal number (String) to a Decimal number (double).
+         *
          * @param octalString The decimal number
          * @return The Octal number in string format
          */
@@ -292,6 +434,7 @@ public class vmath {
 
         /**
          * Converts a decimal number (double) to Octal number (string).
+         *
          * @param decimalNumber The decimal number
          * @return The Octal number in string format
          */
@@ -302,8 +445,9 @@ public class vmath {
 
         /**
          * Converts a decimal number (double) to a number of any base (string).
-         * @param decimalNumber
-         * @param base
+         *
+         * @param decimalNumber the decimal number
+         * @param base          the base
          * @return The number in string format
          */
         public static String decToN(double decimalNumber, int base){
@@ -313,8 +457,9 @@ public class vmath {
 
         /**
          * Converts a number of any base (string) to a decimal number (double).
-         * @param number
-         * @param base
+         *
+         * @param number the number
+         * @param base   the base
          * @return The decimal number
          */
         public static double nToDec(String number, int base) {
@@ -324,8 +469,9 @@ public class vmath {
 
         /**
          * Converts a binary number (string) to an octal number (string).
-         * @param binaryString
-         * @return
+         *
+         * @param binaryString the binary string
+         * @return string
          */
         public static String binToOct(String binaryString){
             BaseConverter baseConverter = BaseConverter.getInstance();
@@ -334,7 +480,8 @@ public class vmath {
 
         /**
          * Converts an octal number (string) to a binary number (string).
-         * @param octalString
+         *
+         * @param octalString the octal string
          * @return The binary number in string format
          */
         public static String octToBin(String octalString){
@@ -344,7 +491,8 @@ public class vmath {
 
         /**
          * Converts a binary number (string) to a hexadecimal number (string).
-         * @param binaryString
+         *
+         * @param binaryString the binary string
          * @return The hexadecimal number in string format
          */
         public static String binToHex(String binaryString) {
@@ -354,7 +502,8 @@ public class vmath {
 
         /**
          * Converts a hexadecimal number (string) to a binary number (string).
-         * @param hexadecimalString
+         *
+         * @param hexadecimalString the hexadecimal string
          * @return The binary number in string format
          */
         public static String hexToBin(String hexadecimalString) {
@@ -364,8 +513,9 @@ public class vmath {
 
         /**
          * Converts a binary number (string) to a number of any base (string).
-         * @param binaryString
-         * @param base
+         *
+         * @param binaryString the binary string
+         * @param base         the base
          * @return The number in string format
          */
         public static String binToN(String binaryString, int base){
@@ -375,7 +525,8 @@ public class vmath {
 
         /**
          * Converts a number from octal to hexadecimal
-         * @param octalString
+         *
+         * @param octalString the octal string
          * @return The hexadecimal number in string format
          */
         public static String octToHex(String octalString){
@@ -385,7 +536,8 @@ public class vmath {
 
         /**
          * Converts a number from hexadecimal to octal
-         * @param hexadecimalString
+         *
+         * @param hexadecimalString the hexadecimal string
          * @return The octal number in string format
          */
         public static String hexToOct(String hexadecimalString){
@@ -395,8 +547,9 @@ public class vmath {
 
         /**
          * Converts a number from octal to any base
-         * @param octalString
-         * @param base
+         *
+         * @param octalString the octal string
+         * @param base        the base
          * @return The number in string format
          */
         public static String octToN(String octalString, int base){
@@ -406,8 +559,9 @@ public class vmath {
 
         /**
          * Converts a number from hexadecimal to any base
-         * @param hexadecimalString
-         * @param base
+         *
+         * @param hexadecimalString the hexadecimal string
+         * @param base              the base
          * @return The number in string format
          */
         public static String hexToN(String hexadecimalString, int base){
@@ -417,9 +571,10 @@ public class vmath {
 
         /**
          * Converts a number from any base to any base
-         * @param baseNString
-         * @param baseN
-         * @param baseK
+         *
+         * @param baseNString the base n string
+         * @param baseN       the base n
+         * @param baseK       the base k
          * @return The binary number in string format
          */
         public static String nToK(String baseNString, int baseN, int baseK){
@@ -432,11 +587,13 @@ public class vmath {
 
     /**
      * Contains functions to calculate trigonometric relations and values for numbers in radian and degree.
+     *
      * @author Tahsin Islam
      */
     public static class Trigonometry{
         /**
          * Returns the conversion of degree to radian.
+         *
          * @param angleDegree The angle in degree
          * @return The angle in radian
          */
@@ -447,6 +604,7 @@ public class vmath {
 
         /**
          * Returns the conversion of radian to degree.
+         *
          * @param angleRadian The angle in radian
          * @return The angle in degree
          */
@@ -457,8 +615,9 @@ public class vmath {
 
         /**
          * Returns the sine of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The sine of the angle
          */
         public static double sin(double angle, Angle unit) {
@@ -472,8 +631,9 @@ public class vmath {
 
         /**
          * Returns the cosine of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The cosine of the angle
          */
         public static double cos(double angle, Angle unit) {
@@ -487,8 +647,9 @@ public class vmath {
 
         /**
          * Returns the tangent of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The tangent of the angle
          */
         public static double tan(double angle, Angle unit) {
@@ -502,8 +663,9 @@ public class vmath {
 
         /**
          * Returns the cotangent of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The cotangent of the angle
          */
         public static double cot(double angle, Angle unit) {
@@ -517,8 +679,9 @@ public class vmath {
 
         /**
          * Returns the secant of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The secant of the angle
          */
         public static double sec(double angle, Angle unit) {
@@ -532,8 +695,9 @@ public class vmath {
 
         /**
          * Returns the cosecant of an angle given in radian or degree.
+         *
          * @param angle The angle
-         * @param unit The unit of the angle
+         * @param unit  The unit of the angle
          * @return The cosecant of the angle
          */
         public static double cosec(double angle, Angle unit) {
@@ -547,8 +711,9 @@ public class vmath {
 
         /**
          * Returns the arc sine of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc sine of the number
          */
         public static double arcsin(double number, Angle unit){
@@ -562,8 +727,9 @@ public class vmath {
 
         /**
          * Returns the arc cosine of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc cosine of the number
          */
         public static double arccos(double number, Angle unit) {
@@ -577,8 +743,9 @@ public class vmath {
 
         /**
          * Returns the arc tangent of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc tangent of the number
          */
         public static double arctan(double number, Angle unit) {
@@ -592,8 +759,9 @@ public class vmath {
 
         /**
          * Returns the arc cotangent of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc cotangent of the number
          */
         public static double arccot(double number, Angle unit) {
@@ -607,8 +775,9 @@ public class vmath {
 
         /**
          * Returns the arc secant of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc secant of the number
          */
         public static double arcsec(double number, Angle unit) {
@@ -622,8 +791,9 @@ public class vmath {
 
         /**
          * Returns the arc cosecant of a number.
+         *
          * @param number The number
-         * @param unit The unit of the angle to return
+         * @param unit   The unit of the angle to return
          * @return The arc cosecant of the number
          */
         public static double arccosec(double number, Angle unit) {
@@ -639,23 +809,27 @@ public class vmath {
     /**
      * Contains functions to calculate combination, permutations and vice versa of numbers and sets of numbers.
      * Also contains functions to generate subsets of a set of numbers.
-     * @Author Takia Farhin
+     *
+     * @author Takia Farhin
      */
     public static class combinatorics{
         /**
          * Calculates the combination value.
-         * @param n
-         * @param r
+         *
+         * @param n the n
+         * @param r the r
          * @return the combination value.
          */
         public static double combination(int n, int r){
             Combinatorics comb = Combinatorics.getInstance();
             return comb.combination(n,r);
         }
+
         /**
          * Calculates the permutation value.
-         * @param n
-         * @param r
+         *
+         * @param n the n
+         * @param r the r
          * @return the permutation value.
          */
         public static double permutation(int n, int r){
@@ -665,6 +839,7 @@ public class vmath {
 
         /**
          * Returns the number of subsets of a set.
+         *
          * @param n The number of elements in the set
          * @return The number of subsets
          */
@@ -675,6 +850,7 @@ public class vmath {
 
         /**
          * Returns the number of subsets of a set. The set have to be an array of integers.
+         *
          * @param set The set
          * @return All the subsets possible
          */
@@ -686,11 +862,13 @@ public class vmath {
 
     /**
      * Contains functions to calculate the determinant, inverse, transpose, addition, subtraction, multiplication, and more of matrices.
-     * @Author Adib Sakhawat
+     *
+     * @author Adib Sakhawat
      */
     public static class matrix{
         /**
          * Returns the addition of two matrices.
+         *
          * @param a The first matrix
          * @param b The second matrix
          * @return The addition of the two matrices
@@ -701,6 +879,7 @@ public class vmath {
 
         /**
          * Returns the subtraction of two matrices.
+         *
          * @param a The first matrix
          * @param b The second matrix
          * @return The subtraction of the two matrices
@@ -711,6 +890,7 @@ public class vmath {
 
         /**
          * Returns the multiplication of two matrices.
+         *
          * @param a The first matrix
          * @param b The second matrix
          * @return The multiplication of the two matrices
@@ -721,6 +901,7 @@ public class vmath {
 
         /**
          * Returns the multiplication of a matrix and a number.
+         *
          * @param m The matrix
          * @param x The number
          * @return The multiplication of the matrix and the number
@@ -731,6 +912,7 @@ public class vmath {
 
         /**
          * Returns the transpose of a matrix.
+         *
          * @param a The matrix
          * @return The transpose of the matrix
          */
@@ -740,6 +922,7 @@ public class vmath {
 
         /**
          * Returns the inverse of a matrix.
+         *
          * @param a The matrix
          * @return The inverse of the matrix
          */
@@ -749,6 +932,7 @@ public class vmath {
 
         /**
          * Returns the determinant of a matrix.
+         *
          * @param a The matrix
          * @return The determinant of the matrix
          */
@@ -758,6 +942,7 @@ public class vmath {
 
         /**
          * Returns a matrix of zeros of the given size.
+         *
          * @param rows The number of rows
          * @param cols The number of columns
          * @return The matrix of zeros
@@ -769,6 +954,7 @@ public class vmath {
 
         /**
          * Returns a matrix of ones of the given size.
+         *
          * @param rows The number of rows
          * @param cols The number of columns
          * @return The matrix of ones
@@ -785,6 +971,7 @@ public class vmath {
 
         /**
          * Returns an identity matrix of the given size.
+         *
          * @param n The size of the matrix
          * @return The identity matrix
          */
@@ -798,6 +985,7 @@ public class vmath {
 
         /**
          * Compares two matrices.
+         *
          * @param a The first matrix
          * @param b The second matrix
          * @return true if the matrices are equal, else false
@@ -808,7 +996,8 @@ public class vmath {
 
         /**
          * Returns the power of a matrix.
-         * @param a The matrix
+         *
+         * @param a     The matrix
          * @param power The power
          * @return The power of the matrix
          */
@@ -820,37 +1009,92 @@ public class vmath {
 
     /**
      * Contains functions to calculate vector operations
-     * @Author Adib Sakhawat
+     *
+     * @author Adib Sakhawat
      */
     public static class Vector{
+        /**
+         * Add vector.
+         *
+         * @param a the a
+         * @param b the b
+         * @return the vector
+         */
         public static vector add(vector a, vector b){
             return a.add(b);
         }
 
+        /**
+         * Subtract vector.
+         *
+         * @param a the a
+         * @param b the b
+         * @return the vector
+         */
         public static vector subtract(vector a, vector b){
             return a.subtract(b);
         }
 
+        /**
+         * Scaler product double.
+         *
+         * @param a the a
+         * @param b the b
+         * @return the double
+         */
         public static double scalerProduct(vector a, vector b){
             return a.scalerProduct(b);
         }
 
+        /**
+         * Vector product vector.
+         *
+         * @param a the a
+         * @param b the b
+         * @return the vector
+         */
         public static vector vectorProduct(vector a, vector b){
             return a.vectorProduct(b);
         }
 
+        /**
+         * Multiply vector.
+         *
+         * @param a the a
+         * @param m the m
+         * @return the vector
+         */
         public static vector multiply(vector a, Matrix m){
             return a.multiply(m);
         }
 
+        /**
+         * Compare boolean.
+         *
+         * @param a the a
+         * @param b the b
+         * @return the boolean
+         */
         public static boolean compare(vector a, vector b){
             return a.isEqual(b);
         }
 
+        /**
+         * Magnitude double.
+         *
+         * @param a the a
+         * @return the double
+         */
         public static double magnitude(vector a){
             return a.getMagnitude();
         }
 
+        /**
+         * Unit vector vector.
+         *
+         * @param a the a
+         * @return the vector
+         */
         public static vector unitVector(vector a){
             return a.getUnitVector();
         }
@@ -858,14 +1102,16 @@ public class vmath {
 
     /**
      * Contains functions to calculate coordinate geometric operations.
-     * @Author Tahsin Islam
+     *
+     * @author Tahsin Islam
      */
     public static class geometry{
         /**
          * Returns the distance between two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
-         * @param c The type of distance to return
+         * @param c  The type of distance to return
          * @return The distance between the two points
          */
         public static double distance(Point p1, Point p2, DistanceType c){
@@ -886,6 +1132,7 @@ public class vmath {
 
         /**
          * Returns the slope of a line given two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @return The slope
@@ -897,6 +1144,7 @@ public class vmath {
 
         /**
          * Returns the midpoint of given two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @return The midpoint
@@ -908,6 +1156,7 @@ public class vmath {
 
         /**
          * Returns the centroid of given three points.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
@@ -920,6 +1169,7 @@ public class vmath {
 
         /**
          * Returns the area of a triangle given three points.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
@@ -932,8 +1182,11 @@ public class vmath {
 
         /**
          * Returns the interleave point of two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
+         * @param m  the m
+         * @param n  the n
          * @return The interleave point
          */
         public static Point interleaverPoint(Point p1, Point p2, double m, double n){
@@ -943,8 +1196,11 @@ public class vmath {
 
         /**
          * Returns the externalizer point of two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
+         * @param m  the m
+         * @param n  the n
          * @return The externalizer point
          */
         public static Point externalizerPoint(Point p1, Point p2, double m, double n){
@@ -954,6 +1210,7 @@ public class vmath {
 
         /**
          * Returns the area of a circle given two end points of the radius.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @return The area of the circle
@@ -965,6 +1222,7 @@ public class vmath {
 
         /**
          * Returns the circumference of a circle given two end points of the radius.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @return The circumference of the circle
@@ -976,10 +1234,11 @@ public class vmath {
 
         /**
          * Returns if the given three points form a triangle is of the given type.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
-         * @param c The type of triangle to check
+         * @param c  The type of triangle to check
          * @return true if the triangle is of the given type, else false
          */
         public static boolean isTriangle(Point p1, Point p2, Point p3, triangleType c){
@@ -1006,6 +1265,7 @@ public class vmath {
 
         /**
          * Return the angle between two slopes.
+         *
          * @param m1 The first slope
          * @param m2 The second slope
          * @return The angle between the two slopes
@@ -1017,11 +1277,12 @@ public class vmath {
 
         /**
          * Returns if the given four points form a quadrilateral is of the given type.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @param p3 The third point
          * @param p4 The fourth point
-         * @param c The type of quadrilateral to check
+         * @param c  The type of quadrilateral to check
          * @return true if the quadrilateral is of the given type, else false
          */
         public static boolean isQuadrilateral(Point p1, Point p2, Point p3, Point p4, quadrilateralType c){
@@ -1042,9 +1303,10 @@ public class vmath {
 
         /**
          * Returns if the given two lines are of the given type.
+         *
          * @param l1 The first line
          * @param l2 The second line
-         * @param c The type of line to check
+         * @param c  The type of line to check
          * @return true if the line is of the given type, else false
          */
         public static boolean isLine(Line l1, Line l2, lineType c){
@@ -1062,6 +1324,7 @@ public class vmath {
 
         /**
          * Returns if the given three lines are same
+         *
          * @param l1 The first line
          * @param l2 The second line
          * @param l3 The third line
@@ -1074,6 +1337,7 @@ public class vmath {
 
         /**
          * Returns the intersection point of two lines.
+         *
          * @param l1 The first line
          * @param l2 The second line
          * @return The intersection point
@@ -1085,6 +1349,7 @@ public class vmath {
 
         /**
          * Returns the slope of a line.
+         *
          * @param l The line
          * @return The slope
          */
@@ -1095,6 +1360,7 @@ public class vmath {
 
         /**
          * Returns the distance between two parallel lines.
+         *
          * @param l1 The first line
          * @param l2 The second line
          * @return The distance between the two lines
@@ -1106,6 +1372,7 @@ public class vmath {
 
         /**
          * Returns the perpendicular distance of a point from a line.
+         *
          * @param l The line
          * @param p The point
          * @return The perpendicular distance
@@ -1117,6 +1384,7 @@ public class vmath {
 
         /**
          * Returns the perpendicular line of a line passing through a point.
+         *
          * @param l The line
          * @param p The point
          * @return The perpendicular line of the line passing through the point
@@ -1128,6 +1396,7 @@ public class vmath {
 
         /**
          * Returns the parallel line of a line passing through a point.
+         *
          * @param l The line
          * @param p The point
          * @return The parallel line of the line passing through the point
@@ -1139,8 +1408,10 @@ public class vmath {
 
         /**
          * Returns the line passing through the intersection point of two lines.
+         *
          * @param l1 The first line
          * @param l2 The second line
+         * @param p  the p
          * @return The line passing through the intersection point of the two lines
          */
         public static Line getLineFromIntersectionPoint(Line l1, Line l2, Point p){
@@ -1150,6 +1421,7 @@ public class vmath {
 
         /**
          * Returns the area of a quadrilateral using four lines inputted in anticlockwise order.
+         *
          * @param l1 The first line
          * @param l2 The second line
          * @param l3 The third line
@@ -1163,6 +1435,7 @@ public class vmath {
 
         /**
          * Returns the area of a quadrilateral using points inputted in anti-clockwise order.
+         *
          * @param p1 The first point in cartesian coordinates
          * @param p2 The second point in cartesian coordinates
          * @param p3 The third point in cartesian coordinates
@@ -1176,6 +1449,7 @@ public class vmath {
 
         /**
          * Returns the area of a triangle given three lines.
+         *
          * @param l1 The first line
          * @param l2 The second line
          * @param l3 The third line
@@ -1188,6 +1462,7 @@ public class vmath {
 
         /**
          * Returns the area of a convex polygon using points inputted in anticlockwise order.
+         *
          * @param points The points of the convex polygon
          * @return The area of the convex polygon
          */
@@ -1198,8 +1473,9 @@ public class vmath {
 
         /**
          * Returns if the point is inside the polygon or not.
+         *
          * @param points The points of the polygon
-         * @param p The point
+         * @param p      The point
          * @return True if the point is inside the polygon, false otherwise
          */
         public static boolean isPointInPolygon(Point[] points, Point p){
@@ -1209,6 +1485,7 @@ public class vmath {
 
         /**
          * Returns the line passing through two points.
+         *
          * @param p1 The first point
          * @param p2 The second point
          * @return The line passing through the two points
@@ -1222,7 +1499,8 @@ public class vmath {
 
     /**
      * Contains functions to calculate bitwise operations.
-     * @Author Takia Farhin
+     *
+     * @author Takia Farhin
      */
     public static class bitwise {
 
@@ -1273,6 +1551,7 @@ public class vmath {
             return bit.BitWiseNOT(a);
         }
 
+
         /**
          * Return the leftshift value
          * @param a the int value
@@ -1306,13 +1585,12 @@ public class vmath {
                 return bit.rightShift(a, b, true);
             }
         }
-
         /**
          * Returns the binary representation of a number.
+         *
          * @param a The number to be converted
          * @param b The number of bits to shift
          * @return The binary representation of the number
-
          */
         public static String zeroFillRightShift(int a, int b){
             Bitwise bit = Bitwise.getInstance();
@@ -1367,6 +1645,18 @@ public class vmath {
         public static int toggleBit(int a, int i) {
             Bitwise bit = Bitwise.getInstance();
             return bit.toggleBit(a, i);
+        }
+
+        /**
+         * Returns an integer resulting from the logical right shift
+         * @param x The integer on which to perform the shift.
+         * @param n The number of positions to shift to the right.
+         * @param isUnsigned Whether the number is unsigned.
+         * @return an integer resulting from the logical right shift
+         */
+        public static int logicalRightShift(int x, int n, boolean isUnsigned) {
+            Bitwise bit = Bitwise.getInstance();
+            return bit.logicalShift(x, n, isUnsigned);
         }
 
 

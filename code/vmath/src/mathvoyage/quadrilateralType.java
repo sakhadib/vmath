@@ -1,5 +1,23 @@
 package mathvoyage;
 
+/**
+ * The enum Quadrilateral type.
+ */
 public enum quadrilateralType {
-    SQUARE, RECTANGLE, RHOMBUS, PARALLELOGRAM
+    /**
+     * Square quadrilateral type.
+     */
+    SQUARE,
+    /**
+     * Rectangle quadrilateral type.
+     */
+    RECTANGLE,
+    /**
+     * Rhombus quadrilateral type.
+     */
+    RHOMBUS,
+    /**
+     * Parallelogram quadrilateral type.
+     */
+    PARALLELOGRAM
 }
