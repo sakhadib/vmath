@@ -176,7 +176,7 @@ private static Bitwise instance;
   /**
     * Returns the binary representation of a number.
     * @param binaryNumber The number to be converted
-   * @param shiftAmount The number of bits to shift
+    * @param shiftAmount The number of bits to shift
     * @return The binary representation of the bitwiseZeroFillRightShift number
 
    */
@@ -195,7 +195,7 @@ private static Bitwise instance;
      * @param isUnsigned Whether the number is unsigned
      * @return the value of the n-th byte of the integer x
      */
-    public static int getByte(int x, int n, boolean isUnsigned) {
+    public int getByte(int x, int n, boolean isUnsigned) {
         if (isUnsigned) {
             // Use bitwise AND to mask out the desired byte, no need for sign extension
             return (x >> (n << 3)) & 0xff;
@@ -213,7 +213,7 @@ private static Bitwise instance;
      * @param i The bit position to set to 0.
      * @return an integer where the bit at position i in n is set to 0, and all other bits remain unchanged.
      */
-    public static int setBit0(int n, int i) {
+    public int setBit0(int n, int i) {
         return (n & ~(1 << i));
     }
 
@@ -224,19 +224,19 @@ private static Bitwise instance;
      * @param i The bit position to set to 1.
      * @return an integer where the bit at position i in n is set to 1, and all other bits remain unchanged.
      */
-    public static int setBit1(int n, int i) {
+    public int setBit1(int n, int i) {
         return (n | (1 << i));
     }
 
 
     /**
-     *returns an integer where the bit at position i in n is flipped
+     * Returns an integer where the bit at position i in n is flipped
      * @param n The integer on which to operate.
      * @param i  The bit position to toggle.
      * @return an integer where the bit at position i in n is flipped
      */
 
-    public static int toggleBit(int n, int i) {
+    public int toggleBit(int n, int i) {
         return (n ^ (1 << i));
     }
 
@@ -247,10 +247,7 @@ private static Bitwise instance;
      * @param isUnsigned Whether the number is unsigned.
      * @return an integer resulting from the logical right shift
      */
-
-
-
-    public static int logicalShift(int x, int n, boolean isUnsigned) {
+    public int logicalShift(int x, int n, boolean isUnsigned) {
         if (isUnsigned) {
             return x >>> n;
         } else {
@@ -267,7 +264,7 @@ private static Bitwise instance;
      * @return  an integer resulting from the right rotation
      */
 
-    public static int rotateRight(int x, int n, boolean isUnsigned) {
+    public int rotateRight(int x, int n, boolean isUnsigned) {
         if (isUnsigned) {
             // Ensure n is in the range [0, 31] for unsigned rotation
             n = n % 32;
@@ -288,7 +285,7 @@ private static Bitwise instance;
      * @param isUnsigned Whether the number is unsigned
      * @return an integer resulting from the left rotation
      */
-    public static int rotateLeft(int x, int n, boolean isUnsigned) {
+    public int rotateLeft(int x, int n, boolean isUnsigned) {
         if (isUnsigned) {
             // Ensure n is in the range [0, 31] for unsigned rotation
             n = n % 32;

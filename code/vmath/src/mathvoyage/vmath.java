@@ -1277,22 +1277,34 @@ public class vmath {
          * Return the leftshift value
          * @param a the int value
          * @param b is the value of how much value need to be shifted
+         * @param st is the sign type
          * @return the rightshift value
          */
-        public static int leftShift(int a, int b){
+        public static int leftShift(int a, int b, signType st){
             Bitwise bit = Bitwise.getInstance();
-            return bit.leftShift(a, b);
+            if(st == signType.UNSIGNED){
+                return bit.leftShift(a, b, true);
+            }
+            else{
+                return bit.leftShift(a, b, false);
+            }
         }
 
         /**
          * Return the rightshift value
          * @param a the int value
          * @param b is the value of how much value need to be shifted
+         * @param st is the sign type
          * @return the rightshift value
          */
-        public static int rightShift(int a, int b){
+        public static int rightShift(int a, int b, signType st){
             Bitwise bit = Bitwise.getInstance();
-            return bit.rightShift(a, b);
+            if(st == signType.SIGNED){
+                return bit.rightShift(a, b, false);
+            }
+            else{
+                return bit.rightShift(a, b, true);
+            }
         }
 
         /**
@@ -1306,7 +1318,58 @@ public class vmath {
             Bitwise bit = Bitwise.getInstance();
             return bit.bitwiseZeroFillRightShift(a, b);
         }
-    }
+
+        /**
+         * Returns the n'th byte of the integer a.
+         * @param a The integer
+         * @param n The byte number
+         * @param st The sign type
+         * @return The n'th byte of the integer a
+         */
+        public static int getByte(int a, int n, signType st){
+            Bitwise bit = Bitwise.getInstance();
+            if(st == signType.UNSIGNED){
+                return bit.getByte(a, n, true);
+            }
+            else{
+                return bit.getByte(a, n, false);
+            }
+        }
+
+        /**
+         * Returns an integer where the bit at position i in a is set to 0, and all other bits remain unchanged.
+         * @param a The integer
+         * @param i The position
+         * @return The integer where the bit at position i in a is set to 0
+         */
+        public static int setBit0(int a, int i){
+            Bitwise bit = Bitwise.getInstance();
+            return bit.setBit0(a, i);
+        }
+
+        /**
+         * Returns an integer where the bit at position i in a is set to 1, and all other bits remain unchanged.
+         * @param a The integer
+         * @param i The position
+         * @return The integer where the bit at position i in a is set to 1
+         */
+        public static int setBit1(int a, int i) {
+            Bitwise bit = Bitwise.getInstance();
+            return bit.setBit1(a, i);
+        }
+
+        /**
+         * Returns an integer where the bit at position i in a is flipped
+         * @param a The integer on which to operate.
+         * @param i  The bit position to toggle.
+         * @return an integer where the bit at position i in n is flipped
+         */
+        public static int toggleBit(int a, int i) {
+            Bitwise bit = Bitwise.getInstance();
+            return bit.toggleBit(a, i);
+        }
+
 
     }
+
 }
