@@ -381,10 +381,8 @@ public class Geometry {
         double side2 = distanceCartesian(p2, p3);
         double side3 = distanceCartesian(p3, p4);
         double side4 = distanceCartesian(p4, p1);
-        double dig1 = distanceCartesian(p1, p3);
-        double dig2 = distanceCartesian(p2, p4);
 
-        if(side1 == side3 && side2 == side4 && side1 != side2 && dig1 != dig2){
+        if(side1 == side3 && side2 == side4 && side1 != side2){
             return true;
         }
         else{

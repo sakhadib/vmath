@@ -296,7 +296,7 @@ public class Main {
 //        System.out.println("Circumference of circle has (1,1) and (1,3) points as two end points of radius: "+ vmath.geometry.circumferenceOfCircle(new CartesianPoint(1,1), new CartesianPoint(1,3)));
 //        System.out.println("(1,1), (1,3) and (3,1) are the vertices of a triangle is Isosceles: "+ vmath.geometry.isTriangle(new CartesianPoint(1,1), new CartesianPoint(1,3), new CartesianPoint(3,1), triangleType.ISOSCELES));
 //        System.out.println("Angle between slope 1 and slope 2: " + vmath.geometry.angleBetweenTwoSlopes(1, 2));
-//        System.out.println("(1,1), (1,3), (3,1) and (3,3) are the vertices of a rectangle: "+ vmath.geometry.isQuadrilateral(new CartesianPoint(1,1), new CartesianPoint(1,3), new CartesianPoint(3,1), new CartesianPoint(3,3), quadrilateralType.RECTANGLE));
+//        System.out.println("(1,1), (1,3), (3,1) and (3,3) are the vertices of a rectangle: "+ vmath.geometry.isQuadrilateral(new CartesianPoint(1,1), new CartesianPoint(1,3), new CartesianPoint(3,1), new CartesianPoint(3,3), quadrilateralType.PARALLELOGRAM));
 //        System.out.println("Is x+2y+3=0 and 2x+4y+6=0 are same lines: "+ vmath.geometry.isLine(new NormalLine(1,2,3), new NormalLine(2,4,6), lineType.SAME));
 //        System.out.println("Are x+2y+3=0, 2x+4y+6=0 and 3x+6y+9=0 same lines: "+ vmath.geometry.areThreeLinesSame(new NormalLine(1,2,3), new NormalLine(2,4,6), new NormalLine(3,6,9)));
 //        Point p5 = vmath.geometry.intersectionOfTwoLines(new NormalLine(1,-5,6), new NormalLine(1,4,4));
@@ -329,14 +329,12 @@ public class Main {
 //        System.out.println("Bitwise Left Shift of 5 by 2: " + vmath.bitwise.leftShift(5, 2));
 //        System.out.println("Bitwise Right Shift of 5 by 2: " + vmath.bitwise.rightShift(5, 2));
 //        System.out.println("Bitwise Zero Fill Right Shift of 5 by 2: " + vmath.bitwise.zeroFillRightShift(5, 2));
-
-
-
-
-
-
-
-
+//
+//        Line ll = new NormalLine(1,0,0);
+//        Line ll2 = new NormalLine(0,1,0);
+//        System.out.println(ll.getSlope());
+//        System.out.println(ll2.getSlope());
+//        System.out.println(vmath.geometry.angleBetweenTwoSlopes(ll.getSlope(), ll2.getSlope()));
 
 
     }
