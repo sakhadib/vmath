@@ -5,20 +5,29 @@ import java.util.Random;
 
 /**
  * voyager.Matrix class
- *
  */
-  public class Matrix{
+public class Matrix{
     private double[][] data;
     private int rows;
     private int cols;
 
-      public Matrix(double[][] data){
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param data the data
+     */
+    public Matrix(double[][] data){
         this.data = data;
         this.rows = data.length;
         this.cols = data[0].length;
     }
 
-      public Matrix(int[][] data){
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param data the data
+     */
+    public Matrix(int[][] data){
         this.data = new double[data.length][data[0].length];
         this.rows = data.length;
         this.cols = data[0].length;
@@ -30,7 +39,13 @@ import java.util.Random;
 
     }
 
-      public Matrix(int rows, int cols) {
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param rows the rows
+     * @param cols the cols
+     */
+    public Matrix(int rows, int cols) {
         this.rows = rows;
         this.cols = cols;
         this.data = new double[rows][cols];
@@ -45,7 +60,14 @@ import java.util.Random;
 
     }
 
-      public Matrix(double[] data, int rows, int cols){
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param data the data
+     * @param rows the rows
+     * @param cols the cols
+     */
+    public Matrix(double[] data, int rows, int cols){
         if(data.length != rows*cols) {
             throw new IllegalArgumentException("data length must be equal to rows*cols"
                     + "\nrows: " + rows + "\ncols: " + cols + "\ndata length: " + data.length);
@@ -64,7 +86,14 @@ import java.util.Random;
         }
     }
 
-      public Matrix(int[] data, int rows, int cols){
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param data the data
+     * @param rows the rows
+     * @param cols the cols
+     */
+    public Matrix(int[] data, int rows, int cols){
         if(data.length != rows*cols) {
             throw new IllegalArgumentException("data length must be equal to rows*cols"
                     + "\nrows: " + rows + "\ncols: " + cols + "\ndata length: " + data.length);
@@ -83,7 +112,14 @@ import java.util.Random;
         }
     }
 
-      public Matrix(int rows, int cols, double value){
+    /**
+     * Instantiates a new Matrix.
+     *
+     * @param rows  the rows
+     * @param cols  the cols
+     * @param value the value
+     */
+    public Matrix(int rows, int cols, double value){
         this.rows = rows;
         this.cols = cols;
         this.data = new double[rows][cols];
@@ -123,7 +159,12 @@ import java.util.Random;
         return new Matrix(newData);
     }
 
-      public double getDeterminant(){
+    /**
+     * Get determinant double.
+     *
+     * @return the double
+     */
+    public double getDeterminant(){
         if(this.rows != this.cols){
             throw new IllegalArgumentException("Matrix must be square");
         }else{
@@ -132,24 +173,50 @@ import java.util.Random;
     }
 
 
-
-
+    /**
+     * Get rows int.
+     *
+     * @return the int
+     */
     public int getRows(){
         return rows;
     }
 
+    /**
+     * Get cols int.
+     *
+     * @return the int
+     */
     public int getCols(){
         return cols;
     }
 
+    /**
+     * Get data double [ ] [ ].
+     *
+     * @return the double [ ] [ ]
+     */
     public double[][] getData(){
         return data;
     }
 
+    /**
+     * Get double.
+     *
+     * @param row the row
+     * @param col the col
+     * @return the double
+     */
     public double get(int row, int col){
         return data[row][col];
     }
 
+    /**
+     * Add matrix.
+     *
+     * @param b the b
+     * @return the matrix
+     */
     public Matrix add(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
@@ -165,6 +232,12 @@ import java.util.Random;
         }
     }
 
+    /**
+     * Subtract matrix.
+     *
+     * @param b the b
+     * @return the matrix
+     */
     public Matrix subtract(Matrix b){
         if (this.rows != b.rows || this.cols != b.cols) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
@@ -180,6 +253,12 @@ import java.util.Random;
         }
     }
 
+    /**
+     * Multiply matrix.
+     *
+     * @param b the b
+     * @return the matrix
+     */
     public Matrix multiply(Matrix b) {
         if (this.getCols() != b.getRows()) {
             throw new IllegalArgumentException("Matrix dimensions must be equal");
@@ -197,7 +276,13 @@ import java.util.Random;
     }
 
 
-      public Matrix multiply(double b){
+    /**
+     * Multiply matrix.
+     *
+     * @param b the b
+     * @return the matrix
+     */
+    public Matrix multiply(double b){
         double[][] data = new double[this.rows][this.cols];
         for(int i = 0; i < this.rows; i++){
             for(int j = 0; j < this.cols; j++){
@@ -207,6 +292,11 @@ import java.util.Random;
         return new Matrix(data);
     }
 
+    /**
+     * Transpose matrix.
+     *
+     * @return the matrix
+     */
     public Matrix transpose(){
         double[][] data = new double[this.cols][this.rows];
         for(int i = 0; i < this.cols; i++){
@@ -217,7 +307,12 @@ import java.util.Random;
         return new Matrix(data);
     }
 
-      public Matrix inverse() {
+    /**
+     * Inverse matrix.
+     *
+     * @return the matrix
+     */
+    public Matrix inverse() {
         if (this.rows != this.cols) {
             throw new IllegalArgumentException("Matrix must be square");
         } else {
@@ -245,7 +340,10 @@ import java.util.Random;
     }
 
 
-      public void printMatrix() {
+    /**
+     * Print matrix.
+     */
+    public void printMatrix() {
         for (int i = 0; i < this.rows; i++) {
             for (int j = 0; j < this.cols; j++) {
                 double value = this.data[i][j];
@@ -259,7 +357,13 @@ import java.util.Random;
         }
     }
 
-      public Matrix pow(int exponant){
+    /**
+     * Pow matrix.
+     *
+     * @param exponant the exponant
+     * @return the matrix
+     */
+    public Matrix pow(int exponant){
         Matrix result = this;
         if(exponant == 0){
             return vmath.matrix.eye(this.getRows());
@@ -273,7 +377,13 @@ import java.util.Random;
         }
     }
 
-      public boolean isEqual(Matrix a){
+    /**
+     * Is equal boolean.
+     *
+     * @param a the a
+     * @return the boolean
+     */
+    public boolean isEqual(Matrix a){
         if(this.getRows() != a.getRows() || this.getCols() != a.getCols()){
             return false;
         }

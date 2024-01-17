@@ -6,6 +6,7 @@ import mathvoyage.vmath;
 
 /**
  * voyager.geometry.java
+ *
  * @author Tahsin Islam
  */
 public class Geometry {
@@ -13,8 +14,10 @@ public class Geometry {
     private Geometry() {
         // Private constructor to prevent external instantiation
     }
+
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static Geometry getInstance() {
@@ -26,6 +29,7 @@ public class Geometry {
 
     /**
      * Returns the distance between two points in cartesian coordinates.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The distance between the two points in cartesian coordinates
@@ -42,6 +46,7 @@ public class Geometry {
 
     /**
      * Returns the distance between two points in polar coordinates.
+     *
      * @param p1 The first point in polar coordinates
      * @param p2 The second point in polar coordinates
      * @return The distance between the two points in polar coordinates
@@ -53,6 +58,7 @@ public class Geometry {
 
     /**
      * Returns the manhattan distance between two points in cartesian coordinates.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The manhattan distance between the two points in cartesian coordinates
@@ -64,6 +70,7 @@ public class Geometry {
 
     /**
      * Returns the chebyshev distance between two points.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The chebyshev distance between the two points
@@ -75,6 +82,7 @@ public class Geometry {
 
     /**
      * Returns the slope of a line between two points.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The slope of the line between the two points
@@ -86,6 +94,7 @@ public class Geometry {
 
     /**
      * Returns the midpoint of a line between two points.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The midpoint of the line between the two points
@@ -99,6 +108,7 @@ public class Geometry {
 
     /**
      * Returns the centroid of a triangle.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -113,6 +123,7 @@ public class Geometry {
 
     /**
      * Returns the area of a triangle inputted in anti-clockwise order.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -127,10 +138,11 @@ public class Geometry {
 
     /**
      * Returns the interleaver point of two points that divides the connecting line in a ratio of m:n.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
-     * @param m The ratio of the first point
-     * @param n The ratio of the second point
+     * @param m  The ratio of the first point
+     * @param n  The ratio of the second point
      * @return The interleaver point of the two points
      */
     public Point interleaverPoint(Point p1, Point p2, double m, double n){
@@ -142,10 +154,11 @@ public class Geometry {
 
     /**
      * Returns the ent
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
-     * @param m The ratio of the first point
-     * @param n The ratio of the second point
+     * @param m  The ratio of the first point
+     * @param n  The ratio of the second point
      * @return The externalizer point of the two points
      */
     public Point externalizerPoint(Point p1, Point p2, double m, double n){
@@ -157,6 +170,7 @@ public class Geometry {
 
     /**
      * Returns the area of a quadrilateral using points inputted in anti-clockwise order.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -172,6 +186,7 @@ public class Geometry {
 
     /**
      * Returns the area of a circle.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The area of the circle
@@ -184,6 +199,7 @@ public class Geometry {
 
     /**
      * Returns the circumference of a circle.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @return The circumference of the circle
@@ -196,6 +212,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a equilateral triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -215,6 +232,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a isosceles triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -234,6 +252,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a scalene triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -252,6 +271,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a right triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -271,6 +291,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a obtuse triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -291,6 +312,7 @@ public class Geometry {
 
     /**
      * Returns if the triangle is a acute triangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -311,6 +333,7 @@ public class Geometry {
 
     /**
      * Returns the angle between two slopes.
+     *
      * @param m1 The first slope
      * @param m2 The second slope
      * @return The angle between the two slopes
@@ -322,6 +345,7 @@ public class Geometry {
 
     /**
      * Returns if the quadrilateral is a rectangle or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -346,6 +370,7 @@ public class Geometry {
 
     /**
      * Returns if the quadrilateral is a square or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -370,6 +395,7 @@ public class Geometry {
 
     /**
      * Returns if the quadrilateral is a parallelogram or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -392,6 +418,7 @@ public class Geometry {
 
     /**
      * Returns if the quadrilateral is a rhombus or not.
+     *
      * @param p1 The first point in cartesian coordinates
      * @param p2 The second point in cartesian coordinates
      * @param p3 The third point in cartesian coordinates
@@ -416,6 +443,7 @@ public class Geometry {
 
     /**
      * Returns if the two given lines are same or not
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @return True if the two given lines are same, false otherwise
@@ -435,6 +463,7 @@ public class Geometry {
 
     /**
      * Returns the area of a triangle given three lines.
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @param l3 The third line
@@ -449,8 +478,10 @@ public class Geometry {
         double area = 0.5* matrix.getDeterminant();
         return vmath.algebra.abs(area);
     }
+
     /**
      * Returns if the given three lines are same or not
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @param l3 The third line
@@ -468,6 +499,7 @@ public class Geometry {
 
     /**
      * Returns the intersection point of two lines.
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @return The intersection point of the two lines
@@ -481,6 +513,7 @@ public class Geometry {
 
     /**
      * Returns if the two given lines are parallel or not
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @return True if the two given lines are parallel, false otherwise
@@ -491,6 +524,7 @@ public class Geometry {
 
     /**
      * Returns if the two given lines are perpendicular or not
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @return True if the two given lines are perpendicular, false otherwise
@@ -501,6 +535,7 @@ public class Geometry {
 
     /**
      * Returns the slope of a line.
+     *
      * @param l The line
      * @return The slope of the line
      */
@@ -510,6 +545,7 @@ public class Geometry {
 
     /**
      * Returns the distance between two parallel lines.
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @return The distance between the two parallel lines
@@ -521,6 +557,7 @@ public class Geometry {
 
     /**
      * Returns the perpendicular distance of a line form a point.
+     *
      * @param l The line
      * @param p The point
      * @return The perpendicular distance of the line form the point
@@ -532,6 +569,7 @@ public class Geometry {
 
     /**
      * Returns the perpendicular line of a line passing through a point.
+     *
      * @param l The line
      * @param p The point
      * @return The perpendicular line of the line passing through the point
@@ -545,6 +583,7 @@ public class Geometry {
 
     /**
      * Returns the parallel line of a line passing through a point.
+     *
      * @param l The line
      * @param p The point
      * @return The parallel line of the line passing through the point
@@ -557,8 +596,10 @@ public class Geometry {
 
     /**
      * Returns the line passing through the intersection point of two lines.
+     *
      * @param l1 The first line
      * @param l2 The second line
+     * @param p  the p
      * @return The line passing through the intersection point of the two lines
      */
     public Line getLineFromIntersectingPoint(Line l1, Line l2, Point p){
@@ -569,6 +610,7 @@ public class Geometry {
 
     /**
      * Returns the area of a quadrilateral using four lines inputted in anticlockwise order.
+     *
      * @param l1 The first line
      * @param l2 The second line
      * @param l3 The third line
@@ -586,6 +628,7 @@ public class Geometry {
 
     /**
      * Returns the area of a convex polygon using points inputted in anticlockwise order.
+     *
      * @param points The points of the convex polygon
      * @return The area of the convex polygon
      */
@@ -601,8 +644,9 @@ public class Geometry {
 
     /**
      * Returns if the point is inside the polygon or not.
+     *
      * @param points The points of the polygon
-     * @param p The point
+     * @param p      The point
      * @return True if the point is inside the polygon, false otherwise
      */
     public boolean isPointInPolygon(Point[] points, Point p){
@@ -622,6 +666,7 @@ public class Geometry {
 
     /**
      * Returns the line passing through two points.
+     *
      * @param p1 The first point
      * @param p2 The second point
      * @return The line passing through the two points

@@ -2,6 +2,9 @@ package mathvoyage.NumberSystem;
 
 import mathvoyage.vmath;
 
+/**
+ * The type Base converter.
+ */
 public class BaseConverter {
 
     private static BaseConverter instance;
@@ -12,6 +15,7 @@ public class BaseConverter {
 
     /**
      * Returns the singleton instance of this class.
+     *
      * @return The singleton instance
      */
     public static BaseConverter getInstance() {
@@ -23,6 +27,7 @@ public class BaseConverter {
 
     /**
      * Converts a binary string to a decimal number
+     *
      * @param binaryString The binary number as a string
      * @return The decimal number
      */
@@ -65,6 +70,7 @@ public class BaseConverter {
 
     /**
      * Converts a decimal number to a binary string
+     *
      * @param decimalNumber The decimal number
      * @return The binary string
      */
@@ -97,6 +103,7 @@ public class BaseConverter {
 
     /**
      * Converts a decimal number to a hexadecimal string
+     *
      * @param decimalNumber The decimal number
      * @return The hexadecimal string
      */
@@ -135,10 +142,10 @@ public class BaseConverter {
 
     /**
      * Converts a hexadecimal string to a decimal number
+     *
      * @param hexadecimalString The hexadecimal number as a string
      * @return The decimal number
      */
-
     public double hexadecimalToDecimal(String hexadecimalString) {
         String[] parts = hexadecimalString.split("\\.");
 
@@ -179,6 +186,7 @@ public class BaseConverter {
 
     /**
      * Converts a decimal number to an octal string
+     *
      * @param decimalNumber The decimal number
      * @return The octal string
      */
@@ -211,6 +219,7 @@ public class BaseConverter {
 
     /**
      * Converts an octal string to a decimal number
+     *
      * @param octalString The octal number as a string
      * @return The decimal number
      */
@@ -250,8 +259,9 @@ public class BaseConverter {
 
     /**
      * Converts a decimal number to a base-n string
+     *
      * @param decimalNumber The decimal number
-     * @param base The base
+     * @param base          The base
      * @return The base-n string
      */
     public String decimalToBaseN(double decimalNumber, int base) {
@@ -283,8 +293,9 @@ public class BaseConverter {
 
     /**
      * Converts a base-n string to a decimal number
+     *
      * @param baseNString The base-n number as a string
-     * @param base The base
+     * @param base        The base
      * @return The decimal number
      */
     public double baseNToDecimal(String baseNString, int base) {
@@ -327,6 +338,7 @@ public class BaseConverter {
 
     /**
      * Converts a binary string to an octal string
+     *
      * @param binaryString The binary string
      * @return The octal string
      */
@@ -336,6 +348,7 @@ public class BaseConverter {
 
     /**
      * Converts an octal string to a binary string
+     *
      * @param octalString The octal string
      * @return The binary string
      */
@@ -345,6 +358,7 @@ public class BaseConverter {
 
     /**
      * Converts a binary string to a hexadecimal string
+     *
      * @param binaryString The binary string
      * @return The hexadecimal string
      */
@@ -354,6 +368,7 @@ public class BaseConverter {
 
     /**
      * Converts a hexadecimal string to a binary string
+     *
      * @param hexadecimalString The hexadecimal string
      * @return The binary string
      */
@@ -361,27 +376,68 @@ public class BaseConverter {
         return decimalToBinary(hexadecimalToDecimal(hexadecimalString));
     }
 
+    /**
+     * Binary to base n string.
+     *
+     * @param binaryString the binary string
+     * @param base         the base
+     * @return the string
+     */
     public String binaryToBaseN(String binaryString, int base) {
         return decimalToBaseN(binaryToDecimal(binaryString), base);
     }
 
+    /**
+     * Octal to hexadecimal string.
+     *
+     * @param octalString the octal string
+     * @return the string
+     */
     public String octalToHexadecimal(String octalString) {
         return decimalToHexadecimal(octalToDecimal(octalString));
     }
 
+    /**
+     * Hexadecimal to octal string.
+     *
+     * @param hexadecimalString the hexadecimal string
+     * @return the string
+     */
     public String hexadecimalToOctal(String hexadecimalString) {
         return decimalToOctal(hexadecimalToDecimal(hexadecimalString));
     }
 
+    /**
+     * Octal to base n string.
+     *
+     * @param octalString the octal string
+     * @param base        the base
+     * @return the string
+     */
     public String octalToBaseN(String octalString, int base) {
         return decimalToBaseN(octalToDecimal(octalString), base);
     }
 
 
+    /**
+     * Hexadecimal to base n string.
+     *
+     * @param hexadecimalString the hexadecimal string
+     * @param base              the base
+     * @return the string
+     */
     public String hexadecimalToBaseN(String hexadecimalString, int base) {
         return decimalToBaseN(hexadecimalToDecimal(hexadecimalString), base);
     }
 
+    /**
+     * Base n to base k string.
+     *
+     * @param baseNString the base n string
+     * @param baseN       the base n
+     * @param baseK       the base k
+     * @return the string
+     */
     public String baseNToBaseK(String baseNString, int baseN, int baseK) {
         return decimalToBaseN(baseNToDecimal(baseNString, baseN), baseK);
     }

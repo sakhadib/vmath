@@ -1,14 +1,44 @@
 package mathvoyage.geometry;
 
+/**
+ * The type Segment line.
+ */
 public class SegmentLine implements Line{
+    /**
+     * The Slope.
+     */
     public double slope;
+    /**
+     * The Shift.
+     */
     public double shift;
+    /**
+     * The Y intercept.
+     */
     public double yIntercept;
+    /**
+     * The X intercept.
+     */
     public double xIntercept;
+    /**
+     * The Coefficient of x.
+     */
     public double coefficientOfX;
+    /**
+     * The Coefficient of y.
+     */
     public double coefficientOfY;
+    /**
+     * The Constant.
+     */
     public double constant;
 
+    /**
+     * Instantiates a new Segment line.
+     *
+     * @param xIntercept the x intercept
+     * @param yIntercept the y intercept
+     */
     public SegmentLine(double xIntercept, double yIntercept){
         this.xIntercept = xIntercept;
         this.yIntercept = yIntercept;

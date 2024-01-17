@@ -3,12 +3,33 @@ package mathvoyage.geometry;
 import mathvoyage.Angle;
 import mathvoyage.vmath;
 
+/**
+ * The type Polar point.
+ */
 public class PolarPoint implements Point{
+    /**
+     * The R.
+     */
     double r;
+    /**
+     * The Theta.
+     */
     double theta;
+    /**
+     * The X.
+     */
     double x;
+    /**
+     * The Y.
+     */
     double y;
 
+    /**
+     * Instantiates a new Polar point.
+     *
+     * @param r     the r
+     * @param theta the theta
+     */
     public PolarPoint(double r, double theta){
         this.r = r;
         this.theta = theta;
