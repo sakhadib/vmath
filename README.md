@@ -35,7 +35,6 @@ Islamic University of Technology <br>
  - Javadoc (Documentation)
  - Google Meet and Discord (Collaboration)
 
-## Installation
 
 ## Algebraic Module
 
