@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="vmath:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/vmath_jar</output-path>
+    <root id="archive" name="vmath.jar">
+      <element id="module-output" name="vmath" />
+    </root>
+  </artifact>
+</component>
